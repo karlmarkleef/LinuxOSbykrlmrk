@@ -1,0 +1,10 @@
+[package]
+name = "mark-apk-inspector"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "APK ABI inspector for Mark Compatibility Platform"
+
+[[bin]]
+name = "mark-apk-inspect"
+path = "src/main.rs"
