@@ -1,0 +1,6 @@
+default_profile = "cinematic"
+curve = "markEase"
+
+[effects]
+master_toggle = true
+profile_switching = true
