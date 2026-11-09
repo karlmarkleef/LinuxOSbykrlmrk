@@ -1,0 +1,13 @@
+[Unit]
+Description=Create the unprivileged Mark Linux live session account
+DefaultDependencies=no
+After=local-fs.target
+Before=getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/marklinux-live-user
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
