@@ -1,5 +1,10 @@
 # Changelog
 
+## Mark Compatibility Platform - gaming benchmark frame statistics
+
+- Added `tools/benchmark/frame_stats.py` with FPS, frame-time, stutter-ratio and percentile statistics for the Mark Linux gaming benchmark suite.
+- Added `tools/benchmark/tests/test_frame_stats.py` with six unit tests over synthetic frame-time samples; all pass via `python3 -B -m unittest discover -s tools/benchmark/tests -v`.
+
 ## Mark Compatibility Platform - runtime, APK and lifecycle tooling
 
 - Added the Windows runtime manager crate (`mark-runtime-manager`) with the `mark-runtime` binary under `windows/runtime-manager/`. It detects installed Wine, Wine Staging, Proton, Bottles and Winetricks runtimes through the real host `PATH` and emits text or JSON status reports. Unit tests cover runtime identifiers, binary names, labels and status shape.
