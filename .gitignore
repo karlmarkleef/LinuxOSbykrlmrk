@@ -1,0 +1,30 @@
+# Local build and generated data
+/target/
+/builds/archive/
+/builds/cache/
+/builds/iso/*
+!/builds/iso/.gitkeep
+/builds/packages/*
+!/builds/packages/.gitkeep
+/builds/installer/*
+!/builds/installer/.gitkeep
+/builds/logs/*
+!/builds/logs/.gitkeep
+/builds/artifacts/*
+!/builds/artifacts/.gitkeep
+/os/arch-base/profiles/desktop/airootfs/usr/local/bin/mark-hardware
+/tools/wsl-build/
+/dist/
+/tmp/
+/.cache/
+__pycache__/
+*.py[cod]
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
