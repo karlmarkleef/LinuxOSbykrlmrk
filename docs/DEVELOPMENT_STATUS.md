@@ -18,6 +18,7 @@ The Mark Compatibility Platform (MCP) reuses upstream Wine, Proton, Waydroid and
 - `mark-apk` (bash) wraps Waydroid app install/list/uninstall/launch plus `mark-apk-inspect` pre-installation checks.
 - Mark Compatibility Center runtime tab is wired to the real `mark-runtime` binary.
 - Game compatibility database at `windows/compatibility-database/games.json` (schema version 1, status enum, graphics/runtime metadata) added and source-validated.
+- Added `tools/benchmark/frame_stats.py` and its unit tests for FPS, frame time, stutter and percentile statistics used by the gaming benchmark suite; six tests pass.
 
 ### Limitations and next steps
 
