@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+runtime="${XDG_RUNTIME_DIR:-}"
+[[ -n "$runtime" && -d "$runtime" ]] || { echo "No active user runtime directory." >&2; exit 2; }
+disabled="$runtime/marklinux-effects-disabled"
+previous="$runtime/marklinux-profile-before-effects"
+current="$runtime/marklinux-profile"
+case "${1:---toggle}" in
+  --status)
+    if [[ -e "$disabled" ]]; then printf '{"text":"Effects Off","class":"effects-off","tooltip":"Compositor effects are disabled. Click to restore."}\n';
+    else printf '{"text":"Effects On","class":"effects-on","tooltip":"Click to disable animations, blur and shadows."}\n'; fi
+    exit 0
+    ;;
+  --toggle) ;;
+  *) echo "Usage: mark-effects-toggle [--status|--toggle]" >&2; exit 2 ;;
+esac
+if [[ -e "$disabled" ]]; then
+  profile=$(cat "$previous" 2>/dev/null || echo cinematic)
+  mark-profile "$profile"
+  rm -f "$previous" "$disabled"
+  notify-send "Mark Linux" "Visual effects restored: $profile"
+else
+  profile=$(cat "$current" 2>/dev/null || echo cinematic)
+  printf '%s\n' "$profile" > "$previous"
+  mark-profile ultra-lite
+  : > "$disabled"
+  notify-send "Mark Linux" "Configured compositor effects disabled"
+fi
+pkill -RTMIN+8 waybar 2>/dev/null || true

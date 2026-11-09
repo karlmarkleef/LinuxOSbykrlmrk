@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+profile="${1:-}"
+case "$profile" in
+  ultra-lite|balanced|cinematic|custom) ;;
+  *) echo "Usage: mark-profile {ultra-lite|balanced|cinematic|custom}" >&2; exit 2 ;;
+esac
+if [[ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" || -z "${XDG_RUNTIME_DIR:-}" ]]; then
+  echo "No active Hyprland user session." >&2
+  exit 3
+fi
+config=/usr/share/marklinux/performance-profiles.toml
+section="[profiles.$profile]"
+settings=$(awk -F= -v wanted="$section" '
+  /^[[:space:]]*\[/ { active = ($0 == wanted); next }
+  active && /^[[:space:]]*[a-z_]+[[:space:]]*=/ {
+    key=$1; value=$2
+    gsub(/[[:space:]]/, "", key); gsub(/[[:space:]]/, "", value)
+    print key "=" value
+  }
+' "$config")
+declare -A values=()
+while IFS='=' read -r key value; do
+  [[ -n "$key" ]] && values["$key"]="$value"
+done <<< "$settings"
+for key in animations_enabled blur_enabled shadow_enabled rounding gaps_in gaps_out active_opacity inactive_opacity animation_speed; do
+  if [[ -z "${values[$key]:-}" ]]; then echo "Missing $key in $section" >&2; exit 4; fi
+done
+lua="hl.config({animations={enabled=${values[animations_enabled]}},decoration={blur={enabled=${values[blur_enabled]}},shadow={enabled=${values[shadow_enabled]}},rounding=${values[rounding]},active_opacity=${values[active_opacity]},inactive_opacity=${values[inactive_opacity]}},general={gaps_in=${values[gaps_in]},gaps_out=${values[gaps_out]}}});hl.animation({leaf='global',enabled=${values[animations_enabled]},speed=${values[animation_speed]},bezier='markEase'})"
+hyprctl eval "$lua"
+printf '%s\n' "$profile" > "$XDG_RUNTIME_DIR/marklinux-profile"
+rm -f "$XDG_RUNTIME_DIR/marklinux-effects-disabled" "$XDG_RUNTIME_DIR/marklinux-profile-before-effects"
+pkill -RTMIN+8 waybar 2>/dev/null || true

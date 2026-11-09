@@ -1,0 +1,13 @@
+* { font-family: "Noto Sans", "Noto Color Emoji", sans-serif; font-size: 12px; min-height: 0; }
+window#waybar { background: rgba(8, 16, 24, 0.94); color: #e7f3f3; border-bottom: 1px solid rgba(85, 214, 194, 0.35); }
+#custom-brand { color: #55d6c2; font-weight: 700; padding: 0 14px; margin: 4px 4px; border-radius: 8px; background: rgba(22, 45, 56, 0.65); border: 1px solid rgba(85, 214, 194, 0.25); transition: all 0.2s ease; }
+#custom-brand:hover { background: rgba(35, 75, 90, 0.85); border-color: #55d6c2; color: #ffffff; }
+#workspaces button { color: #b6cece; padding: 0 10px; margin: 4px 2px; border-radius: 8px; transition: all 0.2s ease; }
+#workspaces button.active { color: #06151c; background: #55d6c2; font-weight: bold; }
+#workspaces button:hover { background: rgba(85, 214, 194, 0.25); color: #ffffff; }
+#window { color: #a9c6cb; padding: 0 12px; font-style: italic; }
+#clock, #cpu, #memory, #network, #pulseaudio, #tray, #custom-quick, #custom-effects { padding: 0 10px; margin: 4px 2px; border-radius: 8px; background: rgba(22, 42, 53, 0.75); border: 1px solid rgba(85, 214, 194, 0.15); transition: all 0.2s ease; }
+#clock:hover, #cpu:hover, #memory:hover, #network:hover, #pulseaudio:hover, #custom-quick:hover, #custom-effects:hover { background: rgba(33, 65, 80, 0.9); border-color: rgba(85, 214, 194, 0.4); }
+#custom-effects.effects-off { color: #f7a8b8; border-color: rgba(247, 168, 184, 0.3); }
+#custom-effects.effects-on { color: #7ce3d1; }
+#custom-quick { color: #62a8f5; }

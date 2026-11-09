@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+choice=$(zenity --list --title="Mark Linux Settings" --text="Choose a settings tool." --column="Area" --width=440 --height=340 \
+  "Network" "Sound" "Displays" "Bluetooth" "Performance Profile" "Disable Compositor Effects" "Close") || exit 0
+case "$choice" in
+  Network) exec nm-connection-editor ;;
+  Sound) exec pavucontrol ;;
+  Displays) exec wdisplays ;;
+  Bluetooth) exec blueman-manager ;;
+  "Performance Profile") exec mark-profile-menu ;;
+  "Disable Compositor Effects") exec mark-effects-toggle --toggle ;;
+  Close) exit 0 ;;
+esac

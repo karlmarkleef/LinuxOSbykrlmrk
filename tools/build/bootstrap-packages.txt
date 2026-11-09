@@ -1,0 +1,4 @@
+archiso
+qemu-system-x86
+grub
+rust

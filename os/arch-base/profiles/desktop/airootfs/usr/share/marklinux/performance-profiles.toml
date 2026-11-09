@@ -1,0 +1,43 @@
+[profiles.ultra-lite]
+animations_enabled = false
+blur_enabled = false
+shadow_enabled = false
+rounding = 0
+gaps_in = 3
+gaps_out = 8
+active_opacity = 1.0
+inactive_opacity = 1.0
+animation_speed = 1
+
+[profiles.balanced]
+animations_enabled = true
+blur_enabled = false
+shadow_enabled = true
+rounding = 8
+gaps_in = 4
+gaps_out = 10
+active_opacity = 1.0
+inactive_opacity = 1.0
+animation_speed = 9
+
+[profiles.cinematic]
+animations_enabled = true
+blur_enabled = true
+shadow_enabled = true
+rounding = 12
+gaps_in = 5
+gaps_out = 14
+active_opacity = 1.0
+inactive_opacity = 0.96
+animation_speed = 7
+
+[profiles.custom]
+animations_enabled = true
+blur_enabled = false
+shadow_enabled = true
+rounding = 10
+gaps_in = 5
+gaps_out = 12
+active_opacity = 1.0
+inactive_opacity = 0.98
+animation_speed = 8

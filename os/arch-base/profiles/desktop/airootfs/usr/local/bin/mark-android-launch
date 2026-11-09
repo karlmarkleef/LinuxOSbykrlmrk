@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+# mark-android-launch — Run Android apps on Mark Linux via Waydroid
+# Keybind: Super+Shift+A
+#
+# Architecture (identical to ChromeOS Android subsystem):
+#   LXC container running full Android image (AOSP or LineageOS)
+#   Android renders via Wayland protocol → native window on Hyprland
+#   Each Android app appears as its own native Wayland window
+#   ARM apps run via binder-translated kernel + libndk-translation (ARM→x86)
+#   No hypervisor → near-zero overhead, same performance as ChromeOS
+#
+# ChromeOS vs Waydroid comparison:
+#   ChromeOS  : ARC++ / ARCVM container → Wayland → Chrome OS compositor
+#   Mark Linux: Waydroid LXC container  → Wayland → Hyprland compositor
+#   Same concept, same performance tier.
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+# --- Waydroid not installed ---
+if ! _has waydroid; then
+  notify-send -a "Mark Linux" -i dialog-warning \
+    "Android Apps" \
+    "Waydroid not installed.\n\nTo install:\n  sudo pacman -S waydroid\n  sudo waydroid init -s GAPPS\n  (requires internet)"
+
+  if _has foot; then
+    foot -- bash -c "
+      echo '=== Mark Linux — Android App Runtime Setup ==='
+      echo ''
+      echo 'Waydroid = Android in LXC container (like ChromeOS ARC++)'
+      echo ''
+      echo 'Install:'
+      echo '  sudo pacman -S waydroid'
+      echo ''
+      echo 'Initialize (choose one):'
+      echo '  sudo waydroid init                 # AOSP only (no Google Play)'
+      echo '  sudo waydroid init -s GAPPS        # With Google Play (MindTheGapps)'
+      echo ''
+      echo 'ARM app support (most Play Store apps are ARM):'
+      echo '  Install libndk-translation (AUR) for ARM→x86 translation'
+      echo '  Or use: waydroid-magisk + houdini-lib'
+      echo ''
+      read -p 'Install Waydroid now? [y/N] ' ans
+      [[ \"\$ans\" == [yY] ]] && sudo pacman -S --noconfirm waydroid
+      echo 'After install, run: sudo waydroid init -s GAPPS'
+      read -p 'Press Enter to close...'
+    "
+  fi
+  exit 0
+fi
+
+# --- Detect screen resolution for DPI ---
+if _has hyprctl; then
+  read -r SCREEN_W SCREEN_H < <(
+    hyprctl monitors -j 2>/dev/null \
+    | python3 -c "
+import sys, json
+try:
+    m = json.load(sys.stdin)[0]
+    w = int(m['width'] / m.get('scale', 1))
+    h = int(m['height'] / m.get('scale', 1))
+    print(w, h)
+except Exception:
+    print('1920 1080')
+" 2>/dev/null || echo "1920 1080"
+  )
+else
+  SCREEN_W=1920; SCREEN_H=1080
+fi
+
+# --- Auto-configure resolution + DPI (once) ---
+_waydroid_prop_get() { waydroid prop get "$1" 2>/dev/null || true; }
+CURRENT_W=$(_waydroid_prop_get persist.waydroid.width)
+if [[ -z "$CURRENT_W" || "$CURRENT_W" == "0" ]]; then
+  if   [[ "$SCREEN_W" -ge 3840 ]]; then DPI=320
+  elif [[ "$SCREEN_W" -ge 2560 ]]; then DPI=280
+  elif [[ "$SCREEN_W" -ge 1920 ]]; then DPI=240
+  else DPI=200; fi
+
+  notify-send -a "Mark Linux" -i dialog-information \
+    "Android Apps" "Configuring for ${SCREEN_W}×${SCREEN_H} @ ${DPI} DPI…"
+
+  waydroid prop set persist.waydroid.width  "$SCREEN_W"
+  waydroid prop set persist.waydroid.height "$SCREEN_H"
+  waydroid prop set persist.waydroid.density "$DPI"
+  # ChromeOS-style: allow apps to use hardware codecs
+  waydroid prop set persist.waydroid.multi_windows true
+fi
+
+# --- Ensure kernel modules loaded ---
+if ! lsmod 2>/dev/null | grep -q binder_linux; then
+  sudo modprobe binder_linux devices="binder,hwbinder,vndbinder" 2>/dev/null || true
+  sudo modprobe ashmem_linux 2>/dev/null || true
+fi
+
+# --- Start/resume session ---
+SESSION_STATUS=$(waydroid status 2>/dev/null || true)
+if ! echo "$SESSION_STATUS" | grep -q "Session.*running"; then
+  notify-send -a "Mark Linux" -i phone \
+    "Android Apps" "Starting Android…"
+  waydroid session start &
+  # Wait up to 20s
+  for i in $(seq 1 20); do
+    sleep 1
+    waydroid status 2>/dev/null | grep -q "Session.*running" && break
+  done
+fi
+
+# --- Launch mode ---
+if [[ "${1:-}" == "--app" && -n "${2:-}" ]]; then
+  # Launch specific app by package name: mark-android-launch --app com.example.app
+  shift
+  waydroid app launch "$1" &
+elif [[ "${1:-}" == "--install" && -n "${2:-}" ]]; then
+  # Install APK: mark-android-launch --install /path/to/app.apk
+  shift
+  waydroid app install "$1" && \
+    notify-send -a "Mark Linux" -i phone "Android Apps" "Installed: $1"
+else
+  # Default: show Android launcher (full UI like ChromeOS tablet mode)
+  if waydroid status 2>/dev/null | grep -q "Session.*running"; then
+    notify-send -a "Mark Linux" -i phone \
+      "Android Apps" "Android ready. Opening launcher…"
+    waydroid show-full-ui &
+  else
+    notify-send -a "Mark Linux" -i dialog-error \
+      "Android Apps" "Failed to start. Check:\n  journalctl -u waydroid-container\n  sudo waydroid init"
+    exit 1
+  fi
+fi

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+choice=$(zenity --list --title="Performance Profile" --text="Cinematic is the default on this hardware. Custom values are read from the profile file." --column="Profile" --width=440 --height=300 \
+  "Ultra Lite" "Balanced" "Cinematic" "Custom") || exit 0
+case "$choice" in
+  "Ultra Lite") exec mark-profile ultra-lite ;;
+  "Balanced") exec mark-profile balanced ;;
+  "Cinematic") exec mark-profile cinematic ;;
+  "Custom") exec mark-profile custom ;;
+esac

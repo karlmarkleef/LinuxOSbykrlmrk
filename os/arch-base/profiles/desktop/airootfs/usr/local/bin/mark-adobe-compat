@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# mark-adobe-compat — Adobe Creative Cloud compatibility helper for Mark Linux
+#
+# REALITY CHECK:
+#   Adobe does NOT officially support Linux. No native Linux version exists.
+#   Wine can run SOME Adobe apps but stability varies by app and Adobe updates.
+#   This script helps you choose the right approach for your workflow.
+#
+# Recommended approach by use case:
+#   Photo editing   → Krita (creative) or GIMP (photo) — native Linux
+#   Video editing   → DaVinci Resolve — FREE, native Linux, used in Hollywood
+#   Vector design   → Inkscape — native Linux, SVG-native
+#   RAW processing  → Darktable — native Linux, Lightroom-equivalent
+#   Must have Adobe → Run Windows in KVM VM (mark-windows-vm) — most reliable
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+CHOICE=$(zenity --list \
+  --title="Mark Linux — Adobe / Creative Suite" \
+  --text="Choose your creative workflow:" \
+  --column="Option" --column="Description" \
+  --height=420 --width=600 \
+  "Native Linux Alternatives" "Best stability — DaVinci Resolve, Krita, GIMP, Inkscape" \
+  "Adobe via Wine (Experimental)" "Runs some Adobe apps — not guaranteed, may break on update" \
+  "Adobe in Windows VM" "Most reliable — full Windows OS in KVM (needs install)" \
+  2>/dev/null) || exit 0
+
+case "$CHOICE" in
+  "Native Linux Alternatives")
+    zenity --info \
+      --title="Native Creative Apps on Mark Linux" \
+      --text="Install best-in-class native Linux creative tools:\n
+• DaVinci Resolve (Premiere + After Effects equivalent)\n
+  sudo pacman -S davinci-resolve  # from AUR / Blackmagic Design\n
+  FREE version — studio-grade video editor used in Hollywood\n
+• Krita (Photoshop for digital art)\n
+  sudo pacman -S krita\n
+• GIMP (Photoshop for photo editing)\n
+  sudo pacman -S gimp\n
+• Inkscape (Illustrator equivalent)\n
+  sudo pacman -S inkscape\n
+• Darktable (Lightroom equivalent)\n
+  sudo pacman -S darktable\n
+• Blender (3D + VFX + motion graphics)\n
+  sudo pacman -S blender\n" \
+      --width=560 --height=380 2>/dev/null
+    ;;
+
+  "Adobe via Wine (Experimental)")
+    zenity --warning \
+      --title="Adobe via Wine — Important Notice" \
+      --text="⚠ WARNING: Running Adobe via Wine is experimental.\n
+• Adobe does NOT support Linux\n
+• Creative Cloud installer requires PATCHED Wine\n  (standard wine = will not work)\n
+• Adobe background updates can break your Wine prefix\n
+• GPU acceleration (Mercury Engine) is unreliable\n
+• After Effects: does NOT work\n
+• Premiere Pro: requires NVIDIA + complex config\n
+• Photoshop CC: works partially with patched Wine\n
+\nIf you still want to try:\n
+1. Install patched AdobeWine runner:\n   git clone https://github.com/PhialsBasement/AdobeWine-runner\n
+2. Or use Bottles with 'Adobe' environment preset\n
+3. For Photoshop CS6 (most stable):\n   wine + winetricks corefonts vcrun2019 msxml6\n
+\nSee: https://github.com/PhialsBasement/AdobeWine-runner" \
+      --width=560 --height=460 2>/dev/null
+
+    if zenity --question \
+      --title="Open Bottles for Adobe?" \
+      --text="Open Bottles (Wine GUI) to try setting up Adobe?" \
+      --width=360 2>/dev/null; then
+      if _has bottles; then
+        bottles &
+      else
+        notify-send -a "Mark Linux" -i dialog-warning \
+          "Adobe Compat" "Bottles not installed.\nRun: sudo pacman -S bottles wine-staging winetricks"
+      fi
+    fi
+    ;;
+
+  "Adobe in Windows VM")
+    notify-send -a "Mark Linux" -i computer \
+      "Adobe in Windows VM" \
+      "Opening Windows VM manager.\nInstall Windows → install Adobe normally.\nThis is the most reliable way to run Adobe on Linux."
+    exec mark-windows-vm
+    ;;
+esac

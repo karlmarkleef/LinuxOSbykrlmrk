@@ -8,6 +8,7 @@
 - Added the `mark-android-manager` lifecycle script at `android/container-manager/mark-android-manager` (start/stop/restart/status/init/init --gapps) wrapping upstream Waydroid commands.
 - Added the `mark-apk` package manager script at `android/package-manager/mark-apk` (install/list/uninstall/launch/inspect) that uses `mark-apk-inspect` for pre-installation ABI checks.
 - Wired the Mark Compatibility Center runtime management tab to the real `mark-runtime` binary instead of the missing `detect-runtimes.sh`.
+- Added the game compatibility database at `windows/compatibility-database/games.json` with schema version 1, classification statuses (`supported`, `partially_supported`, `unsupported`, `requires_official_developer_support`) and per-entry graphics/runtime metadata. The source validator now checks the database file, schema and entry fields.
 
 ## Phase 3 - Adaptive hardware detection & partition engine
 

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "description": "Mark Linux game compatibility database. Records the recommended Wine/Proton runtime, graphics translation layer and classification status for Windows games. Statuses: supported, partially_supported, unsupported, requires_official_developer_support. Performance claims require a recorded benchmark on the same hardware and configuration.",
+  "statuses": [
+    "supported",
+    "partially_supported",
+    "unsupported",
+    "requires_official_developer_support"
+  ],
+  "entries": [
+    {
+      "game_id": "dxvk-d3d9",
+      "game": "DirectX 9 title",
+      "executable": "game.exe",
+      "runtime": "wine-staging",
+      "graphics": {
+        "directx9": true,
+        "directx10": false,
+        "directx11": false,
+        "directx12": false,
+        "vulkan": true
+      },
+      "status": "supported",
+      "verification": "community_reported",
+      "notes": "DirectX 9 content is translated through DXVK to the native Vulkan driver. No Mark Linux benchmark has been recorded for this title yet."
+    },
+    {
+      "game_id": "vkd3d-d3d12",
+      "game": "DirectX 12 title",
+      "executable": "game.exe",
+      "runtime": "proton",
+      "graphics": {
+        "directx9": false,
+        "directx10": false,
+        "directx11": false,
+        "directx12": true,
+        "vulkan": true
+      },
+      "status": "partially_supported",
+      "verification": "untested",
+      "notes": "DirectX 12 content is translated through VKD3D-Proton to the native Vulkan driver. Requires a supported GPU (Vulkan-capable) and has not been tested on Mark Linux hardware yet."
+    },
+    {
+      "game_id": "dxvk-d3d11-mixed",
+      "game": "DirectX 11 / DirectX 9 mixed path",
+      "executable": "game.exe",
+      "runtime": "proton",
+      "graphics": {
+        "directx9": true,
+        "directx10": false,
+        "directx11": true,
+        "directx12": false,
+        "vulkan": true
+      },
+      "status": "partially_supported",
+      "verification": "community_reported",
+      "notes": "Mixed DirectX 9 and DirectX 11 content may require both DXVK and per-game configuration. Shader cache and pipeline cache behaviour still depends on the upstream runtime."
+    }
+  ]
+}

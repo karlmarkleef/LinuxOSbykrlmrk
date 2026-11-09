@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# mark-windows-vm — LEGACY: Full KVM/QEMU VM (kept for use cases needing full Windows OS)
+# NOTE: For running Windows *apps*, use mark-windows-apps (Proton/Wine — no GPU conflict)
+#
+# Use this only when you need:
+#   - Full Windows OS (not just individual apps)
+#   - Windows-only drivers/hardware tools
+#   - Software that Wine cannot handle
+#
+# GPU display options (in order of quality):
+#   1. Looking Glass (needs 2nd dedicated GPU + IOMMU)  → native FPS, zero latency
+#   2. Virtio-GPU + Virgil3D                            → OpenGL, auto-resize, sharp
+#   3. QXL + SPICE + spice-guest-tools                 → 2D only, sharp, easy setup
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+# Recommend Proton first
+notify-send -a "Mark Linux" -i dialog-information \
+  "Windows (Full VM)" \
+  "Tip: For Windows apps, use mark-windows-apps (Proton/Wine).\nThis opens a full KVM/QEMU VM — only needed for full Windows OS."
+
+if ! _has virt-manager; then
+  notify-send -a "Mark Linux" -i dialog-warning \
+    "Windows VM" "virt-manager not installed.\nRun: sudo pacman -S virt-manager qemu-full libvirt ovmf"
+  exit 1
+fi
+
+if ! systemctl is-active --quiet libvirtd 2>/dev/null; then
+  sudo systemctl start libvirtd 2>/dev/null || {
+    notify-send -a "Mark Linux" -i dialog-error \
+      "Windows VM" "Cannot start libvirtd. Check journalctl -xe."
+    exit 1
+  }
+fi
+
+virt-manager --connect qemu:///system &

@@ -1,0 +1,10 @@
+[package]
+name = "mark-runtime-manager"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Windows runtime manager for Mark Compatibility Platform"
+
+[[bin]]
+name = "mark-runtime"
+path = "src/main.rs"

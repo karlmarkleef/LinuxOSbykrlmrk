@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+if ! command -v mark-hardware >/dev/null 2>&1; then
+  zenity --error --title="Hardware Summary" --text="The hardware scanner is not present in this live image."
+  exit 1
+fi
+
+runtime_dir="${XDG_RUNTIME_DIR:-/tmp}"
+report=$(mktemp "$runtime_dir/mark-hardware.XXXXXX")
+chmod 600 "$report"
+trap 'rm -f -- "$report"' EXIT
+
+if ! mark-hardware >"$report" 2>&1; then
+  zenity --error --title="Hardware Summary" --text="The read-only scanner could not finish. Its diagnostic output follows." --width=560
+fi
+zenity --text-info --title="Mark Linux — Hardware Summary" --filename="$report" --width=820 --height=620 || true

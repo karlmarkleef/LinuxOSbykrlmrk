@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# mark-windows-apps — Run Windows apps on Mark Linux via Proton/Wine stack
+# Keybind: Super+Shift+W
+#
+# Architecture (no VM, no GPU conflict):
+#   Wine → translates Windows API calls to Linux syscalls
+#   DXVK → DirectX 9/10/11 → Vulkan (GPU native, zero overhead)
+#   VKD3D-Proton → DirectX 12 → Vulkan (Valve's optimized fork)
+#   Winetricks → install Visual C++ runtimes, DirectX, .NET etc.
+#   Bottles → GUI Wine prefix manager (per-app isolated environments)
+#   GameMode → CPU/GPU performance governor while app runs
+#   MangoHud → overlay FPS/GPU/CPU stats (optional)
+#
+# This is exactly what Steam Proton does — runs Windows games/apps
+# using native GPU drivers (NVIDIA/AMD/Intel) with no VM overhead.
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+# --- Prefer Bottles GUI if available ---
+if _has bottles; then
+  exec bottles "$@"
+fi
+
+# --- Fallback: check if basic wine is available ---
+if ! _has wine; then
+  notify-send -a "Mark Linux" -i dialog-warning \
+    "Windows Apps" \
+    "Wine/Bottles not installed.\n\nTo install run:\nsudo pacman -S wine winetricks bottles\n\nFor gaming:\nsudo pacman -S proton-ge-custom"
+  # Open software center or terminal with install instructions
+  if _has foot; then
+    foot -- bash -c "
+      echo '=== Mark Linux — Windows App Runtime Setup ==='
+      echo ''
+      echo 'Install Wine + Proton stack:'
+      echo '  sudo pacman -S wine-staging winetricks bottles'
+      echo '  sudo pacman -S lib32-vulkan-icd-loader vulkan-icd-loader'
+      echo '  sudo pacman -S lib32-mesa vulkan-radeon lib32-vulkan-radeon  # AMD'
+      echo '  # OR: lib32-nvidia-utils vulkan-driver  # NVIDIA'
+      echo ''
+      echo 'Install gaming Proton:'
+      echo '  sudo pacman -S proton-ge-custom  # from chaotic-aur'
+      echo '  # OR via Steam: Settings > Compatibility > Enable Proton'
+      echo ''
+      read -p 'Install now? [y/N] ' ans
+      [[ \"\$ans\" == [yY] ]] && sudo pacman -S --noconfirm wine-staging winetricks bottles lib32-vulkan-icd-loader vulkan-icd-loader
+      echo 'Done. Run mark-windows-apps again.'
+      read -p 'Press Enter to close...'
+    "
+  fi
+  exit 0
+fi
+
+# --- Launch Bottles or plain Wine ---
+if _has bottles; then
+  exec bottles "$@"
+elif [[ $# -gt 0 ]]; then
+  # Direct wine launch with performance settings
+  export DXVK_HUD=0                       # disable overlay (set 1 for debug)
+  export WINE_LARGE_ADDRESS_AWARE=1
+  export __GL_SHADER_DISK_CACHE=1          # NVIDIA shader cache
+  export MESA_SHADER_CACHE_DISABLE=false   # AMD/Intel shader cache
+  if _has gamemoded; then
+    exec gamemoderun wine "$@"
+  else
+    exec wine "$@"
+  fi
+else
+  # No args — open winefile browser
+  exec winefile
+fi

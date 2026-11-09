@@ -1,0 +1,10 @@
+[package]
+name = "mark-pe-inspector"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "PE32/PE32+ binary inspector for Mark Compatibility Platform"
+
+[[bin]]
+name = "mark-pe-inspect"
+path = "src/main.rs"

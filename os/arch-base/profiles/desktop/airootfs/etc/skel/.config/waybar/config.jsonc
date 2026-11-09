@@ -1,0 +1,17 @@
+{
+  "layer": "top", "position": "top", "height": 38, "spacing": 8,
+  "modules-left": ["custom/brand", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/quick", "custom/effects", "cpu", "memory", "network", "pulseaudio", "tray"],
+  "custom/brand": { "format": "ML  Mark Linux", "tooltip": "Open Mark Linux Welcome", "on-click": "mark-welcome" },
+  "hyprland/workspaces": { "format": "{name}", "persistent-workspaces": { "*": 5 } },
+  "hyprland/window": { "max-length": 54, "separate-outputs": true },
+  "clock": { "format": "{:%a %d %b  %H:%M}", "tooltip-format": "{:%A, %d %B %Y}" },
+  "cpu": { "format": "CPU {usage}%", "interval": 3, "on-click": "missioncenter" },
+  "memory": { "format": "RAM {percentage_used}%", "interval": 5, "on-click": "missioncenter" },
+  "network": { "format-wifi": "Wi-Fi {essid}", "format-ethernet": "Ethernet", "format-disconnected": "Offline", "tooltip-format": "{ifname}: {ipaddr}", "on-click": "nm-connection-editor" },
+  "pulseaudio": { "format": "Audio {volume}%", "format-muted": "Muted", "on-click": "pavucontrol" },
+  "tray": { "spacing": 8 },
+  "custom/quick": { "format": "Settings", "tooltip": "Open Quick Settings Control Center", "on-click": "mark-quick-settings" },
+  "custom/effects": { "exec": "mark-effects-toggle --status", "return-type": "json", "interval": "once", "signal": 8, "on-click": "mark-effects-toggle --toggle" }
+}

@@ -1,0 +1,176 @@
+#!/usr/bin/env bash
+# mark-win-launch — Launch a Windows .exe or .msi via Mark Compatibility Platform
+# Mark Linux — MCP Phase 1
+#
+# Usage:
+#   mark-win-launch /path/to/app.exe [args...]
+#   mark-win-launch --prefix myenv /path/to/app.exe [args...]
+#   mark-win-launch --runtime proton /path/to/game.exe
+#
+# Architecture:
+#   1. Inspect PE binary (mark-pe-inspect) → detect arch + subsystem
+#   2. Select or create Wine prefix (mark-prefix)
+#   3. Set up environment (WINEPREFIX, WINEARCH, DXVK, shader cache)
+#   4. Launch via wine/wine-staging/proton + optional gamemoderun
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+PREFIX_NAME=""
+RUNTIME=""
+EXE=""
+EXE_ARGS=()
+
+# --- Parse arguments ---
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --prefix)   PREFIX_NAME="$2"; shift 2 ;;
+    --runtime)  RUNTIME="$2";     shift 2 ;;
+    --)         shift; EXE_ARGS=("$@"); break ;;
+    -*)         echo "Unknown option: $1" >&2; exit 1 ;;
+    *)
+      if [[ -z "$EXE" ]]; then
+        EXE="$1"; shift
+      else
+        EXE_ARGS+=("$1"); shift
+      fi
+      ;;
+  esac
+done
+
+if [[ -z "$EXE" ]]; then
+  echo "Usage: mark-win-launch [--prefix NAME] [--runtime wine|proton] /path/to/app.exe [args...]" >&2
+  exit 1
+fi
+
+if [[ ! -f "$EXE" ]]; then
+  echo "File not found: $EXE" >&2
+  exit 1
+fi
+
+# --- Inspect PE binary ---
+PE_ARCH="x86_64"
+PE_CAN_NATIVE=true
+PE_SUBSYSTEM="windows_gui"
+if _has mark-pe-inspect; then
+  PE_JSON=$(mark-pe-inspect "$EXE" 2>/dev/null || echo '{}')
+  PE_ARCH=$(python3 -c "import sys,json; d=json.loads('''${PE_JSON}'''); print(d.get('architecture','x86_64'))" 2>/dev/null || echo "x86_64")
+  PE_CAN_NATIVE=$(python3 -c "import sys,json; d=json.loads('''${PE_JSON}'''); print('true' if d.get('can_run_native',True) else 'false')" 2>/dev/null || echo "true")
+  PE_SUBSYSTEM=$(python3 -c "import sys,json; d=json.loads('''${PE_JSON}'''); print(d.get('subsystem','windows_gui'))" 2>/dev/null || echo "windows_gui")
+fi
+
+if [[ "$PE_CAN_NATIVE" == "false" ]]; then
+  notify-send -a "Mark Linux" -i dialog-warning "Windows Apps" \
+    "Warning: $(basename "$EXE") is ${PE_ARCH} — may not run correctly on x86_64 host."
+fi
+
+# --- Select runtime ---
+if [[ -z "$RUNTIME" ]]; then
+  if _has wine-staging; then
+    RUNTIME="wine-staging"
+    WINE_BIN="wine-staging"
+  elif _has wine; then
+    RUNTIME="wine"
+    WINE_BIN="wine"
+  else
+    notify-send -a "Mark Linux" -i dialog-error "Windows Apps" \
+      "Wine not installed.\nRun: sudo pacman -S wine-staging winetricks"
+    exit 1
+  fi
+else
+  case "$RUNTIME" in
+    wine-staging) WINE_BIN="wine-staging" ;;
+    proton)       WINE_BIN="" ;; # handled separately
+    wine|*)       WINE_BIN="wine" ;;
+  esac
+fi
+
+# --- Set up prefix ---
+MCP_BASE="${HOME}/.local/share/marklinux/mcp/prefixes"
+mkdir -p "$MCP_BASE"
+
+if [[ -z "$PREFIX_NAME" ]]; then
+  # Use app-specific prefix based on exe basename
+  PREFIX_NAME=$(basename "$EXE" .exe | tr ' ' '_' | tr -cd '[:alnum:]_-')
+  PREFIX_NAME="${PREFIX_NAME:-default}"
+fi
+
+PREFIX_DIR="${MCP_BASE}/${PREFIX_NAME}"
+WINEPREFIX="${PREFIX_DIR}/pfx"
+mkdir -p "$WINEPREFIX"
+
+# --- Write prefix metadata if new ---
+METADATA="${PREFIX_DIR}/prefix.toml"
+if [[ ! -f "$METADATA" ]]; then
+  cat > "$METADATA" << TOML
+name = "${PREFIX_NAME}"
+arch = "X86_64"
+runtime = "${RUNTIME}"
+created_at = "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+app_exe = "${EXE}"
+TOML
+fi
+
+# --- Environment setup ---
+export WINEPREFIX
+export WINEARCH="win64"
+# DXVK — DirectX → Vulkan (installed by winetricks or bottles)
+export DXVK_HUD=0
+export DXVK_STATE_CACHE=1
+export DXVK_STATE_CACHE_PATH="${PREFIX_DIR}/shader-cache"
+mkdir -p "${PREFIX_DIR}/shader-cache"
+# Wine performance
+export WINE_LARGE_ADDRESS_AWARE=1
+export WINEESYNC=1          # eventfd-based synchronization (faster than wineserver mutex)
+export WINEFSYNC=1          # futex-based sync (needs kernel 5.16+, falls back to esync)
+# Vulkan
+export VK_ICD_FILENAMES=""  # let Vulkan loader auto-detect
+# NVIDIA
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH="${PREFIX_DIR}/shader-cache"
+# AMD/Intel Mesa
+export MESA_SHADER_CACHE_DISABLE=false
+export MESA_SHADER_CACHE_DIR="${PREFIX_DIR}/shader-cache"
+# XWayland for Wine windows (Wine does not natively support Wayland yet)
+export DISPLAY="${DISPLAY:-:0}"
+
+# --- Log launch ---
+LOG_DIR="${HOME}/.local/share/marklinux/mcp/logs"
+mkdir -p "$LOG_DIR"
+echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) LAUNCH prefix=${PREFIX_NAME} arch=${PE_ARCH} runtime=${RUNTIME} exe=${EXE}" \
+  >> "${LOG_DIR}/launches.log"
+
+# --- Launch ---
+notify-send -a "Mark Linux" -i wine "Windows Apps" \
+  "Starting: $(basename "$EXE")\nRuntime: ${RUNTIME} | Prefix: ${PREFIX_NAME}"
+
+LAUNCH_CMD=()
+if _has gamemoderun; then
+  LAUNCH_CMD+=(gamemoderun)
+fi
+
+if [[ "$RUNTIME" == "proton" ]]; then
+  # Find Proton
+  PROTON_PATH=""
+  for p in \
+    "${HOME}/.steam/steam/steamapps/common/Proton"*"/proton" \
+    "${HOME}/.steam/root/compatibilitytools.d/"*"/proton" \
+    "/usr/share/steam/compatibilitytools.d/"*"/proton"; do
+    [[ -f "$p" ]] && PROTON_PATH="$p" && break
+  done
+  if [[ -z "$PROTON_PATH" ]]; then
+    notify-send -a "Mark Linux" -i dialog-warning "Windows Apps" \
+      "Proton not found. Falling back to wine-staging."
+    LAUNCH_CMD+=("${WINE_BIN:-wine}")
+  else
+    export STEAM_COMPAT_DATA_PATH="${PREFIX_DIR}/steam-compat"
+    export STEAM_COMPAT_CLIENT_INSTALL_PATH="${HOME}/.steam/steam"
+    mkdir -p "${STEAM_COMPAT_DATA_PATH}"
+    LAUNCH_CMD+=("$PROTON_PATH" run)
+  fi
+else
+  LAUNCH_CMD+=("$WINE_BIN")
+fi
+
+exec "${LAUNCH_CMD[@]}" "$EXE" "${EXE_ARGS[@]}"

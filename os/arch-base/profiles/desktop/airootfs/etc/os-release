@@ -1,0 +1,7 @@
+NAME="Mark Linux"
+PRETTY_NAME="Mark Linux 0.0.1_dev"
+ID=marklinux
+ID_LIKE=arch
+VERSION_ID="0.0.1_dev"
+BUILD_ID="1101126_1"
+ANSI_COLOR="38;2;84;157;255"

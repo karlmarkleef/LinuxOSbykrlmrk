@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+marker="$config_home/marklinux/welcome-shown"
+if [[ "${1:-}" == "--once" ]]; then
+  [[ -e "$marker" ]] && exit 0
+  mkdir -p "$(dirname "$marker")"
+  : > "$marker"
+fi
+while true; do
+  choice=$(zenity --list --title="Welcome to Mark Linux" --text="Your live Wayland desktop is ready. Choose a tool to get started." --column="Open" --width=500 --height=390 \
+    "Hardware Summary" "Installation Planner" "File Manager" "Network Settings" "Audio Settings" "Display Settings" "System Monitor" "Terminal" "Quick Settings" "Continue to Desktop") || exit 0
+  case "$choice" in
+    "Hardware Summary") mark-hardware-report & ;;
+    "Installation Planner") mark-installer & ;;
+    "File Manager") thunar & ;;
+    "Network Settings") nm-connection-editor & ;;
+    "Audio Settings") pavucontrol & ;;
+    "Display Settings") wdisplays & ;;
+    "System Monitor") missioncenter & ;;
+    "Terminal") foot & ;;
+    "Quick Settings") mark-quick-settings & ;;
+    "Continue to Desktop") exit 0 ;;
+  esac
+done

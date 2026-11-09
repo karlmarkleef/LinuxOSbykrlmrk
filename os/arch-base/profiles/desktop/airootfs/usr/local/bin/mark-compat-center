@@ -1,0 +1,232 @@
+#!/usr/bin/env bash
+# mark-compat-center — Mark Compatibility Platform (MCP) Unified Center
+# Mark Linux — Windows & Android App Compatibility
+#
+# Phase 1: Windows (Wine) + Android (Waydroid) integration
+# Shows real installed capabilities, not fake buttons.
+#
+# Architecture:
+#   mark-compat-center calls mark-pe-inspect, mark-apk-inspect, mark-prefix, etc.
+#   All functionality backed by real binaries — no UI-only stubs.
+
+set -euo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+# --- Detect available subsystems ---
+MCP_WINE=false
+MCP_PROTON=false
+MCP_ANDROID=false
+MCP_WINE_STAGING=false
+
+_has wine          && MCP_WINE=true
+_has wine-staging  && MCP_WINE_STAGING=true
+_has proton        && MCP_PROTON=true
+_has bottles       && MCP_BOTTLES=true || MCP_BOTTLES=false
+_has waydroid      && MCP_ANDROID=true
+
+WINE_STATUS="Not installed"
+$MCP_WINE_STAGING && WINE_STATUS="Wine Staging $(wine-staging --version 2>/dev/null | head -1 || echo '')"
+$MCP_WINE && ! $MCP_WINE_STAGING && WINE_STATUS="Wine $(wine --version 2>/dev/null | head -1 || echo '')"
+
+ANDROID_STATUS="Not installed"
+$MCP_ANDROID && ANDROID_STATUS="Waydroid $(waydroid status 2>/dev/null | grep -i 'session' || echo 'installed')"
+
+# --- Tab selection ---
+TAB="${1:-}"
+if [[ "$TAB" == "--tab" ]]; then
+  TAB="${2:-main}"
+else
+  # Main menu
+  TAB=$(zenity --list \
+    --title="Mark Compatibility Platform" \
+    --text="<b>Mark Compatibility Center</b>\n\nWindows: ${WINE_STATUS}\nAndroid: ${ANDROID_STATUS}" \
+    --column="Section" --column="Description" \
+    --height=440 --width=640 \
+    "windows-apps"   "Run Windows applications (.exe, .msi)" \
+    "android-apps"   "Run Android applications (.apk)" \
+    "gaming"         "Windows games via Proton + DXVK/VKD3D" \
+    "creative"       "Creative apps (Adobe compatibility)" \
+    "runtime-mgr"    "Manage Wine/Proton runtimes" \
+    "prefix-mgr"     "Manage Windows app environments" \
+    "compat-report"  "View compatibility reports" \
+    2>/dev/null) || exit 0
+fi
+
+case "$TAB" in
+
+  "windows-apps")
+    ACTION=$(zenity --list \
+      --title="Windows Applications" \
+      --column="Action" --column="Description" \
+      --height=320 --width=500 \
+      "run-exe"      "Run a .exe or .msi file" \
+      "open-bottles" "Open Bottles (Wine prefix manager GUI)" \
+      "new-prefix"   "Create new isolated environment" \
+      "list-prefixes" "Show existing environments" \
+      2>/dev/null) || exit 0
+
+    case "$ACTION" in
+      "run-exe")
+        EXE=$(zenity --file-selection \
+          --title="Select Windows executable" \
+          --file-filter="Windows executables | *.exe *.msi *.bat" \
+          2>/dev/null) || exit 0
+        [[ -z "$EXE" ]] && exit 0
+
+        # Inspect PE first
+        if _has mark-pe-inspect; then
+          PE_INFO=$(mark-pe-inspect "$EXE" 2>/dev/null || echo '{"valid_pe":false}')
+          ARCH=$(echo "$PE_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('architecture','unknown'))" 2>/dev/null || echo "unknown")
+          NATIVE=$(echo "$PE_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('can_run_native',False))" 2>/dev/null || echo "False")
+          SUBSYS=$(echo "$PE_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('subsystem','unknown'))" 2>/dev/null || echo "unknown")
+
+          zenity --info \
+            --title="PE Inspector — $(basename "$EXE")" \
+            --text="Architecture: ${ARCH}\nSubsystem: ${SUBSYS}\nCan run native: ${NATIVE}\n\nProceeding with launch..." \
+            --width=360 2>/dev/null || true
+        fi
+
+        notify-send -a "Mark Linux" -i wine "Windows Apps" "Launching: $(basename "$EXE")"
+        exec mark-win-launch "$EXE"
+        ;;
+
+      "open-bottles")
+        if $MCP_BOTTLES; then
+          bottles &
+        else
+          zenity --info --title="Bottles" \
+            --text="Bottles not installed.\nInstall: sudo pacman -S bottles wine-staging winetricks" \
+            --width=360 2>/dev/null
+        fi
+        ;;
+
+      "new-prefix")
+        NAME=$(zenity --entry --title="New Windows Environment" \
+          --text="Environment name (no spaces):" --width=360 2>/dev/null) || exit 0
+        [[ -z "$NAME" ]] && exit 0
+        if _has mark-prefix; then
+          mark-prefix create "$NAME" && \
+            notify-send -a "Mark Linux" -i dialog-ok "Windows Apps" "Created: $NAME"
+        else
+          notify-send -a "Mark Linux" -i dialog-warning "Windows Apps" \
+            "mark-prefix not installed. Build MCP first."
+        fi
+        ;;
+
+      "list-prefixes")
+        if _has mark-prefix; then
+          OUTPUT=$(mark-prefix list 2>/dev/null || echo "[]")
+          zenity --info --title="Windows Environments" \
+            --text="$OUTPUT" --width=500 2>/dev/null
+        else
+          zenity --info --title="Windows Environments" \
+            --text="mark-prefix not installed.\nBuild MCP: scripts/build/build-mcp-windows.sh" \
+            --width=400 2>/dev/null
+        fi
+        ;;
+    esac
+    ;;
+
+  "android-apps")
+    if ! $MCP_ANDROID; then
+      zenity --warning --title="Android Apps" \
+        --text="Waydroid not installed.\n\nInstall:\n  sudo pacman -S waydroid\n  sudo waydroid init -s GAPPS\n\nThen run this again." \
+        --width=400 2>/dev/null
+      exit 0
+    fi
+
+    ACTION=$(zenity --list \
+      --title="Android Applications" \
+      --column="Action" --column="Description" \
+      --height=300 --width=500 \
+      "install-apk"  "Install an APK file" \
+      "open-android" "Open Android launcher" \
+      "list-apps"    "Show installed Android apps" \
+      "android-mgr"  "Manage Android subsystem" \
+      2>/dev/null) || exit 0
+
+    case "$ACTION" in
+      "install-apk")
+        APK=$(zenity --file-selection \
+          --title="Select APK file" \
+          --file-filter="Android packages | *.apk" \
+          2>/dev/null) || exit 0
+        [[ -z "$APK" ]] && exit 0
+
+        if _has mark-apk-inspect; then
+          APK_INFO=$(mark-apk-inspect "$APK" 2>/dev/null || echo '{"valid_apk":false}')
+          ABIS=$(echo "$APK_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(', '.join(d.get('supported_abis',[])) or 'unknown')" 2>/dev/null || echo "unknown")
+          TRANS=$(echo "$APK_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('needs_arm_translation',False))" 2>/dev/null || echo "False")
+
+          zenity --question \
+            --title="Install APK — $(basename "$APK")" \
+            --text="ABIs: ${ABIS}\nNeeds ARM translation: ${TRANS}\n\nInstall this app?" \
+            --width=380 2>/dev/null || exit 0
+        fi
+
+        exec mark-apk install "$APK"
+        ;;
+
+      "open-android")
+        exec mark-android-launch
+        ;;
+
+      "list-apps")
+        APPS=$(waydroid app list 2>/dev/null || echo "Cannot list apps — is Waydroid running?")
+        zenity --info --title="Installed Android Apps" --text="$APPS" \
+          --width=500 --height=300 2>/dev/null
+        ;;
+
+      "android-mgr")
+        exec mark-android-manager status
+        ;;
+    esac
+    ;;
+
+  "gaming")
+    zenity --info --title="Gaming — Proton + DXVK" \
+      --text="<b>Mark Linux Gaming via Proton</b>\n\n• Install Steam: sudo pacman -S steam\n• Enable Steam Play (Proton) in Steam settings\n• Or install Heroic Games Launcher for Epic/GOG\n• Proton-GE: sudo pacman -S proton-ge-custom\n\n<b>Graphics layer:</b>\n  DirectX 9/10/11 → DXVK → Vulkan\n  DirectX 12 → VKD3D-Proton → Vulkan\n  OpenGL → native Mesa\n\n<b>Performance tools:</b>\n  sudo pacman -S gamemode mangohud\n\n<b>Compatibility check:</b>\n  Visit protondb.com for game-specific ratings" \
+      --width=500 --height=320 2>/dev/null
+    ;;
+
+  "creative")
+    exec mark-adobe-compat
+    ;;
+
+  "runtime-mgr")
+    if _has mark-runtime; then
+      RUNTIME_TEXT=$(mark-runtime 2>/dev/null || echo "No runtime information available.")
+      zenity --info --title="Runtime Manager" \
+        --text="Available runtimes:\n${WINE_STATUS}\n${ANDROID_STATUS}\n\n${RUNTIME_TEXT}\n\nInstall runtimes:\n  Wine: sudo pacman -S wine-staging winetricks\n  Proton-GE: sudo pacman -S proton-ge-custom\n  Waydroid: sudo pacman -S waydroid" \
+        --width=520 2>/dev/null
+    else
+      zenity --info --title="Runtime Manager" \
+        --text="mark-runtime not installed.\nBuild MCP: bash scripts/build/build-mcp-windows.sh" \
+        --width=400 2>/dev/null
+    fi
+    ;;
+
+  "prefix-mgr")
+    if _has mark-prefix; then
+      mark-prefix list 2>/dev/null | zenity --text-info \
+        --title="Wine Prefixes" --width=500 --height=300 2>/dev/null
+    else
+      zenity --info --title="Prefix Manager" \
+        --text="mark-prefix not installed.\nBuild: bash scripts/build/build-mcp-windows.sh" \
+        --width=400 2>/dev/null
+    fi
+    ;;
+
+  "compat-report")
+    DB="$HOME/.local/share/marklinux/mcp/compat-report.txt"
+    if [[ -f "$DB" ]]; then
+      zenity --text-info --title="Compatibility Report" \
+        --filename="$DB" --width=600 --height=400 2>/dev/null
+    else
+      zenity --info --title="Compatibility Report" \
+        --text="No compatibility reports yet.\nReports are generated when apps are launched." \
+        --width=400 2>/dev/null
+    fi
+    ;;
+esac

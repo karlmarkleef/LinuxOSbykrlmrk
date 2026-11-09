@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Mark Linux Welcome
+Comment=Open the Mark Linux getting started window
+Exec=mark-welcome --once
+Icon=computer
+Terminal=false
+X-GNOME-Autostart-enabled=true
