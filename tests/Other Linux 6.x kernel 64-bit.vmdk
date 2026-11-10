@@ -1,0 +1,36 @@
+# Disk DescriptorFile
+version=1
+encoding="windows-1252"
+CID=fffffffe
+parentCID=ffffffff
+createType="twoGbMaxExtentSparse"
+
+# Extent description
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s001.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s002.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s003.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s004.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s005.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s006.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s007.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s008.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s009.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s010.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s011.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s012.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s013.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s014.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s015.vmdk"
+RW 8323072 SPARSE "Other Linux 6.x kernel 64-bit-s016.vmdk"
+RW 1048576 SPARSE "Other Linux 6.x kernel 64-bit-s017.vmdk"
+
+# The Disk Data Base 
+#DDB
+
+ddb.adapterType = "lsilogic"
+ddb.geometry.cylinders = "8354"
+ddb.geometry.heads = "255"
+ddb.geometry.sectors = "63"
+ddb.longContentID = "fd533d924e144c9e204ad5c1fffffffe"
+ddb.uuid = "60 00 C2 9e eb ff e1 4b-dc 6f 12 5e 7a 38 bd 25"
+ddb.virtualHWVersion = "21"

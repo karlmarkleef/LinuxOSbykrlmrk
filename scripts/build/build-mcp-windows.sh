@@ -40,7 +40,7 @@ build_mcp_crate() {
   "$root/usr/bin/arch-chroot" "$root" /usr/bin/env CARGO_TARGET_DIR="$target_in_chroot" /usr/bin/cargo test --manifest-path "$manifest_in_chroot" --all-targets
   echo "Building optimized Linux CLI for $crate_dir..."
   "$root/usr/bin/arch-chroot" "$root" /usr/bin/env CARGO_TARGET_DIR="$target_in_chroot" /usr/bin/cargo build --manifest-path "$manifest_in_chroot" --release --bin "$bin_name"
-  local built="$target_in_chroot/release/$bin_name"
+  local built="$project/builds/artifacts/mark-mcp-${bin_name}-target/release/$bin_name"
   if [[ ! -s "$built" ]]; then
     echo "Cargo did not produce a non-empty Linux executable: $built" >&2
     exit 5

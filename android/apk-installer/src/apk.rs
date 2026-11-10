@@ -105,6 +105,12 @@ fn find_eocd(data: &[u8]) -> io::Result<(usize, usize, usize)> {
                 return Ok((cd_offset, cd_size, entries));
             }
         }
+        if pos == 0 {
+            return Err(io::Error::new(
+                io::ErrorKind::InvalidData,
+                "ZIP end-of-central-directory record not found",
+            ));
+        }
         pos = pos - 1;
     }
 }

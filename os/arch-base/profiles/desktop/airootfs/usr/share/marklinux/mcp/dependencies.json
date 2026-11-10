@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "description": "Mark Linux Windows dependency manager manifest. Maps Wine/Proton runtimes and DirectX requirements to upstream winetricks component names.",
+  "runtimes": {
+    "wine": {
+      "label": "Wine",
+      "components": ["corefonts"]
+    },
+    "wine_staging": {
+      "label": "Wine Staging",
+      "components": ["corefonts", "vcrun2019"]
+    },
+    "proton": {
+      "label": "Proton",
+      "components": ["proton-ge", "corefonts"]
+    }
+  },
+  "sets": [
+    {
+      "set_id": "dxvk-d3d9",
+      "runtime": "wine_staging",
+      "directx": ["9"],
+      "components": ["dxvk", "corefonts"],
+      "notes": "DirectX 9 content is translated through DXVK to the native Vulkan driver."
+    },
+    {
+      "set_id": "dxvk-d3d11",
+      "runtime": "proton",
+      "directx": ["11"],
+      "components": ["dxvk", "proton-ge"],
+      "notes": "DirectX 11 content is translated through DXVK to the native Vulkan driver."
+    },
+    {
+      "set_id": "vkd3d-d3d12",
+      "runtime": "proton",
+      "directx": ["12"],
+      "components": ["vkd3d-proton", "proton-ge"],
+      "notes": "DirectX 12 content is translated through VKD3D-Proton to the native Vulkan driver."
+    }
+  ]
+}

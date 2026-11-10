@@ -130,6 +130,14 @@ def main() -> int:
         check(isinstance(entry["graphics"].get("vulkan"), bool),
               f"game compatibility database entry declares a Vulkan graphics layer: {entry.get('game_id')}")
 
+    mcp_manifest = rootfs / "usr/share/marklinux/mcp/dependencies.json"
+    check(mcp_manifest.is_file(), "desktop ISO overlay carries the MCP dependency manifest")
+    mcp_manifest_data = json.loads(mcp_manifest.read_text(encoding="utf-8"))
+    check(mcp_manifest_data.get("schema_version") == 1,
+          "MCP dependency manifest declares schema version 1")
+    check(isinstance(mcp_manifest_data.get("sets"), list) and len(mcp_manifest_data["sets"]) > 0,
+          "MCP dependency manifest defines dependency sets")
+
     shadow = (rootfs / "etc/shadow").read_text(encoding="utf-8").splitlines()
     check(bool(shadow) and shadow[0].startswith("root:!:"), "desktop live root password is locked")
     for name in ("mark-welcome", "mark-quick-settings", "mark-profile-menu",
