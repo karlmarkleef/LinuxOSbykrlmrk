@@ -27,9 +27,9 @@ class InstallHelpersTests(unittest.TestCase):
 
     def test_fstab_uses_uuid_entries(self) -> None:
         text = render_fstab("root-id", "esp-id", "ext4", "swap-id")
-        self.assertIn("root-id\t/\text4\tdefaults,noatime", text)
-        self.assertIn("esp-id\t/boot\tvfat", text)
-        self.assertIn("swap-id\tnone\tswap", text)
+        self.assertIn("UUID=root-id\t/\text4\tdefaults,noatime", text)
+        self.assertIn("UUID=esp-id\t/boot\tvfat", text)
+        self.assertIn("UUID=swap-id\tnone\tswap", text)
 
     def test_sgdisk_plan_contains_bios_boot_and_verification(self) -> None:
         layout = calculate_erase_disk_layout(

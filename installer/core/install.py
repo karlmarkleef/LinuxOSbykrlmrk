@@ -137,9 +137,9 @@ def partition_for(layout: DiskLayoutPlan, mount_point: str) -> Any:
 def render_fstab(root_uuid: str, esp_uuid: str, root_filesystem: str, swap_uuid: str | None) -> str:
     lines = ["# <fs>       <mount>   <type>    <options>           0      1"]
     if swap_uuid:
-        lines.append(f"{swap_uuid}\tnone\tswap\tsw\t0\t0")
-    lines.append(f"{root_uuid}\t/\t{root_filesystem}\tdefaults,noatime\t0\t1")
-    lines.append(f"{esp_uuid}\t/boot\tvfat\tumask=0077,noatime\t0\t2")
+        lines.append(f"UUID={swap_uuid}\tnone\tswap\tsw\t0\t0")
+    lines.append(f"UUID={root_uuid}\t/\t{root_filesystem}\tdefaults,noatime\t0\t1")
+    lines.append(f"UUID={esp_uuid}\t/boot\tvfat\tumask=0077,noatime\t0\t2")
     return "\n".join(lines) + "\n"
 
 
@@ -279,12 +279,12 @@ class Installer:
             ("/run", "run", "bind"),
         ]
         bound: list[Path] = []
-        for source, relative, mount_type in mounts:
-            destination = target / relative
-            destination.mkdir(parents=True, exist_ok=True)
-            self._run(["mount", "--bind", source, str(destination)])
-            bound.append(destination)
         try:
+            for source, relative, mount_type in mounts:
+                destination = target / relative
+                destination.mkdir(parents=True, exist_ok=True)
+                self._run(["mount", "--bind", source, str(destination)])
+                bound.append(destination)
             yield target
         finally:
             for destination in reversed(bound):
@@ -437,8 +437,8 @@ class Installer:
 
     def _copy_rootfs(self) -> None:
         excludes = (
-            "proc", "sys", "dev", "run", "tmp", "mnt", "media", "lost+found",
-            "home", "var/tmp", "var/cache/pacman", "var/lib/pacman", "var/log",
+            "proc", "sys", "dev", "run", "tmp", "mnt", "media", "boot", "lost+found",
+            "home", "var/tmp", "var/cache/pacman", "var/log",
             "var/lib/systemd", "var/lib/dbus", "var/lib/private", "etc/resolv.conf",
         )
         tar = ["/usr/bin/tar", "-C", "/", "--one-file-system", "--xattrs", "--acls", "--numeric-owner", "-cpf", "-"]
@@ -480,7 +480,7 @@ class Installer:
 
         for name in LIVE_BOOT_RELATIVE:
             self._run([
-                "/usr/bin/cp", "--preserve=mode,ownership,timestamps",
+                "/usr/bin/cp", "-f",
                 str(source_root / name), str(self.target_root / "boot" / name),
             ])
 
@@ -496,11 +496,11 @@ class Installer:
 
     def _configure_installed_system(self, layout: DiskLayoutPlan) -> None:
         self._remove(self.target_root / "etc" / "mkinitcpio.conf.d" / "archiso.conf")
-        self._remove(self.target_root / "etc" / "mkinitcpio.conf.d" / "linux.preset")
         self._remove(self.target_root / "etc" / "systemd" / "system" / "marklinux-live-user.service")
         self._remove(self.target_root / "etc" / "systemd" / "system" / "multi-user.target.wants" / "marklinux-live-user.service")
         self._remove(self.target_root / "etc" / "systemd" / "system" / "getty@tty1.service.d")
         self._remove(self.target_root / "etc" / "sudoers.d" / "10-live")
+        self._remove(self.target_root / "etc" / "polkit-1" / "rules.d" / "49-marklinux-installer.rules")
         self._remove(self.target_root / "etc" / "machine-id")
         self._remove(self.target_root / "var" / "lib" / "systemd" / "random-seed")
 
@@ -522,10 +522,17 @@ class Installer:
         self.write_text("etc/default/grub", render_grub_default(), 0o644)
         self.write_text("etc/sudoers.d/10-wheel", f"%wheel\tALL=(ALL:ALL) ALL\n", 0o440)
         self.write_text("etc/hostname", f"{self.config.hostname}\n", 0o644)
-        self.write_text("etc/hosts", "127.0.0.1\tlocalhost\n::1\thelper\n127.0.1.1\tmarklinux.localdomain marklinux\n")
+        self.write_text(
+            "etc/hosts",
+            f"127.0.0.1\tlocalhost\n::1\tlocalhost\n127.0.1.1\t{self.config.hostname}.localdomain {self.config.hostname}\n",
+        )
         self.write_text("etc/locale.conf", "LANG=en_US.UTF-8\n")
         self.write_text("etc/locale.gen", "en_US.UTF-8 UTF-8\n", 0o644)
-        self.write_text("etc/vconsole.conf", "KEYMAP=us\nFONT=eVGA8x16\n")
+        self.write_text("etc/vconsole.conf", f"KEYMAP={self.config.keyboard_layout}\nFONT=eVGA8x16\n")
+        localtime = self.target_root / "etc" / "localtime"
+        if localtime.exists() or localtime.is_symlink():
+            localtime.unlink()
+        localtime.symlink_to(f"/usr/share/zoneinfo/{self.config.timezone}")
         self.write_text(
             "etc/skel/.config/marklinux/performance-profile",
             f"{PERFORMANCE_PROFILE_KEYS[self.config.performance_profile]}\n",
@@ -554,11 +561,12 @@ class Installer:
 
     def _install_bootloader(self) -> None:
         has_efi = Path("/sys/firmware/efi").is_dir()
-        efi_vars_mounted = Path("/sys/firmware/efi/efivars").is_dir()
         with self.chroot_mounts() as chroot_target:
             self.chroot_run(["/usr/bin/grub-mkconfig", "-o", "/boot/grub/grub.cfg"])
             if has_efi:
-                for argv in grub_efi_commands(no_nvram=not efi_vars_mounted):
+                # The removable fallback path makes the installed disk boot
+                # even when VMware/firmware exposes no writable EFI vars.
+                for argv in grub_efi_commands(no_nvram=True):
                     self._run(argv)
             self.chroot_run(["/usr/bin/grub-install", "--target=i386-pc", "--recheck", "--boot-directory=/boot", f"/dev/{self.config.disk_path.removeprefix('/dev/')}"])
 
@@ -570,13 +578,23 @@ class Installer:
             ok = self.chroot_run(["/usr/bin/test", "-s", "/boot/vmlinuz-linux"], check=False)
             if ok.returncode != 0:
                 raise RuntimeError("Kernel image was not found at /boot/vmlinuz-linux.")
+            ok = self.chroot_run(["/usr/bin/test", "-s", "/boot/initramfs-linux.img"], check=False)
+            if ok.returncode != 0:
+                raise RuntimeError("Initramfs was not generated at /boot/initramfs-linux.img.")
             ok = self.chroot_run(["/usr/bin/id", self.config.username], check=False)
             if ok.returncode != 0:
                 raise RuntimeError(f"Installed account {self.config.username} was not created.")
 
     def _cleanup_mounts(self) -> None:
-        self._run(["/usr/sbin/swapon", "-a"], check=False)
-        self._run(["/usr/sbin/umount", "-R", str(self.target_root)], check=False)
+        if self._swap_device:
+            self._run(["swapoff", self._swap_device], check=False)
+            self._swap_device = None
+        if self._boot_mounted:
+            self._run(["/usr/sbin/umount", str(self.target_root / "boot")], check=False)
+            self._boot_mounted = False
+        if self._root_mounted:
+            self._run(["/usr/sbin/umount", str(self.target_root)], check=False)
+            self._root_mounted = False
         self._run(["/usr/bin/sync"], check=False)
 
 

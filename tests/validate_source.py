@@ -86,11 +86,12 @@ def main() -> int:
         ROOT / "installer/core/partition.py",
         ROOT / "installer/tests/test_plan.py",
         ROOT / "installer/tests/test_partition.py",
+        ROOT / "installer/tests/test_install.py",
     ]
     for path in python_files:
         ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     check(all(path.is_file() for path in python_files),
-          "installer planner and test Python sources parse")
+          "installer Python sources parse")
 
     json_files = sorted(rootfs.rglob("*.jsonc"))
     for path in json_files:

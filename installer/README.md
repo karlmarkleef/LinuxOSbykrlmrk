@@ -11,9 +11,9 @@ This release supports full-disk erase installation. Alongside-Windows and manual
 ## Components and Tests
 
 - `installer/core/partition.py`: Sector-aligned GPT partition layout calculator (512 MiB ESP, optional 1 MiB BIOS boot partition, RAM-adaptive Swap, ext4/btrfs Root) and disk-safety validation engine.
-- `installer/core/install.py`: Destructive, safety-gated offline rootfs installer and dual-mode GRUB setup.
+- `installer/core/install.py`: Destructive, safety-gated offline rootfs installer, live kernel/initramfs staging, and dual-mode GRUB setup.
 - `installer/tests/test_partition.py`: 8 unit tests validating sector alignment, partition sizing, filesystem flags, and mount/read-only guardrails.
 - `installer/tests/test_plan.py`: 8 unit tests covering plan schema, adaptive profile detection via `mark-hardware`, and disk enumeration safety.
-- All 16 installer tests pass under Python 3.11 (`py -3.11 -B -m unittest discover -s installer/tests -v`).
+- All 21 installer tests pass under Python 3.11 (`py -3.11 -B -m unittest discover -s installer/tests -v`).
 
-The planner files and executable wrapper are packaged in the ISO. In QEMU direct-kernel testing, headless automation successfully navigated the Welcome dialog and opened the Installation Planner wizard (`builds/logs/marklinux-0.0.1_dev_1101126_1-x86_64-direct-kernel-20261109T145606Z.png`).
+The planner, real backend, GUI wrapper and live-only polkit rule are staged in the ISO build and the live-only rule is removed during installation. In QEMU direct-kernel testing, headless automation successfully navigated the Welcome dialog and opened the Installation Planner wizard (`builds/logs/marklinux-0.0.1_dev_1101126_1-x86_64-direct-kernel-20261109T145606Z.png`).
