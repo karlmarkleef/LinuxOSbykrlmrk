@@ -14,6 +14,7 @@
 - Added the `mark-apk` package manager script at `android/package-manager/mark-apk` (install/list/uninstall/launch/inspect) that uses `mark-apk-inspect` for pre-installation ABI checks.
 - Wired the Mark Compatibility Center runtime management tab to the real `mark-runtime` binary instead of the missing `detect-runtimes.sh`.
 - Added the game compatibility database at `windows/compatibility-database/games.json` with schema version 1, classification statuses (`supported`, `partially_supported`, `unsupported`, `requires_official_developer_support`) and per-entry graphics/runtime metadata. The source validator now checks the database file, schema and entry fields.
+- Added the Windows dependency manager at `windows/dependency-manager/` (`dependencies.json` manifest, `resolver.py` winetricks component resolution for Wine/Wine Staging/Proton runtimes and DirectX sets); six unit tests pass.
 
 ## Phase 3 - Adaptive hardware detection & partition engine
 
