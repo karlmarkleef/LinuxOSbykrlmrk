@@ -43,17 +43,17 @@ fn abi_of_entry(name: &str) -> Option<String> {
 }
 
 fn is_known_abi(abi: &str) -> bool {
-    abi == ABI_ARM64_V8A
-        || abi == ABI_ARABIE_V7A
-        || abi == ABI_X86_64
-        || abi == ABI_X86
+    abi == ABI_ARM64_V8A || abi == ABI_ARABIE_V7A || abi == ABI_X86_64 || abi == ABI_X86
 }
 
 fn read_u16_le(buf: &[u8], offset: usize) -> io::Result<u16> {
     if offset + 2 > buf.len() {
         return Err(io::Error::new(
             io::ErrorKind::UnexpectedEof,
-            format!("u16 read at offset {offset} exceeds buffer length {}", buf.len()),
+            format!(
+                "u16 read at offset {offset} exceeds buffer length {}",
+                buf.len()
+            ),
         ));
     }
     Ok(u16::from_le_bytes([buf[offset], buf[offset + 1]]))
@@ -63,7 +63,10 @@ fn read_u32_le(buf: &[u8], offset: usize) -> io::Result<u32> {
     if offset + 4 > buf.len() {
         return Err(io::Error::new(
             io::ErrorKind::UnexpectedEof,
-            format!("u32 read at offset {offset} exceeds buffer length {}", buf.len()),
+            format!(
+                "u32 read at offset {offset} exceeds buffer length {}",
+                buf.len()
+            ),
         ));
     }
     Ok(u32::from_le_bytes([
