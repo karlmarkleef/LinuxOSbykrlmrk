@@ -14,7 +14,7 @@ the Windows API.
 | PE inspector | `windows/pe-inspector/` (`mark-pe-inspect`) | Implemented |
 | Wine integration | upstream `wine` / `wine-staging` via `mark-win-launch` | Integrated |
 | Proton integration | upstream Proton via `mark-win-launch` | Integrated |
-| Dependency manager | upstream Winetricks / Bottles integration | Planned |
+| Dependency manager | `windows/dependency-manager/` (`resolver.py`, `dependencies.json`) | Implemented |
 | Application launcher | desktop overlay `mark-win-launch` | Implemented |
 | Window bridge | Hyprland window rules for Windows apps | Planned |
 | Filesystem bridge | Wine prefix drive mapping | Planned |

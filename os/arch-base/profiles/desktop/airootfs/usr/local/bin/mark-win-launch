@@ -10,8 +10,9 @@
 # Architecture:
 #   1. Inspect PE binary (mark-pe-inspect) → detect arch + subsystem
 #   2. Select or create Wine prefix (mark-prefix)
-#   3. Set up environment (WINEPREFIX, WINEARCH, DXVK, shader cache)
-#   4. Launch via wine/wine-staging/proton + optional gamemoderun
+#   3. Resolve upstream dependency set (mark dependency resolver + winetricks)
+#   4. Set up environment (WINEPREFIX, WINEARCH, DXVK, shader cache)
+#   5. Launch via wine/wine-staging/proton + optional gamemoderun
 
 set -euo pipefail
 
@@ -19,6 +20,7 @@ _has() { command -v "$1" &>/dev/null; }
 
 PREFIX_NAME=""
 RUNTIME=""
+DEPS_SET=""
 EXE=""
 EXE_ARGS=()
 
@@ -27,6 +29,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --prefix)   PREFIX_NAME="$2"; shift 2 ;;
     --runtime)  RUNTIME="$2";     shift 2 ;;
+    --deps-set) DEPS_SET="$2";    shift 2 ;;
     --)         shift; EXE_ARGS=("$@"); break ;;
     -*)         echo "Unknown option: $1" >&2; exit 1 ;;
     *)
@@ -140,6 +143,21 @@ LOG_DIR="${HOME}/.local/share/marklinux/mcp/logs"
 mkdir -p "$LOG_DIR"
 echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) LAUNCH prefix=${PREFIX_NAME} arch=${PE_ARCH} runtime=${RUNTIME} exe=${EXE}" \
   >> "${LOG_DIR}/launches.log"
+
+# --- Resolve upstream dependency set ---
+MCP_DEPS_MANIFEST="${MARKLINUX_MCP_DEPS_MANIFEST:-/usr/share/marklinux/mcp/dependencies.json}"
+if [[ -n "$DEPS_SET" ]]; then
+  if [[ -f "$MCP_DEPS_MANIFEST" ]]; then
+    DEPS_COMPONENTS=$(python3 -c "import json,sys; m=json.load(open(sys.argv[1])); s=[x for x in m.get('sets',[]) if x.get('set_id')==sys.argv[2]]; print('\n'.join(s[0].get('components',[])) if s else '')" "$MCP_DEPS_MANIFEST" "$DEPS_SET" 2>/dev/null || true)
+    if [[ -n "$DEPS_COMPONENTS" ]]; then
+      echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) DEPS prefix=${PREFIX_NAME} set=${DEPS_SET} components=${DEPS_COMPONENTS}" >> "${LOG_DIR}/launches.log"
+      if _has winetricks; then
+        # shellcheck disable=SC2086
+        winetricks --prefix "${WINEPREFIX}" ${DEPS_COMPONENTS}
+      fi
+    fi
+  fi
+fi
 
 # --- Launch ---
 notify-send -a "Mark Linux" -i wine "Windows Apps" \

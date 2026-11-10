@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# mark-benchmark - Launch a Windows game through the Mark Compatibility Platform
+# for benchmarking (FPS, frame time, stuttering).
+#
+# The game is started through mark-win-launch (Wine/Proton + DXVK/VKD3R stack)
+# with the MangoHud FPS overlay enabled, and its output is captured to a dated
+# benchmark log under ~/.local/share/marklinux/mcp/benchmarks/.
+#
+# Usage:
+#   mark-benchmark /path/to/game.exe [args...]
+
+set -Eeuo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+EXE="${1:-}"
+
+if [[ -z "$EXE" ]]; then
+  echo "Usage: mark-benchmark <exe> [args...]" >&2
+  exit 1
+fi
+
+if [[ ! -f "$EXE" ]]; then
+  echo "File not found: $EXE" >&2
+  exit 1
+fi
+
+MCP_LOG_DIR="${HOME}/.local/share/marklinux/mcp/benchmarks"
+mkdir -p "$MCP_LOG_DIR"
+LOG="${MCP_LOG_DIR}/$(basename "$EXE").$(date -u +%Y%m%dT%H%M%SZ).log"
+
+MARKOHUD=1 mark-win-launch "$EXE" "${@:2}" 2>&1 | tee "$LOG"
+
+exit "${PIPESTATUS[0]}"
