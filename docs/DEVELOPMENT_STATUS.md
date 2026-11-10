@@ -19,6 +19,7 @@ The Mark Compatibility Platform (MCP) reuses upstream Wine, Proton, Waydroid and
 - Mark Compatibility Center runtime tab is wired to the real `mark-runtime` binary.
 - Game compatibility database at `windows/compatibility-database/games.json` (schema version 1, status enum, graphics/runtime metadata) added and source-validated.
 - Added `tools/benchmark/frame_stats.py` and its unit tests for FPS, frame time, stutter and percentile statistics used by the gaming benchmark suite; six tests pass.
+- Added the Windows dependency manager (`windows/dependency-manager/`): `dependencies.json` manifest and `resolver.py` winetricks component resolution for Wine/Wine Staging/Proton runtimes and DirectX sets; six unit tests pass.
 
 ### Limitations and next steps
 
