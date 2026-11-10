@@ -70,6 +70,21 @@
 - `fsck.erofs` reported no errors. `dump.erofs` confirmed planner files and launcher plus hardware scanner; the planner directory contains only `gui.py` and `plan.py` with no Python cache.
 - BIOS/Syslinux QEMU boot completed with exit status 0 and reached the live Hyprland desktop. VM used QEMU TCG, 4 vCPU, 4 GiB RAM, CD-ROM only, no host disks passed through. Screenshot: `builds/logs/marklinux-0.0.1_dev_1101126_1-x86_64-boot-20261109T143629Z.png`. The Welcome dialog was not shown in this BIOS-mode capture. UEFI and physical NVIDIA operation remain untested.
 
+## Mark Compatibility Platform - ISO boot verification and dependency manifest staging
+
+- Verified the current desktop ISO `builds/iso/marklinux-0.0.1_dev_1101126_1-x86_64.iso` end to end: SHA-256 matched the `.sha256` sidecar (`f8d20ad392f7dd423cae2f49c5e70ed7ccc360d3fbc0a35ce9f034064f9b294f`), and no boot error was found in the QEMU phase 1/2 BIOS, desktop or direct-kernel captures. The latest direct-kernel serial capture reached the `marklinux login:` prompt and the live desktop, and the final phase 1 build log reported successful package install, Syslinux BIOS setup and GRUB UEFI setup.
+- Added the desktop ISO overlay dependency manifest at `os/arch-base/profiles/desktop/airootfs/usr/share/marklinux/mcp/dependencies.json` (schema version 1, runtime winetricks components and DirectX sets such as `dxvk-d3d9`, `dxvk-d3d11`, `vkd3d-d3d12`) so `mark-win-launch --deps-set` resolves the manifest shipped inside the image via `/usr/share/marklinux/mcp/dependencies.json`.
+- Extended `tests/validate_source.py` with overlay checks that the MCP dependency manifest exists and declares a valid schema version and dependency sets.
+
+
+## Clean-overlay ISO rebuild — 2026-11-09
+
+- Archived the prior image and checksum under `builds/archive/desktop-before-cache-cleanup/` before rebuilding.
+- Build completed with ArchISO; 1,866,039,296 bytes, SHA-256 `f8d20ad392f7dd423cae2f49c5e70ed7ccc360d3fbc0a35ce9f034064f9b294f`. Windows-computed SHA-256 matched the sidecar.
+- Package resolution selected Hyprland 0.57.2-1 and Python 3.14.9-1. This rolling-repository build is not bit-for-bit reproducible.
+- `fsck.erofs` reported no errors. `dump.erofs` confirmed planner files and launcher plus hardware scanner; the planner directory contains only `gui.py` and `plan.py` with no Python cache.
+- BIOS/Syslinux QEMU boot completed with exit status 0 and reached the live Hyprland desktop. VM used QEMU TCG, 4 vCPU, 4 GiB RAM, CD-ROM only, no host disks passed through. Screenshot: `builds/logs/marklinux-0.0.1_dev_1101126_1-x86_64-boot-20261109T143629Z.png`. The Welcome dialog was not shown in this BIOS-mode capture. UEFI and physical NVIDIA operation remain untested.
+
 ## Phase 3 groundwork
 
 - Added a read-only Rust hardware inventory library and CLI source for Linux procfs/sysfs. No device writes or external commands are used.
