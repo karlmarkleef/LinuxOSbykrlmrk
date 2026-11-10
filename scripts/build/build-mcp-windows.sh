@@ -64,9 +64,7 @@ cleanup_staged() {
     "$staged_dir/mark-hardware" \
     "$staged_dir/mark-runtime" \
     "$staged_dir/mark-pe-inspect" \
-    "$staged_dir/mark-apk-inspect" \
-    "$staged_dir/mark-android-manager" \
-    "$staged_dir/mark-apk"
+    "$staged_dir/mark-apk-inspect"
 }
 
 if mountpoint -q "$root"; then
@@ -103,8 +101,8 @@ stage_binary "$artifact_dir/mark-hardware-x86_64-unknown-linux-gnu" "$staged_dir
 stage_binary "$artifact_dir/mark-runtime" "$staged_dir/mark-runtime"
 stage_binary "$artifact_dir/mark-pe-inspect" "$staged_dir/mark-pe-inspect"
 stage_binary "$artifact_dir/mark-apk-inspect" "$staged_dir/mark-apk-inspect"
-stage_binary "$project/android/container-manager/mark-android-manager" "$staged_dir/mark-android-manager"
-stage_binary "$project/android/package-manager/mark-apk" "$staged_dir/mark-apk"
+# The two shell front ends are checked into the ISO overlay. Only compiled
+# artifacts are staged here; never remove or overwrite the checked-in scripts.
 
 # build-base-iso.sh manages its own project bind mount; drop ours first so the
 # two mounts do not stack and the ISO build sees the staged overlay files.

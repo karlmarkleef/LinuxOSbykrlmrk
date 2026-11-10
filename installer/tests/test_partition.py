@@ -16,6 +16,7 @@ from partition import (  # noqa: E402
     BootloaderType,
     FilesystemType,
     GPT_TYPE_ESP,
+    GPT_TYPE_BIOS_BOOT,
     GPT_TYPE_LINUX_ROOT_X86_64,
     GPT_TYPE_LINUX_SWAP,
 )
@@ -74,6 +75,7 @@ class PartitionPlanningTests(unittest.TestCase):
             memory_bytes=memory,
             filesystem=FilesystemType.EXT4,
             bootloader=BootloaderType.SYSTEMD_BOOT,
+            include_bios_boot=False,
         )
         self.assertEqual(plan.device_path, "/dev/sda")
         self.assertEqual(plan.partition_table, "gpt")
@@ -116,6 +118,7 @@ class PartitionPlanningTests(unittest.TestCase):
             memory_bytes=16 * 1024**3,  # > 8 GiB -> 0 swap
             filesystem=FilesystemType.BTRFS,
             bootloader=BootloaderType.GRUB,
+            include_bios_boot=False,
         )
         self.assertEqual(plan.device_path, "/dev/nvme0n1")
         self.assertEqual(plan.filesystem, FilesystemType.BTRFS)
@@ -131,6 +134,16 @@ class PartitionPlanningTests(unittest.TestCase):
         self.assertEqual(data["filesystem"], "btrfs")
         self.assertEqual(data["bootloader"], "grub")
         self.assertEqual(len(data["partitions"]), 2)
+
+    def test_calculate_layout_can_include_bios_boot_partition(self) -> None:
+        plan = calculate_erase_disk_layout(
+            "/dev/vda", 64 * 1024**3, memory_bytes=16 * 1024**3,
+            bootloader=BootloaderType.GRUB, include_swap=False,
+            include_bios_boot=True,
+        )
+        self.assertEqual(plan.partitions[1].type_guid, GPT_TYPE_BIOS_BOOT)
+        self.assertEqual(plan.partitions[1].filesystem, "bios-boot")
+        self.assertIn("bios_grub", plan.partitions[1].flags)
 
 
 if __name__ == "__main__":

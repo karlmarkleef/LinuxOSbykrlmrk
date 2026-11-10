@@ -1,16 +1,17 @@
-# Mark Linux installation planner
+# Mark Linux installer
 
-The current installer component is a graphical, plan-only preflight. It uses Zenity dialogs, the read-only `mark-hardware` scanner and `lsblk` metadata to select a whole-disk target, validate a username/time zone/keyboard/performance profile, show a summary, and save a private JSON plan to a user-selected path.
+The live ISO now includes a real full-disk installer. The Zenity front end selects a writable whole disk, collects account and regional settings, requires the user to type `ERASE`, and invokes the privileged backend through `pkexec`.
 
-The plan is explicitly marked `plan-only`. The planner does not partition, format, install packages, create accounts, change boot configuration, elevate privileges, or write to the selected disk. It requires a 20 GiB minimum for planning and rejects partition paths, unsupported keyboard/profile values, invalid time zones and attempts to overwrite a plan file. The disk listing uses `lsblk --nodeps` and does not open disk contents.
+The backend creates a GPT layout with an ESP, optional swap, a BIOS GRUB partition, and an ext4/btrfs root partition. It formats and mounts the target, copies the live root filesystem offline, creates the selected account, writes `fstab`, rebuilds initramfs, installs GRUB for UEFI and legacy BIOS, and verifies the installed kernel and boot configuration. The disk listing uses `lsblk --nodeps` and the backend refuses mounted disks and the live medium.
 
-The selected target and the `erase-selected-disk-and-install` action are future intent only. The plan warns that a future installer must rediscover and verify the physical device and ask for explicit erase confirmation. No plan password or credential is collected.
+The installer asks for the new account password only after the target is selected. It is sent to the backend over the local process pipe and is never written to a plan or log.
 
-This is an early-stage installer module. Full-disk erase, alongside-Windows, manual partitioning, bootloader setup, recovery and an authorized privileged backend remain unimplemented for live execution. The GUI warns the user before it creates a plan.
+This release supports full-disk erase installation. Alongside-Windows and manual partitioning remain intentionally unavailable; the GUI clearly labels the destructive full-disk operation.
 
 ## Components and Tests
 
-- `installer/core/partition.py`: Sector-aligned GPT partition layout calculator (512 MiB ESP, RAM-adaptive Swap, ext4/btrfs Root) and disk-safety validation engine. Prohibits operations on partitions, active mounts, read-only devices, and disks under 20 GiB.
+- `installer/core/partition.py`: Sector-aligned GPT partition layout calculator (512 MiB ESP, optional 1 MiB BIOS boot partition, RAM-adaptive Swap, ext4/btrfs Root) and disk-safety validation engine.
+- `installer/core/install.py`: Destructive, safety-gated offline rootfs installer and dual-mode GRUB setup.
 - `installer/tests/test_partition.py`: 8 unit tests validating sector alignment, partition sizing, filesystem flags, and mount/read-only guardrails.
 - `installer/tests/test_plan.py`: 8 unit tests covering plan schema, adaptive profile detection via `mark-hardware`, and disk enumeration safety.
 - All 16 installer tests pass under Python 3.11 (`py -3.11 -B -m unittest discover -s installer/tests -v`).

@@ -25,6 +25,17 @@ network-manager-applet
 networkmanager
 noto-fonts
 noto-fonts-emoji
+inter-font
+otf-font-awesome
+arch-install-scripts
+btrfs-progs
+dosfstools
+efibootmgr
+gptfdisk
+grub
+parted
+rsync
+sudo
 nvidia-open
 nwg-dock-hyprland
 nwg-look

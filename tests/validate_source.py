@@ -82,6 +82,7 @@ def main() -> int:
     python_files = [
         rootfs / "usr/share/marklinux/installer/plan.py",
         rootfs / "usr/share/marklinux/installer/gui.py",
+        ROOT / "installer/core/install.py",
         ROOT / "installer/core/partition.py",
         ROOT / "installer/tests/test_plan.py",
         ROOT / "installer/tests/test_partition.py",
@@ -146,6 +147,28 @@ def main() -> int:
                  "mark-windows-vm", "mark-windows-apps", "mark-android-launch",
                  "mark-adobe-compat"):
         check((rootfs / "usr/local/bin" / name).is_file(), f"desktop command exists: {name}")
+
+    # mkarchiso copies the overlay with --no-preserve=mode, so commands not
+    # listed in file_permissions end up non-executable in the ISO.
+    profiledef_text = (PROFILE_DESKTOP / "profiledef.sh").read_text(encoding="utf-8")
+    listed_commands = set(re.findall(
+        r'\["(/usr/local/bin/[^"]+)"\]="0:0:755"', profiledef_text))
+    overlay_commands = {
+        f"/usr/local/bin/{path.name}" for path in (rootfs / "usr/local/bin").iterdir()
+        if path.is_file()
+    }
+    staged_commands = {
+        "/usr/local/bin/mark-hardware",
+        "/usr/local/bin/mark-runtime",
+        "/usr/local/bin/mark-pe-inspect",
+        "/usr/local/bin/mark-apk-inspect",
+        "/usr/local/bin/mark-android-manager",
+        "/usr/local/bin/mark-apk",
+    }
+    missing_permissions = (overlay_commands | staged_commands) - listed_commands
+    check(not missing_permissions,
+          "desktop overlay and staged commands declare executable permissions"
+          + (f": {sorted(missing_permissions)}" if missing_permissions else ""))
 
     bash = shell_validator()
     if bash:

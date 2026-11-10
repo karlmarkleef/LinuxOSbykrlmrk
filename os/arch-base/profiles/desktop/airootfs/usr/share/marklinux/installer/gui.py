@@ -1,19 +1,22 @@
 #!/usr/bin/python
-"""Zenity-backed graphical installation planner. It never writes to disks."""
+"""Zenity-backed graphical Mark Linux installer front end.
+
+Collects target disk, account, regional and performance settings, asks for an
+explicit erase confirmation, then drives the privileged backend through
+`pkexec mark-install`. No disk write happens before the user types ERASE.
+"""
 
 from __future__ import annotations
 
-import json
 import subprocess
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
-from plan import build_plan, save_plan
-
-
+INSTALLER_TITLE = "Mark Linux Installation"
+ERASE_CONFIRMATION = "ERASE"
 MINIMUM_DISK_BYTES = 20 * 1024**3
-INSTALLER_TITLE = "Mark Linux Installation Planner"
+
+import install as install_backend  # noqa: E402  (staged next to this file)
 
 
 def zenity(*arguments: str, capture: bool = False) -> str | None:
@@ -36,6 +39,8 @@ def eligible_disks() -> list[dict[str, object]]:
         text=True,
         capture_output=True,
     )
+    import json
+
     document = json.loads(result.stdout)
     disks = []
     for item in document.get("blockdevices", []):
@@ -70,7 +75,7 @@ def choose_disk(disks: list[dict[str, object]]) -> dict[str, object] | None:
         rows.extend((str(disk["path"]), human_size(int(disk["size"])), str(disk["model"])))
     selected = zenity(
         "--list", "--title", INSTALLER_TITLE,
-        "--text", "Choose a target for the future install plan. This planner will not modify it.",
+        "--text", "Choose the whole disk Mark Linux will install to.",
         "--column", "Device", "--column", "Size", "--column", "Model",
         "--print-column", "1", "--separator", "\t", "--width", "760", "--height", "420",
         *rows,
@@ -98,108 +103,177 @@ def detect_recommended_profile() -> str:
     return "Balanced"
 
 
-def collect_settings(default_profile: str | None = None) -> list[str] | None:
-    if default_profile is None:
-        default_profile = detect_recommended_profile()
-
-    all_profiles = ["Balanced", "Cinematic", "Ultra Lite", "Custom"]
-    if default_profile in all_profiles:
-        all_profiles.remove(default_profile)
-        combo_values = f"{default_profile}|" + "|".join(all_profiles)
-    else:
-        combo_values = "Balanced|Cinematic|Ultra Lite|Custom"
-
-    form = zenity(
-        "--forms", "--title", INSTALLER_TITLE,
-        "--text", f"These settings are recorded in the plan only. Adaptive recommendation: {default_profile}.",
-        "--separator", "\t",
-        "--add-entry", "User name (lowercase)",
-        "--add-entry", "Time zone (example: UTC)",
-        "--add-combo", "Keyboard layout", "--combo-values", "us|gb|de|fr",
-        "--add-combo", f"Performance profile (recommended: {default_profile})", "--combo-values", combo_values,
-        "--width", "620",
-        capture=True,
+def collect_settings(default_profile: str) -> tuple[str, str, str, str, str] | None:
+    full_name = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Full name (for the account):", "--entry-text", default_profile,
     )
-    if form is None:
+    username = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Account name (lowercase):", "--entry-text", "mark",
+    )
+    timezone = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Time zone (example: UTC):", "--entry-text", "UTC",
+    )
+    keyboard = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Keyboard layout (us, gb, de, fr, ...):", "--entry-text", "us",
+    )
+    profile = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", f"Performance profile (recommended: {default_profile}):", "--entry-text", default_profile,
+    )
+    if not (full_name and username and timezone and keyboard and profile):
         return None
-    fields = form.split("\t")
-    return fields if len(fields) == 4 else None
+
+    config = install_backend.InstallConfig(
+        disk_path="/dev/sda",
+        disk_size_bytes=20 * 1024**3,
+        username=username,
+        full_name=full_name,
+        timezone=timezone,
+        keyboard_layout=keyboard,
+        performance_profile=profile,
+        filesystem="ext4",
+        include_swap=True,
+        hostname="marklinux",
+    )
+    try:
+        install_backend.validate_install_config(config)
+    except (ValueError, TypeError) as error:
+        zenity("--error", "--title", INSTALLER_TITLE, "--text", str(error), "--width", "560")
+        return None
+    return username, full_name, timezone, keyboard, profile
+
+
+def ask_password() -> str | None:
+    password = zenity(
+        "--password", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Choose the password for the new account. It is never shown or logged.",
+    )
+    if not password:
+        return None
+    confirmation = zenity(
+        "--password", "--title", INSTALLER_TITLE, "--width", "520",
+        "--text", "Confirm the password:",
+    )
+    if confirmation is None or confirmation != password:
+        return None
+    return password
+
+
+def confirm_erase(disk: dict[str, object], username: str, performance_profile: str) -> bool:
+    summary = (
+        "Mark Linux will ERASE and rewrite the following disk:\n"
+        f"  {disk['path']} ({human_size(int(disk['size']))}, {disk['model']})\n\n"
+        f"Account: {username}\nPerformance profile: {performance_profile}\n\n"
+        "UEFI and legacy-BIOS boot are supported. No changes are made before you type ERASE."
+    )
+    if zenity(
+        "--question", "--title", INSTALLER_TITLE, "--width", "680",
+        "--text", summary,
+        "--ok-label", "Continue to erase", "--cancel-label", "Cancel",
+    ) is None:
+        return False
+    answer = zenity(
+        "--entry", "--title", INSTALLER_TITLE, "--width", "640",
+        "--text", f"Type {ERASE_CONFIRMATION} to start the installation:",
+        "--entry-text", "",
+    )
+    if answer is None:
+        return False
+    return answer.strip() == ERASE_CONFIRMATION
+
+
+def launch_backend(
+    disk: dict[str, object],
+    settings: tuple[str, str, str, str, str],
+) -> int:
+    username, full_name, timezone, keyboard, profile = settings
+    password = ask_password()
+    if password is None or not confirm_erase(disk, username, profile):
+        return 0
+
+    command = [
+        "pkexec", "/usr/bin/mark-install",
+        "--yes",
+        "--disk", str(disk["path"]),
+        "--disk-size-bytes", str(int(disk["size"])),
+        "--user", username,
+        "--full-name", full_name,
+        "--timezone", timezone,
+        "--keyboard-layout", keyboard,
+        "--performance-profile", profile,
+        "--filesystem", "ext4",
+        "--hostname", "marklinux",
+        "--password-stdin",
+    ]
+    try:
+        process = subprocess.Popen(
+            command,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+        process.stdin.write(password + "\n")
+        process.stdin.close()
+        progress = subprocess.Popen(
+            [
+                "zenity", "--progress", "--pulsate", "--auto-close",
+                "--title", f"{INSTALLER_TITLE} - {disk['path']}",
+            ],
+            stdin=subprocess.PIPE,
+            text=True,
+        )
+        for line in process.stdout:
+            line = line.strip()
+            if line.startswith("#"):
+                progress.stdin.write(line + "\n")
+            elif line.isdigit():
+                progress.stdin.write(f"{int(line)}\n")
+            progress.stdin.flush()
+        progress.stdin.write("100\n")
+        progress.stdin.close()
+        progress.wait()
+    except OSError:
+        return 1
+    if process.returncode != 0:
+        return 1
+    return 0
 
 
 def main() -> int:
     intro = (
-        "This early release builds and saves an installation plan. It does not partition, "
-        "format, install software, or write to any disk. Full-disk erase, alongside-Windows, "
-        "and manual partitioning are not available yet."
+        "Mark Linux will erase the selected disk and write its own system, then boot "
+        "from it. UEFI and legacy-BIOS boot are both supported. No disk is touched "
+        "before you confirm with ERASE."
     )
-    if zenity("--question", "--title", INSTALLER_TITLE, "--text", intro,
-              "--ok-label", "Create Plan", "--cancel-label", "Cancel", "--width", "620") is None:
+    if zenity("--question", "--title", INSTALLER_TITLE, "--text", intro, "--width", "620") is None:
         return 0
-
-    if zenity("--question", "--title", INSTALLER_TITLE,
-              "--text", "Open the read-only hardware summary first?",
-              "--ok-label", "Open Summary", "--cancel-label", "Continue", "--width", "520") is not None:
-        subprocess.Popen(["mark-hardware-report"], close_fds=True)
 
     disks = eligible_disks()
     disk = choose_disk(disks)
     if disk is None:
         return 0
-    settings = collect_settings()
+    default_profile = detect_recommended_profile()
+    settings = collect_settings(default_profile)
     if settings is None:
         return 0
-    username, timezone_name, keyboard, profile = settings
-
-    payload = {
-        "disk_path": disk["path"],
-        "disk_size_bytes": disk["size"],
-        "disk_model": disk["model"],
-        "username": username,
-        "timezone": timezone_name,
-        "keyboard_layout": keyboard,
-        "performance_profile": profile,
-    }
-    try:
-        plan = build_plan(payload)
-    except (ValueError, TypeError) as error:
-        zenity("--error", "--title", INSTALLER_TITLE, "--text", str(error), "--width", "560")
-        return 1
-
-    summary = (
-        f"Target: {disk['path']}\nModel: {disk['model']}\nSize: {human_size(int(disk['size']))}\n\n"
-        f"User: {username}\nTime zone: {timezone_name}\nKeyboard: {keyboard}\n"
-        f"Desktop: Hyprland ({profile})\n\n"
-        "Plan mode only: no partitions or files on the selected disk will be changed."
-    )
-    if zenity("--question", "--title", INSTALLER_TITLE, "--text", summary,
-              "--ok-label", "Save Plan", "--cancel-label", "Cancel", "--width", "620") is None:
-        return 0
-
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    default_name = f"marklinux-install-plan-{timestamp}.json"
-    destination = zenity(
-        "--file-selection", "--save", "--title", "Save Mark Linux Installation Plan",
-        "--filename", str(Path.home() / default_name),
-        capture=True,
-    )
-    if destination is None:
-        return 0
-    try:
-        save_plan(Path(destination), plan)
-    except (OSError, ValueError) as error:
-        zenity("--error", "--title", INSTALLER_TITLE,
-               "--text", f"Could not save a new plan file: {error}", "--width", "620")
-        return 1
-
-    zenity("--info", "--title", INSTALLER_TITLE,
-           "--text", f"Plan saved to:\n{destination}\n\nNo disk was modified.", "--width", "560")
+    status = launch_backend(disk, settings)
+    if status != 0:
+        zenity(
+            "--error", "--title", INSTALLER_TITLE,
+            "--text", "The Mark Linux installation backend did not complete. No disk writes were lost on purpose before confirmation.",
+            "--width", "560",
+        )
     return 0
 
 
 if __name__ == "__main__":
     try:
         sys.exit(main())
-    except (OSError, json.JSONDecodeError, subprocess.SubprocessError) as error:
-        zenity("--error", "--title", INSTALLER_TITLE,
-               "--text", f"The read-only preflight failed: {error}", "--width", "620")
+    except (OSError, ValueError, RuntimeError) as error:
+        zenity("--error", "--title", INSTALLER_TITLE, "--text", f"Installer front end failed: {error}", "--width", "620")
         sys.exit(1)

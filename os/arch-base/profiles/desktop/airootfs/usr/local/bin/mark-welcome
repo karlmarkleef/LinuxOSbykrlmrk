@@ -9,10 +9,10 @@ if [[ "${1:-}" == "--once" ]]; then
 fi
 while true; do
   choice=$(zenity --list --title="Welcome to Mark Linux" --text="Your live Wayland desktop is ready. Choose a tool to get started." --column="Open" --width=500 --height=390 \
-    "Hardware Summary" "Installation Planner" "File Manager" "Network Settings" "Audio Settings" "Display Settings" "System Monitor" "Terminal" "Quick Settings" "Continue to Desktop") || exit 0
+    "Hardware Summary" "Install Mark Linux" "File Manager" "Network Settings" "Audio Settings" "Display Settings" "System Monitor" "Terminal" "Quick Settings" "Continue to Desktop") || exit 0
   case "$choice" in
     "Hardware Summary") mark-hardware-report & ;;
-    "Installation Planner") mark-installer & ;;
+    "Install Mark Linux") mark-installer & ;;
     "File Manager") thunar & ;;
     "Network Settings") nm-connection-editor & ;;
     "Audio Settings") pavucontrol & ;;

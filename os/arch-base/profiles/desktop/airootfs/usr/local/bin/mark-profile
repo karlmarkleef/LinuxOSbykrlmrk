@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 profile="${1:-}"
+if [[ "$profile" == "auto" ]]; then
+  preference="${XDG_CONFIG_HOME:-${HOME}/.config}/marklinux/performance-profile"
+  profile="balanced"
+  if [[ -r "$preference" ]]; then
+    read -r profile <"$preference" || true
+  fi
+  if command -v mark-hardware >/dev/null 2>&1; then
+    detected="$(mark-hardware --profile-name 2>/dev/null || true)"
+    case "${detected:-Balanced}" in
+      "Ultra Lite") profile="ultra-lite" ;;
+      "Cinematic") profile="cinematic" ;;
+      *) profile="balanced" ;;
+    esac
+  fi
+fi
 case "$profile" in
-  ultra-lite|balanced|cinematic|custom) ;;
-  *) echo "Usage: mark-profile {ultra-lite|balanced|cinematic|custom}" >&2; exit 2 ;;
+  ultra-lite|balanced|cinematic|custom|auto) ;;
+  *) echo "Usage: mark-profile {ultra-lite|balanced|cinematic|custom|auto}" >&2; exit 2 ;;
 esac
 if [[ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" || -z "${XDG_RUNTIME_DIR:-}" ]]; then
   echo "No active Hyprland user session." >&2
@@ -29,5 +44,7 @@ done
 lua="hl.config({animations={enabled=${values[animations_enabled]}},decoration={blur={enabled=${values[blur_enabled]}},shadow={enabled=${values[shadow_enabled]}},rounding=${values[rounding]},active_opacity=${values[active_opacity]},inactive_opacity=${values[inactive_opacity]}},general={gaps_in=${values[gaps_in]},gaps_out=${values[gaps_out]}}});hl.animation({leaf='global',enabled=${values[animations_enabled]},speed=${values[animation_speed]},bezier='markEase'})"
 hyprctl eval "$lua"
 printf '%s\n' "$profile" > "$XDG_RUNTIME_DIR/marklinux-profile"
+mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/marklinux"
+printf '%s\n' "$profile" > "${XDG_CONFIG_HOME:-${HOME}/.config}/marklinux/performance-profile"
 rm -f "$XDG_RUNTIME_DIR/marklinux-effects-disabled" "$XDG_RUNTIME_DIR/marklinux-profile-before-effects"
 pkill -RTMIN+8 waybar 2>/dev/null || true

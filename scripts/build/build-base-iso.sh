@@ -62,6 +62,25 @@ profile_in_chroot="/mnt/project${profile#"$project"}"
 echo "Temporary build space: Arch bootstrap root on the isolated MarkLinuxBuildTools WSL ext4 filesystem under /var/tmp"
 echo "Build filesystem free: $((available_kib / 1048576)) GiB; required: $((required_kib / 1048576)) GiB"
 
+# Stage the real installer backend beside the GUI for the live ISO. These
+# modules stay in the repository's installer/core tree and are removed from
+# the overlay again after mkarchiso completes.
+installer_stage="$profile/airootfs/usr/share/marklinux/installer"
+installer_stage_owned=0
+stage_installer() {
+  mkdir -p "$installer_stage"
+  install -m 0644 "$project/installer/core/partition.py" "$installer_stage/partition.py"
+  install -m 0644 "$project/installer/core/install.py" "$installer_stage/install.py"
+  installer_stage_owned=1
+}
+cleanup_installer_stage() {
+  if (( installer_stage_owned )); then
+    rm -f "$installer_stage/partition.py" "$installer_stage/install.py"
+  fi
+}
+trap cleanup_installer_stage EXIT
+stage_installer
+
 if mountpoint -q "$root"; then
   echo "The disposable Arch root already has a mount at its root; inspect before retrying." >&2
   exit 5
@@ -84,6 +103,7 @@ cleanup() {
   elif [[ -n "$work" && -d "$work" ]]; then
     echo "Retained build workspace for recovery: $work"
   fi
+  cleanup_installer_stage
 }
 trap cleanup EXIT
 mount --bind "$project" "$root/mnt/project"

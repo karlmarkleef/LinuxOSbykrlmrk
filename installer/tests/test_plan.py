@@ -104,27 +104,16 @@ class InstallPlanTests(unittest.TestCase):
         self.assertNotIn("--output-all", arguments)
         self.assertIs(run.call_args.kwargs["check"], True)
 
-    def test_planner_contains_no_disk_writer_or_elevation_command(self) -> None:
+    def test_gui_requires_explicit_erase_before_disk_writer(self) -> None:
         source = (PLANNER / "gui.py").read_text(encoding="utf-8").casefold()
-        for command in ("mkfs", "parted", "sgdisk", "pacstrap", "pkexec", "sudo"):
-            with self.subTest(command=command):
-                self.assertNotIn(command, source)
+        self.assertIn("pkexec", source)
+        self.assertIn("erase", source)
 
-    @patch("gui.eligible_disks")
-    @patch("gui.build_plan", return_value={"mode": "plan-only", "target": {"device_path": "/dev/sda"}})
-    @patch("gui.zenity")
-    def test_gui_flow_saves_only_a_plan_file(self, zenity, _build_plan, eligible_disks) -> None:
-        eligible_disks.return_value = [{
-            "path": "/dev/sda", "size": 100_000_000_000, "model": "Fixture Disk"
-        }]
-        destination = self.temp_root / "install-plan.json"
-        zenity.side_effect = [
-            "", None, "/dev/sda", "mark\tUTC\tus\tBalanced", "", str(destination), ""
-        ]
-        self.assertEqual(gui.main(), 0)
-        saved = json.loads(destination.read_text(encoding="utf-8"))
-        self.assertEqual(saved["mode"], "plan-only")
-        self.assertEqual(saved["target"]["device_path"], "/dev/sda")
+    def test_gui_drives_real_installer_backend(self) -> None:
+        source = (PLANNER / "gui.py").read_text(encoding="utf-8")
+        self.assertIn("install_backend.InstallConfig", source)
+        self.assertIn('"pkexec"', source)
+        self.assertIn('"ERASE"', source)
 
     @patch("gui.subprocess.run")
     def test_detects_recommended_profile_from_hardware_tool(self, run) -> None:

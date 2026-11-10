@@ -14,12 +14,14 @@ from typing import Any
 
 MINIMUM_DISK_BYTES = 20 * 1024**3  # 20 GiB planning minimum
 ESP_SIZE_BYTES = 512 * 1024 * 1024  # 512 MiB EFI System Partition
+BIOS_BOOT_SIZE_BYTES = 1024 * 1024  # 1 MiB BIOS boot partition for GRUB i386-pc
 SECTOR_SIZE = 512
 ALIGNMENT_SECTORS = 2048  # 1 MiB alignment boundary
 GPT_HEADER_SECTORS = 34  # Primary GPT header + partition table sectors
 GPT_BACKUP_SECTORS = 33  # Backup GPT sectors at end of disk
 
 GPT_TYPE_ESP = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
+GPT_TYPE_BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
 GPT_TYPE_LINUX_ROOT_X86_64 = "4f68bce3-e8cd-4db1-96e7-f311fe641777"
 GPT_TYPE_LINUX_SWAP = "0657fd6d-a4ab-43c4-84e5-0933c84b4f4f"
 
@@ -160,14 +162,19 @@ def calculate_erase_disk_layout(
     filesystem: FilesystemType = FilesystemType.EXT4,
     bootloader: BootloaderType = BootloaderType.SYSTEMD_BOOT,
     include_swap: bool = True,
+    include_bios_boot: bool = True,
     active_mount_devices: set[str] | None = None,
 ) -> DiskLayoutPlan:
     """Calculate a clean GPT partition layout for full-disk erase installation.
 
     Calculates:
     - Partition 1: ESP (512 MiB FAT32), type c12a7328-f81f-11d2-ba4b-00a0c93ec93b, mount /boot
-    - Partition 2 (optional): Swap, type 0657fd6d-a4ab-43c4-84e5-0933c84b4f4f
-    - Partition 2/3: Root (ext4/btrfs), type 4f68bce3-e8cd-4db1-96e7-f311fe641777, mount /
+    - Partition 2 (optional): BIOS boot (1 MiB), type 21686148-6449-6e6f-744e-656564454649
+    - Partition 2/3 (optional): Swap, type 0657fd6d-a4ab-43c4-84e5-0933c84b4f4f
+    - Partition 3/4: Root (ext4/btrfs), type 4f68bce3-e8cd-4db1-96e7-f311fe641777, mount /
+
+    The BIOS boot partition lets the same disk boot on legacy-BIOS firmware
+    through GRUB i386-pc while the ESP keeps UEFI boot working.
     """
     validate_target_disk(
         disk_path,
@@ -203,7 +210,27 @@ def calculate_erase_disk_layout(
 
     current_sector = align_sector(esp_end + 1, ALIGNMENT_SECTORS)
 
-    # Partition 2: Swap (optional)
+    # Optional BIOS boot partition (1 MiB) for GRUB's i386-pc target.
+    if include_bios_boot:
+        bios_sectors = BIOS_BOOT_SIZE_BYTES // SECTOR_SIZE
+        bios_end = current_sector + bios_sectors - 1
+        partitions.append(
+            PartitionPlan(
+                number=part_num,
+                name="MarkLinux-BIOS",
+                type_guid=GPT_TYPE_BIOS_BOOT,
+                start_sector=current_sector,
+                end_sector=bios_end,
+                size_bytes=bios_sectors * SECTOR_SIZE,
+                filesystem="bios-boot",
+                mount_point="none",
+                flags=["bios_grub"],
+            )
+        )
+        part_num += 1
+        current_sector = align_sector(bios_end + 1, ALIGNMENT_SECTORS)
+
+    # Swap partition (optional)
     swap_size_bytes = calculate_swap_size(memory_bytes) if include_swap else 0
     if swap_size_bytes > 0:
         swap_sectors = swap_size_bytes // SECTOR_SIZE
