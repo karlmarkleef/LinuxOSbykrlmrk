@@ -25,7 +25,7 @@ fn escape_json_string(s: &str) -> String {
     let mut out = String::with_capacity(s.len() + 2);
     for c in s.chars() {
         match c {
-            '"'  => out.push_str("\\\""),
+            '"' => out.push_str("\\\""),
             '\\' => out.push_str("\\\\"),
             '\n' => out.push_str("\\n"),
             '\r' => out.push_str("\\r"),
@@ -66,12 +66,12 @@ fn main() {
     match pe::parse_pe(&data) {
         Ok(info) => {
             let path_escaped = escape_json_string(path);
-            let arch         = info.architecture();
-            let subsystem    = info.subsystem_name();
-            let pe_type      = info.pe_type();
-            let min_ver      = info.min_windows_version();
-            let native       = info.can_run_native();
-            let translate    = info.needs_translation();
+            let arch = info.architecture();
+            let subsystem = info.subsystem_name();
+            let pe_type = info.pe_type();
+            let min_ver = info.min_windows_version();
+            let native = info.can_run_native();
+            let translate = info.needs_translation();
 
             println!(
                 "{{\n  \"path\": \"{path_escaped}\",\n  \"valid_pe\": true,\n  \"architecture\": \"{arch}\",\n  \"subsystem\": \"{subsystem}\",\n  \"pe_type\": \"{pe_type}\",\n  \"min_windows_version\": \"{min_ver}\",\n  \"can_run_native\": {native},\n  \"needs_translation\": {translate}\n}}"

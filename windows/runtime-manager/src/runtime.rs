@@ -78,7 +78,10 @@ fn find_binary(kind: RuntimeKind) -> Option<PathBuf> {
 
 /// Query `<path> --version` and return the first trimmed output line.
 fn version_of(path: &std::path::Path) -> Option<String> {
-    let output = std::process::Command::new(path).arg("--version").output().ok()?;
+    let output = std::process::Command::new(path)
+        .arg("--version")
+        .output()
+        .ok()?;
     if !output.status.success() {
         return None;
     }

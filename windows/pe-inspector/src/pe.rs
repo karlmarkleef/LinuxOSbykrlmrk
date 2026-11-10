@@ -8,39 +8,39 @@ use std::io;
 
 // ── machine constants (COFF header) ─────────────────────────────────────────
 pub const MACHINE_AMD64: u16 = 0x8664;
-pub const MACHINE_I386:  u16 = 0x014C;
+pub const MACHINE_I386: u16 = 0x014C;
 pub const MACHINE_ARM64: u16 = 0xAA64;
 pub const MACHINE_THUMB: u16 = 0x01C4;
 
 // ── optional-header magic ────────────────────────────────────────────────────
-pub const MAGIC_PE32:  u16 = 0x010B;
+pub const MAGIC_PE32: u16 = 0x010B;
 pub const MAGIC_PE32P: u16 = 0x020B; // PE32+
 
 // ── subsystem constants ──────────────────────────────────────────────────────
-pub const SUBSYSTEM_GUI:     u16 = 2;
+pub const SUBSYSTEM_GUI: u16 = 2;
 pub const SUBSYSTEM_CONSOLE: u16 = 3;
-pub const SUBSYSTEM_EFI:     u16 = 9;
+pub const SUBSYSTEM_EFI: u16 = 9;
 
 // ── DOS header magic ─────────────────────────────────────────────────────────
 const DOS_MAGIC: [u8; 2] = [0x4D, 0x5A]; // "MZ"
-const PE_SIG:    [u8; 4] = [0x50, 0x45, 0x00, 0x00]; // "PE\0\0"
+const PE_SIG: [u8; 4] = [0x50, 0x45, 0x00, 0x00]; // "PE\0\0"
 
 // ── optional-header field offsets (from start of optional header) ────────────
 // These are the same for both PE32 and PE32+:
-const OPT_MAGIC_OFF:          usize = 0;
-const OPT_MAJOR_OS_VER_OFF:   usize = 40;
-const OPT_MINOR_OS_VER_OFF:   usize = 42;
-const OPT_SUBSYSTEM_OFF:      usize = 68;
+const OPT_MAGIC_OFF: usize = 0;
+const OPT_MAJOR_OS_VER_OFF: usize = 40;
+const OPT_MINOR_OS_VER_OFF: usize = 42;
+const OPT_SUBSYSTEM_OFF: usize = 68;
 
 /// Parsed PE header information.
 #[derive(Debug, Clone, PartialEq)]
 pub struct PeInfo {
-    pub machine:            u16,
+    pub machine: u16,
     pub number_of_sections: u16,
-    pub opt_magic:          u16,
-    pub major_os_version:   u16,
-    pub minor_os_version:   u16,
-    pub subsystem:          u16,
+    pub opt_magic: u16,
+    pub major_os_version: u16,
+    pub minor_os_version: u16,
+    pub subsystem: u16,
 }
 
 impl PeInfo {
@@ -48,10 +48,10 @@ impl PeInfo {
     pub fn architecture(&self) -> &'static str {
         match self.machine {
             MACHINE_AMD64 => "x86_64",
-            MACHINE_I386  => "x86_32",
+            MACHINE_I386 => "x86_32",
             MACHINE_ARM64 => "arm64",
             MACHINE_THUMB => "arm32",
-            _             => "unknown",
+            _ => "unknown",
         }
     }
 
@@ -68,19 +68,19 @@ impl PeInfo {
     /// PE format string.
     pub fn pe_type(&self) -> &'static str {
         match self.opt_magic {
-            MAGIC_PE32  => "PE32",
+            MAGIC_PE32 => "PE32",
             MAGIC_PE32P => "PE32+",
-            _           => "unknown",
+            _ => "unknown",
         }
     }
 
     /// Subsystem as a human-readable string.
     pub fn subsystem_name(&self) -> &'static str {
         match self.subsystem {
-            SUBSYSTEM_GUI     => "windows_gui",
+            SUBSYSTEM_GUI => "windows_gui",
             SUBSYSTEM_CONSOLE => "windows_console",
-            SUBSYSTEM_EFI     => "efi_application",
-            _                 => "unknown",
+            SUBSYSTEM_EFI => "efi_application",
+            _ => "unknown",
         }
     }
 
@@ -95,7 +95,10 @@ fn read_u16_le(buf: &[u8], offset: usize) -> io::Result<u16> {
     if offset + 2 > buf.len() {
         return Err(io::Error::new(
             io::ErrorKind::UnexpectedEof,
-            format!("u16 read at offset {offset} exceeds buffer length {}", buf.len()),
+            format!(
+                "u16 read at offset {offset} exceeds buffer length {}",
+                buf.len()
+            ),
         ));
     }
     Ok(u16::from_le_bytes([buf[offset], buf[offset + 1]]))
@@ -106,7 +109,10 @@ fn read_u32_le(buf: &[u8], offset: usize) -> io::Result<u32> {
     if offset + 4 > buf.len() {
         return Err(io::Error::new(
             io::ErrorKind::UnexpectedEof,
-            format!("u32 read at offset {offset} exceeds buffer length {}", buf.len()),
+            format!(
+                "u32 read at offset {offset} exceeds buffer length {}",
+                buf.len()
+            ),
         ));
     }
     Ok(u32::from_le_bytes([
@@ -170,11 +176,11 @@ pub fn parse_pe(data: &[u8]) -> io::Result<PeInfo> {
         ));
     }
 
-    let machine            = read_u16_le(data, coff_offset)?;         // offset 0
-    let number_of_sections = read_u16_le(data, coff_offset + 2)?;    // offset 2
+    let machine = read_u16_le(data, coff_offset)?; // offset 0
+    let number_of_sections = read_u16_le(data, coff_offset + 2)?; // offset 2
     // timestamp at +4 (4 bytes), skipped
     // PointerToSymbolTable +8, NumberOfSymbols +12 — skipped
-    let size_of_opt_header = read_u16_le(data, coff_offset + 16)?;   // offset 16
+    let size_of_opt_header = read_u16_le(data, coff_offset + 16)?; // offset 16
     // characteristics at +18 — skipped
 
     if size_of_opt_header == 0 {
@@ -205,10 +211,10 @@ pub fn parse_pe(data: &[u8]) -> io::Result<PeInfo> {
         ));
     }
 
-    let opt_magic        = read_u16_le(data, opt_offset + OPT_MAGIC_OFF)?;
+    let opt_magic = read_u16_le(data, opt_offset + OPT_MAGIC_OFF)?;
     let major_os_version = read_u16_le(data, opt_offset + OPT_MAJOR_OS_VER_OFF)?;
     let minor_os_version = read_u16_le(data, opt_offset + OPT_MINOR_OS_VER_OFF)?;
-    let subsystem        = read_u16_le(data, opt_offset + OPT_SUBSYSTEM_OFF)?;
+    let subsystem = read_u16_le(data, opt_offset + OPT_SUBSYSTEM_OFF)?;
 
     // Validate the optional-header magic
     if opt_magic != MAGIC_PE32 && opt_magic != MAGIC_PE32P {
@@ -269,7 +275,7 @@ mod tests {
 
         // PE signature
         let pe_start = pe_offset as usize;
-        buf[pe_start]     = 0x50; // 'P'
+        buf[pe_start] = 0x50; // 'P'
         buf[pe_start + 1] = 0x45; // 'E'
         buf[pe_start + 2] = 0x00;
         buf[pe_start + 3] = 0x00;
@@ -277,7 +283,7 @@ mod tests {
         // COFF header
         let coff = pe_start + 4;
         let m = machine.to_le_bytes();
-        buf[coff]     = m[0];
+        buf[coff] = m[0];
         buf[coff + 1] = m[1];
         // number_of_sections = 3
         buf[coff + 2] = 3;
@@ -290,16 +296,16 @@ mod tests {
         // Optional header
         let opt = coff + 20;
         let om = opt_magic.to_le_bytes();
-        buf[opt + OPT_MAGIC_OFF]        = om[0];
-        buf[opt + OPT_MAGIC_OFF + 1]    = om[1];
+        buf[opt + OPT_MAGIC_OFF] = om[0];
+        buf[opt + OPT_MAGIC_OFF + 1] = om[1];
         let ma = major_os.to_le_bytes();
-        buf[opt + OPT_MAJOR_OS_VER_OFF]     = ma[0];
+        buf[opt + OPT_MAJOR_OS_VER_OFF] = ma[0];
         buf[opt + OPT_MAJOR_OS_VER_OFF + 1] = ma[1];
         let mi = minor_os.to_le_bytes();
-        buf[opt + OPT_MINOR_OS_VER_OFF]     = mi[0];
+        buf[opt + OPT_MINOR_OS_VER_OFF] = mi[0];
         buf[opt + OPT_MINOR_OS_VER_OFF + 1] = mi[1];
         let ss = subsystem.to_le_bytes();
-        buf[opt + OPT_SUBSYSTEM_OFF]     = ss[0];
+        buf[opt + OPT_SUBSYSTEM_OFF] = ss[0];
         buf[opt + OPT_SUBSYSTEM_OFF + 1] = ss[1];
 
         buf
@@ -309,11 +315,11 @@ mod tests {
     fn test_parse_valid_pe32plus_amd64() {
         let buf = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 6, 1);
         let info = parse_pe(&buf).expect("Should parse valid PE32+");
-        assert_eq!(info.machine,            MACHINE_AMD64);
-        assert_eq!(info.opt_magic,          MAGIC_PE32P);
-        assert_eq!(info.subsystem,          SUBSYSTEM_GUI);
-        assert_eq!(info.major_os_version,   6);
-        assert_eq!(info.minor_os_version,   1);
+        assert_eq!(info.machine, MACHINE_AMD64);
+        assert_eq!(info.opt_magic, MAGIC_PE32P);
+        assert_eq!(info.subsystem, SUBSYSTEM_GUI);
+        assert_eq!(info.major_os_version, 6);
+        assert_eq!(info.minor_os_version, 1);
         assert_eq!(info.number_of_sections, 3);
     }
 
@@ -321,17 +327,17 @@ mod tests {
     fn test_architecture_strings() {
         let machines = [
             (MACHINE_AMD64, "x86_64"),
-            (MACHINE_I386,  "x86_32"),
+            (MACHINE_I386, "x86_32"),
             (MACHINE_ARM64, "arm64"),
             (MACHINE_THUMB, "arm32"),
-            (0xFFFF,        "unknown"),
+            (0xFFFF, "unknown"),
         ];
         for (machine, expected) in &machines {
             let buf = build_minimal_pe(*machine, MAGIC_PE32P, SUBSYSTEM_CONSOLE, 10, 0);
             // unknown machine still passes parsing (we only validate opt_magic)
             match parse_pe(&buf) {
                 Ok(info) => assert_eq!(info.architecture(), *expected),
-                Err(_)   => {
+                Err(_) => {
                     // 0xFFFF machine is fine, but if opt_magic were also wrong it would fail.
                     // Here opt_magic is MAGIC_PE32P so parsing must succeed.
                     panic!("Parsing failed for machine 0x{machine:04X}");
@@ -343,17 +349,17 @@ mod tests {
     #[test]
     fn test_can_run_native_and_needs_translation() {
         let amd64 = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 10, 0);
-        let info  = parse_pe(&amd64).unwrap();
+        let info = parse_pe(&amd64).unwrap();
         assert!(info.can_run_native());
         assert!(!info.needs_translation());
 
         let arm64 = build_minimal_pe(MACHINE_ARM64, MAGIC_PE32P, SUBSYSTEM_GUI, 10, 0);
-        let info  = parse_pe(&arm64).unwrap();
+        let info = parse_pe(&arm64).unwrap();
         assert!(!info.can_run_native());
         assert!(info.needs_translation());
 
         let i386 = build_minimal_pe(MACHINE_I386, MAGIC_PE32, SUBSYSTEM_CONSOLE, 5, 1);
-        let info  = parse_pe(&i386).unwrap();
+        let info = parse_pe(&i386).unwrap();
         assert!(!info.can_run_native());
         assert!(!info.needs_translation()); // x86_32 uses WoW64 equiv, not QEMU
     }
@@ -361,13 +367,13 @@ mod tests {
     #[test]
     fn test_subsystem_names() {
         let cases = [
-            (SUBSYSTEM_GUI,     "windows_gui"),
+            (SUBSYSTEM_GUI, "windows_gui"),
             (SUBSYSTEM_CONSOLE, "windows_console"),
-            (SUBSYSTEM_EFI,     "efi_application"),
-            (99u16,             "unknown"),
+            (SUBSYSTEM_EFI, "efi_application"),
+            (99u16, "unknown"),
         ];
         for (ss, name) in &cases {
-            let buf  = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, *ss, 10, 0);
+            let buf = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, *ss, 10, 0);
             let info = parse_pe(&buf).unwrap();
             assert_eq!(info.subsystem_name(), *name);
         }
@@ -375,15 +381,15 @@ mod tests {
 
     #[test]
     fn test_pe_type_strings() {
-        let pe32  = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32,  SUBSYSTEM_GUI, 6, 1);
+        let pe32 = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32, SUBSYSTEM_GUI, 6, 1);
         let pe32p = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 6, 1);
-        assert_eq!(parse_pe(&pe32).unwrap().pe_type(),  "PE32");
+        assert_eq!(parse_pe(&pe32).unwrap().pe_type(), "PE32");
         assert_eq!(parse_pe(&pe32p).unwrap().pe_type(), "PE32+");
     }
 
     #[test]
     fn test_min_windows_version_string() {
-        let buf  = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 6, 1);
+        let buf = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 6, 1);
         let info = parse_pe(&buf).unwrap();
         assert_eq!(info.min_windows_version(), "6.1");
     }
@@ -412,7 +418,7 @@ mod tests {
 
     #[test]
     fn test_too_small_buffer_returns_error() {
-        let buf    = vec![0x4D, 0x5A, 0x00, 0x00]; // only 4 bytes
+        let buf = vec![0x4D, 0x5A, 0x00, 0x00]; // only 4 bytes
         let result = parse_pe(&buf);
         assert!(result.is_err());
     }
@@ -422,7 +428,7 @@ mod tests {
         let mut buf = build_minimal_pe(MACHINE_AMD64, MAGIC_PE32P, SUBSYSTEM_GUI, 10, 0);
         // Corrupt optional header magic
         let opt_offset = 0x40 + 4 + 20; // pe_offset + sig + COFF
-        buf[opt_offset]     = 0xAB;
+        buf[opt_offset] = 0xAB;
         buf[opt_offset + 1] = 0xCD;
         let result = parse_pe(&buf);
         assert!(result.is_err());

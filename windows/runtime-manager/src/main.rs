@@ -15,7 +15,7 @@ fn escape_json_string(s: &str) -> String {
     let mut out = String::with_capacity(s.len() + 2);
     for c in s.chars() {
         match c {
-            '"'  => out.push_str("\\\""),
+            '"' => out.push_str("\\\""),
             '\\' => out.push_str("\\\\"),
             '\n' => out.push_str("\\n"),
             '\r' => out.push_str("\\r"),
@@ -76,7 +76,11 @@ fn print_text() {
     println!("Mark Compatibility Platform - Runtime status");
     for kind in kinds {
         let status = runtime::detect(kind);
-        let state = if status.installed { "installed" } else { "not installed" };
+        let state = if status.installed {
+            "installed"
+        } else {
+            "not installed"
+        };
         let version = status.version.as_deref().unwrap_or("-");
         println!("{}: {} ({})", kind.id(), state, version);
     }
