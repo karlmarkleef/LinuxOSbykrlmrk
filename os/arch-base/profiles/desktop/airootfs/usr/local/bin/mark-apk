@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# mark-apk - Mark Linux Android APK package manager (Waydroid wrapper)
+#
+# Phase 5: APK installation and management through the Mark Android
+# Subsystem. Wraps the upstream Waydroid app commands and uses the Mark
+# `mark-apk-inspect` binary for pre-installation ABI compatibility checks.
+#
+# Usage:
+#   mark-apk install /path/to/app.apk
+#   mark-apk list
+#   mark-apk uninstall <package>
+#   mark-apk launch <package>
+#   mark-apk inspect /path/to/app.apk
+
+set -Eeuo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+install() {
+  APK="${2:-}"
+  if [[ -z "$APK" || ! -f "$APK" ]]; then
+    echo "Usage: mark-apk install <apk>" >&2
+    exit 1
+  fi
+  if ! _has mark-apk-inspect; then
+    echo "mark-apk-inspect is not installed. Build MCP: bash scripts/build/build-mcp-windows.sh" >&2
+    exit 1
+  fi
+  APK_INFO=$(mark-apk-inspect "$APK" 2>/dev/null || echo '{"valid_apk":false}')
+  NEEDS=$(echo "$APK_INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print('true' if d.get('needs_arm_translation',False) else 'false')" 2>/dev/null || echo "false")
+  if [[ "$NEEDS" == "true" ]]; then
+    echo "This APK embeds ARM native libraries and may need ARM translation on x86_64 hosts." >&2
+    echo "Translation method: libndk-translation" >&2
+  fi
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  sudo waydroid app install "$APK"
+}
+
+list() {
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  waydroid app list
+}
+
+uninstall() {
+  PKG="${2:-}"
+  if [[ -z "$PKG" ]]; then
+    echo "Usage: mark-apk uninstall <package>" >&2
+    exit 1
+  fi
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  sudo waydroid app uninstall "$PKG"
+}
+
+launch() {
+  PKG="${2:-}"
+  if [[ -z "$PKG" ]]; then
+    echo "Usage: mark-apk launch <package>" >&2
+    exit 1
+  fi
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  waydroid app launch "$PKG"
+}
+
+inspect() {
+  APK="${2:-}"
+  if [[ -z "$APK" || ! -f "$APK" ]]; then
+    echo "Usage: mark-apk inspect <apk>" >&2
+    exit 1
+  fi
+  mark-apk-inspect "$APK"
+}
+
+cmd="${1:-}"
+
+case "$cmd" in
+  install)  install "$@" ;;
+  list)     list ;;
+  uninstall) uninstall "$@" ;;
+  launch)   launch "$@" ;;
+  inspect)  inspect "$@" ;;
+  *)
+    echo "Usage: mark-apk {install|list|uninstall|launch|inspect} ..." >&2
+    exit 1
+    ;;
+esac
