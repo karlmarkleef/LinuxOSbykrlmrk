@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# mark-android-manager - Waydroid container lifecycle manager for Mark Linux
+#
+# Phase 5: Android subsystem lifecycle management through the Mark
+# Compatibility Platform. This manager wraps the upstream Waydroid commands
+# instead of implementing an Android container stack of its own.
+#
+# Usage:
+#   mark-android-manager start
+#   mark-android-manager stop
+#   mark-android-manager restart
+#   mark-android-manager status
+#   mark-android-manager init
+#   mark-android-manager init --gapps
+
+set -Eeuo pipefail
+
+_has() { command -v "$1" &>/dev/null; }
+
+start() {
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  if ! _has lxc; then
+    echo "lxc is not installed. Install: sudo pacman -S lxc" >&2
+    exit 1
+  fi
+  echo "Starting Waydroid Android container..."
+  sudo waydroid start
+  echo "Starting Android session..."
+  sudo waydroid session start
+}
+
+stop() {
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  sudo waydroid session stop || true
+  sudo waydroid stop || true
+}
+
+restart() {
+  stop
+  start
+}
+
+status() {
+  if ! _has waydroid; then
+    echo '{"container":"unavailable"}'
+    return 0
+  fi
+  if waydroid status 2>/dev/null | grep -qi "running"; then
+    echo '{"container":"running"}'
+  else
+    echo '{"container":"stopped"}'
+  fi
+}
+
+init() {
+  if ! _has waydroid; then
+    echo "waydroid is not installed. Install: sudo pacman -S waydroid" >&2
+    exit 1
+  fi
+  if [[ "${2:-}" == "--gapps" ]]; then
+    sudo waydroid init -s GAPPS
+  else
+    sudo waydroid init
+  fi
+}
+
+cmd="${1:-status}"
+
+case "$cmd" in
+  start)   start ;;
+  stop)    stop ;;
+  restart) restart ;;
+  status)  status ;;
+  init)    init ;;
+  *)
+    echo "Usage: mark-android-manager {start|stop|restart|status|init}" >&2
+    echo "  mark-android-manager init --gapps   Initialize with Google Play services" >&2
+    exit 1
+    ;;
+esac
