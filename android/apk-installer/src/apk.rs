@@ -214,12 +214,14 @@ mod tests {
         let cd_size = cd.len();
         let entry_count = entries.len() as u16;
         let mut out = cd;
+        // End-of-central-directory record: sig(4) + disk(2) + cdDisk(2) +
+        // entriesDisk(2) + entriesTotal(2) + cdSize(4) + cdOffset(4) + commentLen(2)
         push_u32(&mut out, 0x06_05_4B50);
         push_u16(&mut out, 0x0000);
         push_u16(&mut out, 0x0000);
         push_u16(&mut out, entry_count);
         push_u16(&mut out, entry_count);
-        push_u16(&mut out, cd_size as u16);
+        push_u32(&mut out, cd_size as u32);
         push_u32(&mut out, cd_offset as u32);
         push_u16(&mut out, 0x0000);
         out
