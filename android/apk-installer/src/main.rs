@@ -13,7 +13,7 @@ fn escape_json_string(s: &str) -> String {
     let mut out = String::with_capacity(s.len() + 2);
     for c in s.chars() {
         match c {
-            '"'  => out.push_str("\\\""),
+            '"' => out.push_str("\\\""),
             '\\' => out.push_str("\\\\"),
             '\n' => out.push_str("\\n"),
             '\r' => out.push_str("\\r"),
