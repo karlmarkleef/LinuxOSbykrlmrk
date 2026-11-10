@@ -16,6 +16,7 @@ bootstrap_tarball_compression=(xz -9e)
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/usr/local/bin/marklinux-live-user"]="0:0:755"
+  ["/usr/local/bin/mark-session"]="0:0:755"
   ["/usr/local/bin/mark-welcome"]="0:0:755"
   ["/usr/local/bin/mark-quick-settings"]="0:0:755"
   ["/usr/local/bin/mark-profile-menu"]="0:0:755"

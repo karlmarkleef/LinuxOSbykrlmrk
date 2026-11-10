@@ -61,6 +61,7 @@ stage_binary() {
 
 cleanup_staged() {
   rm -f -- \
+    "$staged_dir/mark-hardware" \
     "$staged_dir/mark-runtime" \
     "$staged_dir/mark-pe-inspect" \
     "$staged_dir/mark-apk-inspect" \
@@ -68,26 +69,49 @@ cleanup_staged() {
     "$staged_dir/mark-apk"
 }
 
+if mountpoint -q "$root"; then
+  echo "The isolated Arch root is already mounted; inspect before retrying." >&2
+  exit 3
+fi
+
+# Build the Linux hardware scanner first: it installs its own temporary bind
+# mounts and refuses to run while the root is mounted.
+bash "$project/scripts/build/build-hardware-detect.sh"
+
 mkdir -p "$root/mnt/project" "$artifact_dir"
-mount --bind "$root" "$root"
 mount --bind "$project" "$root/mnt/project"
-cleanup_mounts() {
-  mountpoint -q "$root/mnt/project" && umount "$root/mnt/project"
-  mountpoint -q "$root" && umount "$root"
+mounted=0
+staged=0
+cleanup() {
+  if (( staged )); then
+    cleanup_staged
+  fi
+  if (( mounted )) && mountpoint -q "$root/mnt/project"; then
+    umount "$root/mnt/project"
+    mounted=0
+  fi
 }
-trap cleanup_mounts EXIT INT TERM
+trap cleanup EXIT INT TERM
+mounted=1
 
 build_mcp_crate "$project/windows/runtime-manager" mark-runtime
 build_mcp_crate "$project/windows/pe-inspector" mark-pe-inspect
 build_mcp_crate "$project/android/apk-installer" mark-apk-inspect
 
+staged=1
+stage_binary "$artifact_dir/mark-hardware-x86_64-unknown-linux-gnu" "$staged_dir/mark-hardware"
 stage_binary "$artifact_dir/mark-runtime" "$staged_dir/mark-runtime"
 stage_binary "$artifact_dir/mark-pe-inspect" "$staged_dir/mark-pe-inspect"
 stage_binary "$artifact_dir/mark-apk-inspect" "$staged_dir/mark-apk-inspect"
 stage_binary "$project/android/container-manager/mark-android-manager" "$staged_dir/mark-android-manager"
 stage_binary "$project/android/package-manager/mark-apk" "$staged_dir/mark-apk"
 
-cleanup_staged
+# build-base-iso.sh manages its own project bind mount; drop ours first so the
+# two mounts do not stack and the ISO build sees the staged overlay files.
+if mountpoint -q "$root/mnt/project"; then
+  umount "$root/mnt/project"
+  mounted=0
+fi
 
 MARKLINUX_PROFILE="$project/os/arch-base/profiles/desktop" \
   bash "$project/scripts/build/build-base-iso.sh"

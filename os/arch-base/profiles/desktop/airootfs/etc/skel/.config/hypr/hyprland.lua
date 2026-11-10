@@ -43,8 +43,10 @@ hl.config({
   misc = {
     disable_hyprland_logo = true,
     force_default_wallpaper = 0,
+  },
+  xwayland = {
     -- XWayland apps không bị blur khi dùng fractional scale
-    xwayland_force_zero_scaling = true,
+    force_zero_scaling = true,
   },
 })
 

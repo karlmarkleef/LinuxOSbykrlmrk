@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# Mark Linux live desktop launcher.
+#
+# Hyprland is started directly instead of through the packaged
+# start-hyprland watchdog: a broken graphics stack must end in a readable
+# error and a recovery shell, never in an endless blank-screen restart loop.
+set -u
+
+log_file=/tmp/mark-session.log
+if ! : >"$log_file" 2>/dev/null; then
+  log_file=/dev/null
+fi
+
+log() {
+  local line
+  line="$(date -Is) $*"
+  printf '%s\n' "$line" >>"$log_file" 2>/dev/null || true
+  logger -t mark-session -- "$*" 2>/dev/null || true
+}
+
+vmware_guest() {
+  local dmi
+  [[ -e /sys/module/vmwgfx ]] && return 0
+  for dmi in /sys/class/dmi/id/product_name /sys/class/dmi/id/sys_vendor; do
+    [[ -r "$dmi" ]] || continue
+    grep -qi 'vmware' "$dmi" 2>/dev/null && return 0
+  done
+  return 1
+}
+
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
+
+log "starting Mark Linux desktop session on VT ${XDG_VTNR:-?}"
+
+if ! command -v Hyprland >/dev/null 2>&1; then
+  log "Hyprland is not installed"
+  printf '\nMark Linux: Hyprland is not installed. Dropping to a recovery shell.\n' >&2
+  exec bash -i
+fi
+
+log "DRM devices: $(ls /dev/dri 2>/dev/null | tr '\n' ' ')"
+
+# VMware's vmwgfx driver also advertises a DRM node when 3D acceleration is
+# disabled, but Mesa's svga/EGL path cannot create a usable swapchain there.
+# kms_swrast + llvmpipe drives the same KMS framebuffer reliably, exactly like
+# the software path used by QEMU's standard VGA adapter.
+if vmware_guest; then
+  export LIBGL_ALWAYS_SOFTWARE=1
+  export GALLIUM_DRIVER=llvmpipe
+  export HYPRLAND_LOG_WLR=1
+  log "VMware guest detected; using Mesa software rendering (kms_swrast/llvmpipe)"
+fi
+
+log "launching Hyprland"
+start=$SECONDS
+Hyprland >>"$log_file" 2>&1 &
+hypr_pid=$!
+log "Hyprland started with PID $hypr_pid"
+
+# If the compositor is alive but never paints, this records whether its IPC
+# event loop responds at all. It stays out of the way of a healthy session.
+(
+  sleep 20
+  kill -0 "$hypr_pid" 2>/dev/null || exit 0
+  log "Hyprland is still running after 20s"
+  if command -v hyprctl >/dev/null 2>&1; then
+    runtime="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+    sig=$(find "$runtime/hypr" -maxdepth 1 -mindepth 1 -type d -printf '%T@ %f\n' 2>/dev/null | sort -nr | head -n1 | cut -d' ' -f2-)
+    if [[ -n "$sig" ]]; then
+      log "hyprctl monitors: $(HYPRLAND_INSTANCE_SIGNATURE="$sig" timeout 5 hyprctl monitors 2>&1 | tr '\n' ' ' | cut -c1-1000)"
+    fi
+  fi
+) &
+watchdog_pid=$!
+
+wait "$hypr_pid"
+rc=$?
+kill "$watchdog_pid" 2>/dev/null || true
+elapsed=$((SECONDS - start))
+log "Hyprland exited with status $rc after ${elapsed}s"
+
+if (( rc == 0 && elapsed >= 10 )); then
+  log "session ended normally"
+else
+  log "session failed; recent Hyprland output follows"
+  while IFS= read -r line; do
+    log "hypr: $line"
+  done < <(tail -n 40 "$log_file" 2>/dev/null)
+fi
+
+{
+  echo
+  echo "Mark Linux: the desktop session exited (status $rc, ${elapsed}s)."
+  echo "Session log: $log_file"
+  echo
+  tail -n 25 "$log_file" 2>/dev/null | sed 's/^/  /'
+  echo
+  echo "Type 'Hyprland' to retry, or 'systemctl poweroff' to shut down."
+} >&2
+
+exec bash -i
