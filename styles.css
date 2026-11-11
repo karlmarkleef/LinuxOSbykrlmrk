@@ -17,3 +17,18 @@ body.is-built .below-fold{animation:contentRise 1s .2s both}
 @keyframes markPulse{50%{transform:scale(1.06);box-shadow:0 0 90px #b99aef88}}
 @keyframes contentRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){#swarmCanvas,.build-intro{display:none!important}body.is-building .topbar,body.is-building .desktop{opacity:1}}
+
+
+/* Static presentation: all motion effects intentionally disabled. */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+.window, .feature-card, .primary-btn, .stage-dock button {
+  transform: none !important;
+}
+.window { opacity: 1 !important; }
+.feature-card:hover, .primary-btn:hover, .stage-dock button:hover {
+  transform: none !important;
+}
