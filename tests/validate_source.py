@@ -111,6 +111,16 @@ def main() -> int:
     check(prompt_capture_flags and all(prompt_capture_flags),
           "installer entry and password prompts capture their values")
 
+    gui_text = (rootfs / "usr/share/marklinux/installer/gui.py").read_text(encoding="utf-8")
+    backend_match = re.search(r'"pkexec",\s*"([^"]+)"', gui_text)
+    check(backend_match is not None, "installer GUI invokes the privileged backend through pkexec")
+    backend_path = backend_match.group(1)
+    check((rootfs / backend_path.lstrip("/")).is_file(),
+          f"installer backend exists in the live overlay: {backend_path}")
+    polkit_text = (rootfs / "etc/polkit-1/rules.d/49-marklinux-installer.rules").read_text(encoding="utf-8")
+    check(f'"{backend_path}"' in polkit_text,
+          "polkit rule authorizes the exact installer backend path")
+
     json_files = sorted(rootfs.rglob("*.jsonc"))
     for path in json_files:
         json.loads(path.read_text(encoding="utf-8"))

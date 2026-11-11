@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111019">
+  <meta name="description" content="Discover Karl Mark Linux — an experimental Arch-based Linux desktop experience.">
+  <title>Karl Mark Linux — Beyond the Desktop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wallpaper"></div><div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">K</span><span>KARL MARK <i>LINUX</i></span></a>
+    <div class="top-center"><span class="status-dot"></span> EXPERIMENTAL BUILD <span class="top-version">0.0.1_dev</span></div>
+    <div class="top-right"><span id="clock">--:--</span><button class="icon-btn" id="quickSettings" aria-label="Quick settings">☷</button><button class="avatar" id="profileBtn" aria-label="About">KM</button></div>
+  </header>
+
+  <main id="home" class="desktop">
+    <section class="hero-copy">
+      <p class="eyebrow"><span class="line"></span> AN EXPERIMENT IN PERSONAL COMPUTING</p>
+      <h1>Beyond<br><em>the Desktop.</em></h1>
+      <p class="hero-sub">A Linux experience shaped around clarity, control and motion. Meet the vision behind Karl Mark Linux.</p>
+      <div class="hero-actions"><button class="primary-btn" data-open="download">Explore downloads <span>↗</span></button><button class="text-btn" data-open="about">Discover the project <span>→</span></button></div>
+      <div class="hero-meta"><span>ARCH-BASED</span><b>·</b><span>WAYLAND</span><b>·</b><span>COMMUNITY BUILT</span></div>
+    </section>
+
+    <section class="desktop-stage" aria-label="Interactive desktop preview">
+      <div class="stage-label"><span>LIVE DESKTOP PREVIEW</span><span class="stage-hint">DRAG WINDOWS · OPEN APPS</span></div>
+      <div class="desktop-icons">
+        <button class="desk-icon" data-open="files"><span class="app-glyph folder-glyph">▰</span><small>Files</small></button>
+        <button class="desk-icon" data-open="terminal"><span class="app-glyph terminal-glyph">›_</span><small>Terminal</small></button>
+        <button class="desk-icon" data-open="features"><span class="app-glyph grid-glyph">✣</span><small>Features</small></button>
+      </div>
+      <article class="window music-window" data-window="music">
+        <div class="window-bar"><div class="traffic"><i></i><i></i><i></i></div><span>NOW PLAYING</span><button class="win-close" aria-label="Close">×</button></div>
+        <div class="music-art"><div class="art-orb"></div><div class="art-caption">A quieter kind<br>of computing.</div><div class="art-wave">〰</div></div>
+        <div class="music-bottom"><div><strong>Night Drive</strong><small>KM Sounds · Demo track</small></div><div class="player-controls"><button aria-label="Previous">Ⅱ</button><button class="play" id="playBtn" aria-label="Play or pause">▶</button><button aria-label="Next">↠</button></div></div>
+      </article>
+      <article class="window launcher-window" data-window="launcher">
+        <div class="window-bar"><div class="traffic"><i></i><i></i><i></i></div><span>APPLICATIONS</span><button class="win-close" aria-label="Close">×</button></div>
+        <div class="launcher-search">⌕ <span>Search applications...</span><kbd>Ctrl K</kbd></div>
+        <div class="app-list">
+          <button data-open="features"><span class="list-icon purple">✣</span><span><b>Features</b><small>Explore the experience</small></span><span class="launch-arrow">↗</span></button>
+          <button data-open="files"><span class="list-icon amber">▰</span><span><b>File Manager</b><small>Browse project resources</small></span><span class="launch-arrow">↗</span></button>
+          <button data-open="terminal"><span class="list-icon green">›_</span><span><b>Terminal</b><small>Project information</small></span><span class="launch-arrow">↗</span></button>
+          <button data-open="download"><span class="list-icon pink">↓</span><span><b>Download Center</b><small>Builds and release notes</small></span><span class="launch-arrow">↗</span></button>
+        </div>
+      </article>
+      <article class="window code-window" data-window="code">
+        <div class="window-bar"><div class="traffic"><i></i><i></i><i></i></div><span>MARK / SYSTEM</span><button class="win-close" aria-label="Close">×</button></div>
+        <div class="code-body"><small>src / system / identity.rs</small><pre><span>pub struct</span> SystemIdentity {
+  name: <em>"Karl Mark Linux"</em>,
+  base: <em>"Arch Linux"</em>,
+  desktop: <em>"Hyprland"</em>,
+  status: <em>"experimental"</em>,
+}
+
+<span>// built with curiosity</span>
+<span>fn</span> main() {
+  println!(<em>"Beyond the Desktop."</em>);
+}</pre></div>
+      </article>
+      <div class="stage-dock">
+        <button data-open="launcher" title="Applications">▦</button><button data-open="files" title="Files">▰</button><button data-open="terminal" title="Terminal">›_</button><button data-open="features" title="Features">✣</button><button data-open="download" title="Download">↓</button><span class="dock-divider"></span><button id="dockSettings" title="Settings">⚙</button>
+      </div>
+    </section>
+
+    <section class="below-fold">
+      <div class="section-heading"><p class="eyebrow">01 / THE IDEA</p><h2>A desktop that feels<br><em>like your own.</em></h2></div>
+      <p class="section-intro">Karl Mark Linux is an experimental, Arch-based project exploring a lightweight and expressive desktop experience. The web preview lets you explore the direction — without pretending unfinished ideas are already shipped.</p>
+      <div class="feature-grid">
+        <button class="feature-card" data-open="features"><span class="card-number">01</span><span class="card-icon">◈</span><h3>Fluid by design</h3><p>A Hyprland and Wayland-centered desktop direction, with motion treated as part of the experience.</p><span class="card-link">Explore direction ↗</span></button>
+        <button class="feature-card" data-open="features"><span class="card-number">02</span><span class="card-icon">⌘</span><h3>Built with Rust</h3><p>Rust is the preferred implementation language for project tools and system components.</p><span class="card-link">Explore direction ↗</span></button>
+        <button class="feature-card" data-open="features"><span class="card-number">03</span><span class="card-icon">⌁</span><h3>Room to evolve</h3><p>Hardware-aware setup, compatibility and a polished graphical installer are part of the longer-term vision.</p><span class="card-link">View roadmap ↗</span></button>
+      </div>
+    </section>
+    <footer><span>© 2026 KARL MARK LINUX · INDEPENDENT PROJECT</span><span><a href="https://github.com/karlmarkleef/LinuxOSbykrlmrk" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="#home">BACK TO TOP ↑</a></span></footer>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <section class="app-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top"><span class="modal-brand"><span class="brand-mark">K</span> KARL MARK LINUX</span><button class="modal-close" id="modalClose" aria-label="Close">×</button></div>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <aside class="toast" id="toast"></aside>
+  <script src="script.js"></script>
+</body>
+</html>
