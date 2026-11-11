@@ -290,8 +290,18 @@ class Installer:
             for destination in reversed(bound):
                 self._run(["umount", str(destination)], check=False)
 
-    def chroot_run(self, argv: Sequence[str], *, input_text: str | None = None) -> subprocess.CompletedProcess:
-        return self._run(["chroot", str(self.target_root), *[str(part) for part in argv]], input_text=input_text)
+    def chroot_run(
+        self,
+        argv: Sequence[str],
+        *,
+        check: bool = True,
+        input_text: str | None = None,
+    ) -> subprocess.CompletedProcess:
+        return self._run(
+            ["chroot", str(self.target_root), *[str(part) for part in argv]],
+            check=check,
+            input_text=input_text,
+        )
 
     def write_text(self, relative: str, content: str, mode: int = 0o644) -> None:
         path = self.target_root / relative.lstrip("/")
@@ -528,7 +538,13 @@ class Installer:
         )
         self.write_text("etc/locale.conf", "LANG=en_US.UTF-8\n")
         self.write_text("etc/locale.gen", "en_US.UTF-8 UTF-8\n", 0o644)
-        self.write_text("etc/vconsole.conf", f"KEYMAP={self.config.keyboard_layout}\nFONT=eVGA8x16\n")
+        self.write_text("etc/vconsole.conf", f"KEYMAP={self.config.keyboard_layout}\nFONT=lat9w-16\n")
+        # The rootfs copy deliberately excludes volatile directories, so recreate
+        # them with the permissions expected by the installed system.
+        for relative_path in ("tmp", "var/tmp"):
+            directory = self.target_root / relative_path
+            directory.mkdir(parents=True, exist_ok=True)
+            directory.chmod(0o1777)
         localtime = self.target_root / "etc" / "localtime"
         if localtime.exists() or localtime.is_symlink():
             localtime.unlink()
@@ -544,11 +560,11 @@ class Installer:
             self.chroot_run(["/usr/bin/systemctl", "enable", "getty@tty1.service"])
             self.chroot_run(["/usr/bin/systemctl", "set-default", "multi-user.target"])
             self.chroot_run(["/usr/bin/systemd-machine-id-setup"])
-            # The live session account is created in the running ISO before
-            # this backend starts. It must not leak into the installed system
-            # or collide with the account selected in the installer.
-            self.chroot_run(["/usr/bin/userdel", "--remove", "mark"], check=False)
-            self.chroot_run(["/usr/bin/groupdel", "mark"], check=False)
+            # The live session runs as this account, so userdel's busy check
+            # would otherwise refuse to edit the target passwd. The target's
+            # /home was excluded from the copy, so --remove is safe here.
+            self.chroot_run(["/usr/bin/userdel", "--force", "--remove", "mark"], check=False)
+            self.chroot_run(["/usr/bin/groupdel", "--force", "mark"], check=False)
             self.chroot_run([
                 "/usr/bin/useradd", "-m", "-U", "-c", self.config.full_name,
                 "-G", "wheel,video,render,input,audio,storage,optical",
@@ -561,14 +577,17 @@ class Installer:
 
     def _install_bootloader(self) -> None:
         has_efi = Path("/sys/firmware/efi").is_dir()
+        # /boot is copied empty by the installer, so create GRUB's output
+        # directory before grub-mkconfig opens /boot/grub/grub.cfg.
+        (self.target_root / "boot" / "grub").mkdir(parents=True, exist_ok=True)
         with self.chroot_mounts() as chroot_target:
-            self.chroot_run(["/usr/bin/grub-mkconfig", "-o", "/boot/grub/grub.cfg"])
             if has_efi:
                 # The removable fallback path makes the installed disk boot
                 # even when VMware/firmware exposes no writable EFI vars.
                 for argv in grub_efi_commands(no_nvram=True):
                     self._run(argv)
             self.chroot_run(["/usr/bin/grub-install", "--target=i386-pc", "--recheck", "--boot-directory=/boot", f"/dev/{self.config.disk_path.removeprefix('/dev/')}"])
+            self.chroot_run(["/usr/bin/grub-mkconfig", "-o", "/boot/grub/grub.cfg"])
 
     def _verify(self) -> None:
         with self.chroot_mounts() as chroot_target:

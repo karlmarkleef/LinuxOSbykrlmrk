@@ -121,6 +121,14 @@ def main() -> int:
     check(f'"{backend_path}"' in polkit_text,
           "polkit rule authorizes the exact installer backend path")
 
+    install_source = (ROOT / "installer/core/install.py").read_text(encoding="utf-8")
+    bootloader_source = install_source.split("def _install_bootloader", 1)[1].split("def _verify", 1)[0]
+    check(
+        bootloader_source.index('grub-install", "--target=i386-pc"')
+        < bootloader_source.index('"/usr/bin/grub-mkconfig"'),
+        "bootloader files are installed before grub-mkconfig runs",
+    )
+
     json_files = sorted(rootfs.rglob("*.jsonc"))
     for path in json_files:
         json.loads(path.read_text(encoding="utf-8"))

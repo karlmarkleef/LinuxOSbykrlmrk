@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import pathlib
+import subprocess
 import sys
 import unittest
+from unittest.mock import Mock
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -10,6 +12,7 @@ sys.path.insert(0, str(ROOT / "installer/core"))
 
 from install import (  # noqa: E402
     InstallConfig,
+    Installer,
     partition_path,
     render_fstab,
     sgdisk_commands,
@@ -55,6 +58,27 @@ class InstallHelpersTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_install_config(valid, pathlib.Path("/definitely/missing"))
         self.assertEqual(valid.username, "mark")
+
+    def test_chroot_run_honours_check_keyword(self) -> None:
+        config = InstallConfig(
+            disk_path="/dev/vda", disk_size_bytes=40 * 1024**3,
+            username="mark", full_name="Mark User", timezone="UTC",
+            keyboard_layout="us", performance_profile="Balanced",
+            filesystem="ext4", include_swap=True, hostname="marklinux",
+        )
+        runner = Mock()
+        runner.run.return_value = subprocess.CompletedProcess(
+            ["chroot", "/mnt", "/usr/bin/test"], 1, "", "missing",
+        )
+        installer = Installer(config, "secret", runner=runner)
+        result = installer.chroot_run(["/usr/bin/test", "-s", "/boot/vmlinuz-linux"], check=False)
+        self.assertEqual(result.returncode, 1)
+        runner.run.assert_called_once_with(
+            ["chroot", str(installer.target_root), "/usr/bin/test", "-s", "/boot/vmlinuz-linux"],
+            check=False,
+            input_text=None,
+            capture=False,
+        )
 
 
 if __name__ == "__main__":

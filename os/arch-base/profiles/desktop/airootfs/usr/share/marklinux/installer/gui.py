@@ -106,7 +106,7 @@ def detect_recommended_profile() -> str:
 def collect_settings(default_profile: str) -> tuple[str, str, str, str, str] | None:
     full_name = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
-        "--text", "Full name (for the account):", "--entry-text", default_profile,
+        "--text", "Full name (for the account):", "--entry-text", "Mark",
         capture=True,
     )
     username = zenity(
