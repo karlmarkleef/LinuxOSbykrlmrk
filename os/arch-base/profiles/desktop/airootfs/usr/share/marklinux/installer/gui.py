@@ -204,7 +204,7 @@ def launch_backend(
         return 0
 
     command = [
-        "pkexec", "/usr/bin/mark-install",
+        "pkexec", "/usr/local/bin/mark-install",
         "--yes",
         "--disk", str(disk["path"]),
         "--disk-size-bytes", str(int(disk["size"])),

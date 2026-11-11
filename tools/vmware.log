@@ -1192,3 +1192,1360 @@
 2026-11-11T04:11:55.275Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:28: PxSCTL.DET already 0. Ignoring write 0.
 2026-11-11T04:11:55.275Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:29: PxSCTL.DET already 0. Ignoring write 0.
 2026-11-11T04:11:58.162Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] VNET: MACVNetLinkStateTimerHandler: 'ethernet0' state from 1 to 5.
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] CPU reset: soft (mode Emulation)
+2026-11-11T04:12:12.995Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Guest: Firmware has transitioned to runtime.
+2026-11-11T04:12:12.995Z +INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] 
+2026-11-11T04:12:16.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.857Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.861Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.864Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.869Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.873Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.876Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:16.879Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] Guest MSR write (0xc0011029: 0x2)
+2026-11-11T04:12:18.013Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: Unregistering IOSpace at 0x2140
+2026-11-11T04:12:18.014Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: Unregistering MemSpace at 0xf0000000(0xf0000000) and 0xfb800000(0xfb800000)
+2026-11-11T04:12:18.014Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: FIFO is already mapped
+2026-11-11T04:12:18.016Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: Registering IOSpace at 0x2140
+2026-11-11T04:12:18.016Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: Registering MemSpace at 0xf0000000(0xf0000000) and 0xfb800000(0xfb800000)
+2026-11-11T04:12:18.016Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] SVGA: FIFO is already mapped
+2026-11-11T04:12:19.827Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM:HBA reset issued on sata0.
+2026-11-11T04:12:19.827Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM:Write to reserved or READ ONLY global register
+2026-11-11T04:12:19.828Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM:Write to reserved or READ ONLY global register
+2026-11-11T04:12:19.968Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:3 Port COMRESET requested.
+2026-11-11T04:12:19.968Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:3: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.968Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:3: Moved to COMRESET state.
+2026-11-11T04:12:19.969Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:3: Exiting COMRESET state.
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM:HBA reset issued on sata3.
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM:Write to reserved or READ ONLY global register
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:9 Port COMRESET requested.
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM:Write to reserved or READ ONLY global register
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:9: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.974Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:9: Moved to COMRESET state.
+2026-11-11T04:12:19.976Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:9: Exiting COMRESET state.
+2026-11-11T04:12:19.979Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:0 Port COMRESET requested.
+2026-11-11T04:12:19.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:0: Moved to COMRESET state.
+2026-11-11T04:12:19.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:15 Port COMRESET requested.
+2026-11-11T04:12:19.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:15: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:15: Moved to COMRESET state.
+2026-11-11T04:12:19.981Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:0: Exiting COMRESET state.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:16 Port COMRESET requested.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:16: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:16: Moved to COMRESET state.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:15: Exiting COMRESET state.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:19 Port COMRESET requested.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:19: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:19: Moved to COMRESET state.
+2026-11-11T04:12:19.983Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:16: Exiting COMRESET state.
+2026-11-11T04:12:19.983Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:19: Exiting COMRESET state.
+2026-11-11T04:12:19.990Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:25 Port COMRESET requested.
+2026-11-11T04:12:19.990Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:25: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.990Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:25: Moved to COMRESET state.
+2026-11-11T04:12:19.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:26 Port COMRESET requested.
+2026-11-11T04:12:19.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:26: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:26: Moved to COMRESET state.
+2026-11-11T04:12:19.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:25: Exiting COMRESET state.
+2026-11-11T04:12:19.993Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:26: Exiting COMRESET state.
+2026-11-11T04:12:19.993Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:29 Port COMRESET requested.
+2026-11-11T04:12:19.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:29: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:29: Moved to COMRESET state.
+2026-11-11T04:12:19.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:1 Port COMRESET requested.
+2026-11-11T04:12:19.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:1: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:1: Moved to COMRESET state.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:2 Port COMRESET requested.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:2: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:2: Moved to COMRESET state.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:1: Exiting COMRESET state.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:29: Exiting COMRESET state.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6 Port COMRESET requested.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.996Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6: Moved to COMRESET state.
+2026-11-11T04:12:19.997Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:4 Port COMRESET requested.
+2026-11-11T04:12:19.997Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:4: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.997Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:4: Moved to COMRESET state.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:5 Port COMRESET requested.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:5: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:5: Moved to COMRESET state.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:10 Port COMRESET requested.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:10: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:10: Moved to COMRESET state.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:7 Port COMRESET requested.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:7: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:7: Moved to COMRESET state.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:12 Port COMRESET requested.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:12: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:12: Moved to COMRESET state.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:11 Port COMRESET requested.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:11: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:19.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:11: Moved to COMRESET state.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:14 Port COMRESET requested.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:14: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:14: Moved to COMRESET state.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:8 Port COMRESET requested.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:8: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:8: Moved to COMRESET state.
+2026-11-11T04:12:20.000Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:10: Exiting COMRESET state.
+2026-11-11T04:12:20.002Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6: Exiting COMRESET state.
+2026-11-11T04:12:20.002Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:2: Exiting COMRESET state.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:7: Exiting COMRESET state.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13 Port COMRESET requested.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13: Moved to COMRESET state.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:17 Port COMRESET requested.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:17: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:17: Moved to COMRESET state.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:5: Exiting COMRESET state.
+2026-11-11T04:12:20.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:8: Exiting COMRESET state.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:27 Port COMRESET requested.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:27: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:27: Moved to COMRESET state.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:28 Port COMRESET requested.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:28: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:28: Moved to COMRESET state.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:4: Exiting COMRESET state.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:18 Port COMRESET requested.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:18: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:18: Moved to COMRESET state.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:20 Port COMRESET requested.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:20: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:20: Moved to COMRESET state.
+2026-11-11T04:12:20.005Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:11: Exiting COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:14: Exiting COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:24 Port COMRESET requested.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:24: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:24: Moved to COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:28: Exiting COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:12: Exiting COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23 Port COMRESET requested.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23: Moved to COMRESET state.
+2026-11-11T04:12:20.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:18: Exiting COMRESET state.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:21 Port COMRESET requested.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:21: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:21: Moved to COMRESET state.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:22 Port COMRESET requested.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:22: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:22: Moved to COMRESET state.
+2026-11-11T04:12:20.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata0:20: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:24: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:17: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:27: Exiting COMRESET state.
+2026-11-11T04:12:20.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:21: Exiting COMRESET state.
+2026-11-11T04:12:20.009Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:22: Exiting COMRESET state.
+2026-11-11T04:12:20.113Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:7 Port COMRESET requested.
+2026-11-11T04:12:20.113Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:7: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.113Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:7: Moved to COMRESET state.
+2026-11-11T04:12:20.114Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:7: Exiting COMRESET state.
+2026-11-11T04:12:20.115Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:13 Port COMRESET requested.
+2026-11-11T04:12:20.115Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:13: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.115Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:13: Moved to COMRESET state.
+2026-11-11T04:12:20.116Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:14 Port COMRESET requested.
+2026-11-11T04:12:20.116Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:14: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.116Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:14: Moved to COMRESET state.
+2026-11-11T04:12:20.117Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:13: Exiting COMRESET state.
+2026-11-11T04:12:20.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:14: Exiting COMRESET state.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:21 Port COMRESET requested.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:21: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:21: Moved to COMRESET state.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:22 Port COMRESET requested.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:22: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.123Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:22: Moved to COMRESET state.
+2026-11-11T04:12:20.124Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:21: Exiting COMRESET state.
+2026-11-11T04:12:20.124Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:22: Exiting COMRESET state.
+2026-11-11T04:12:20.133Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:1 Port COMRESET requested.
+2026-11-11T04:12:20.133Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:1: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.133Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:1: Moved to COMRESET state.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:3 Port COMRESET requested.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:3: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:3: Moved to COMRESET state.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:0 Port COMRESET requested.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:0: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:0: Moved to COMRESET state.
+2026-11-11T04:12:20.134Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-2"] AHCI-VMM: sata3:1: Exiting COMRESET state.
+2026-11-11T04:12:20.135Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:2 Port COMRESET requested.
+2026-11-11T04:12:20.135Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:2: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.135Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:2: Moved to COMRESET state.
+2026-11-11T04:12:20.135Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:6 Port COMRESET requested.
+2026-11-11T04:12:20.135Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:6: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:6: Moved to COMRESET state.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5 Port COMRESET requested.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5: Moved to COMRESET state.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:4 Port COMRESET requested.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:4: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.136Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:4: Moved to COMRESET state.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:12 Port COMRESET requested.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:12: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:12: Moved to COMRESET state.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:15 Port COMRESET requested.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:15: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:15: Moved to COMRESET state.
+2026-11-11T04:12:20.137Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:3: Exiting COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9 Port COMRESET requested.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9: Moved to COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:0: Exiting COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:24 Port COMRESET requested.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:24: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:24: Moved to COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11 Port COMRESET requested.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11: Moved to COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:12: Exiting COMRESET state.
+2026-11-11T04:12:20.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:15: Exiting COMRESET state.
+2026-11-11T04:12:20.139Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:16 Port COMRESET requested.
+2026-11-11T04:12:20.139Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:16: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.139Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:16: Moved to COMRESET state.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:10 Port COMRESET requested.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:10: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:10: Moved to COMRESET state.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:28 Port COMRESET requested.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:28: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.142Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:28: Moved to COMRESET state.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:2: Exiting COMRESET state.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:8 Port COMRESET requested.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:8: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:8: Moved to COMRESET state.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:10: Exiting COMRESET state.
+2026-11-11T04:12:20.144Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5: Exiting COMRESET state.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:4: Exiting COMRESET state.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:28: Exiting COMRESET state.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17 Port COMRESET requested.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17: Moved to COMRESET state.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:6: Exiting COMRESET state.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:19 Port COMRESET requested.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:19: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.145Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:19: Moved to COMRESET state.
+2026-11-11T04:12:20.147Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:20 Port COMRESET requested.
+2026-11-11T04:12:20.147Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:20: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.147Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:20: Moved to COMRESET state.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:8: Exiting COMRESET state.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:23 Port COMRESET requested.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:23: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:23: Moved to COMRESET state.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17: Exiting COMRESET state.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:19: Exiting COMRESET state.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:18 Port COMRESET requested.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:18: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.148Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:18: Moved to COMRESET state.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25 Port COMRESET requested.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25: Moved to COMRESET state.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26 Port COMRESET requested.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26: Moved to COMRESET state.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11: Exiting COMRESET state.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9: Exiting COMRESET state.
+2026-11-11T04:12:20.149Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:24: Exiting COMRESET state.
+2026-11-11T04:12:20.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:16: Exiting COMRESET state.
+2026-11-11T04:12:20.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:20: Exiting COMRESET state.
+2026-11-11T04:12:20.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:23: Exiting COMRESET state.
+2026-11-11T04:12:20.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:18: Exiting COMRESET state.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25: Exiting COMRESET state.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:27 Port COMRESET requested.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:27: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:27: Moved to COMRESET state.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26: Exiting COMRESET state.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:29 Port COMRESET requested.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:29: Write to PxSCTL.DET while no device present.
+2026-11-11T04:12:20.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:29: Moved to COMRESET state.
+2026-11-11T04:12:20.153Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:27: Exiting COMRESET state.
+2026-11-11T04:12:20.153Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:29: Exiting COMRESET state.
+2026-11-11T04:12:20.279Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:3: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.279Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:3: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.280Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:9: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.280Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:9: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.292Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:15: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.292Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:15: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.292Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:16: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.292Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:16: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.294Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:19: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.294Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:19: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.295Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:0: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.295Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:0: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.300Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:26: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.300Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:26: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.302Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:25: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.302Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:25: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.304Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:1: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.304Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:1: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.308Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:29: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.308Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:29: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.309Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:10: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.309Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:10: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.313Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:21: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.313Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:21: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.313Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.313Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:23: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:17: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:17: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:12: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:12: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.315Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:11: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.315Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:11: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:24: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:24: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata0:7: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata0:7: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:8: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:8: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:5: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.316Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:5: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:4: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata0:4: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.321Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:18: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.321Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata0:18: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.322Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.322Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata0:6: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.323Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:20: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.323Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:20: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.323Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:27: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.323Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:27: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.324Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:2: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.324Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:2: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.325Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata0:22: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.325Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata0:22: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:14: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata0:14: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:28: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata0:28: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.326Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata0:13: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.425Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:13: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.425Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:13: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.426Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:14: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.426Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:14: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.426Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:7: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.426Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:7: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.434Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:21: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.434Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:21: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.434Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:22: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.434Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:22: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.441Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:0: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.441Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:0: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.442Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:3: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.442Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:3: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.443Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:1: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.443Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:1: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:15: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:15: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:4: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:4: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:5: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.452Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:28: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.452Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:28: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:6: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:6: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:10: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:10: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:12: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.453Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:12: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.454Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:2: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.454Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:2: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.458Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:19: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.458Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:19: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.458Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.458Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:11: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.459Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:20: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.459Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:20: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.459Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:27: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.459Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:27: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:9: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:23: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] AHCI-VMM: sata3:23: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:8: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:8: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.461Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.461Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] AHCI-VMM: sata3:26: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.462Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:29: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.462Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:29: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.462Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.462Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] AHCI-VMM: sata3:25: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.463Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:24: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.463Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-3"] AHCI-VMM: sata3:24: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.463Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:18: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.463Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] AHCI-VMM: sata3:18: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.464Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.464Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] AHCI-VMM: sata3:17: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:20.464Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:16: Ignoring write (0x700) of reserved values to PxSCTL.IPM.
+2026-11-11T04:12:20.464Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] AHCI-VMM: sata3:16: PxSCTL.DET already 0. Ignoring write 0.
+2026-11-11T04:12:22.429Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 40
+2026-11-11T04:12:22.429Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 32
+2026-11-11T04:12:22.432Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] CDROM sata0:0: CMD 0x52 (*UNKNOWN (0x52)*) FAILED (key 0x5 asc 0x20 ascq 0)
+2026-11-11T04:12:22.443Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] SCSI0: RESET BUS
+2026-11-11T04:12:22.470Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] CDROM sata0:0: CMD 0x52 (*UNKNOWN (0x52)*) FAILED (key 0x5 asc 0x20 ascq 0)
+2026-11-11T04:12:22.505Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:22.505Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:22.530Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:22.530Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-6"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:22.543Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] SCSI0: RESET BUS
+2026-11-11T04:12:22.569Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] DISKUTIL: scsi0:0 : capacity=83886080 logical sector size=512
+2026-11-11T04:12:22.569Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] SCSI DEVICE (scsi0:0): MODE SENSE(6) for unsupported page 0x8
+2026-11-11T04:12:22.581Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] DISKUTIL: scsi0:0 : capacity=83886080 logical sector size=512
+2026-11-11T04:12:22.581Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] SCSI DEVICE (scsi0:0): MODE SENSE(6) for unsupported page 0x8
+2026-11-11T04:12:22.590Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] CDROM sata0:0: CMD 0x52 (*UNKNOWN (0x52)*) FAILED (key 0x5 asc 0x20 ascq 0)
+2026-11-11T04:12:22.849Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-1"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:24.519Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] VMCI: Capabilities in use by device: 0x38.
+2026-11-11T04:12:34.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Tools heartbeat timeout.
+2026-11-11T04:12:34.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Running status rpc handler: 1 => 0.
+2026-11-11T04:12:34.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Changing running status: 1 => 0.
+2026-11-11T04:12:34.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: [RunningStatus] Last heartbeat value 4 (last received 20s ago)
+2026-11-11T04:12:34.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] TOOLS hostVerifiedSamlToken capability set to FALSE.
+2026-11-11T04:12:36.032Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 9 (3316) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:12:36.032Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:12:36.032Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 9 (3316) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:12:36.032Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 9 (3316) Creating VNC remote connection.
+2026-11-11T04:12:36.032Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 1
+2026-11-11T04:12:36.035Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1024, 768)
+2026-11-11T04:12:36.035Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:12:36.035Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1024x768) Screen (1024x768) @ (0,0) bytesPerLine: 4096
+2026-11-11T04:12:36.037Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1024 x 768
+2026-11-11T04:12:36.052Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1024 x 768
+2026-11-11T04:12:36.231Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:36.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:12:36.338Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM sata0:0: CMD 0x52 (*UNKNOWN (0x52)*) FAILED (key 0x5 asc 0x20 ascq 0)
+2026-11-11T04:12:37.161Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] VMMouse: CMD Read ID
+2026-11-11T04:12:37.518Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 9 (3316) recv detected remote shutdown
+2026-11-11T04:12:37.518Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 9 (3316) VNC Remote Disconnect: socket closed.
+2026-11-11T04:12:37.518Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 1
+2026-11-11T04:12:37.518Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:12:37.663Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SVGA hiding SVGA
+2026-11-11T04:12:37.664Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 1 Destroyed: xywh(0, 0, 1024, 768) flags=0x2
+2026-11-11T04:12:37.670Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 0 Defined: xywh(0, 0, 640, 480) flags=0x3
+2026-11-11T04:12:37.682Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Guest: vmwgfx: Module Version: 2.21.0 (kernel: 7.2.15-arch1-1)
+2026-11-11T04:12:37.682Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] SVGA: Guest reported SVGA driver: (2, 117571599, 34930688, 0)
+2026-11-11T04:12:37.689Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SVGA enabling SVGA
+2026-11-11T04:12:37.689Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 0 Destroyed: xywh(0, 0, 640, 480) flags=0x3
+2026-11-11T04:12:37.690Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 1 Defined: xywh(0, 0, 1024, 768) flags=0x2
+2026-11-11T04:12:37.773Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 1 Destroyed: xywh(0, 0, 1024, 768) flags=0x2
+2026-11-11T04:12:37.773Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SVGA-ScreenMgr: Screen type changed to ScreenTarget
+2026-11-11T04:12:37.773Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] SWBScreen: Screen 1 Defined: xywh(0, 0, 1280, 800) flags=0x2
+2026-11-11T04:12:37.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Running status rpc handler: 0 => 1.
+2026-11-11T04:12:37.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Changing running status: 0 => 1.
+2026-11-11T04:12:37.970Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: [RunningStatus] Last heartbeat value 5 (last received 0s ago)
+2026-11-11T04:12:38.891Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-7"] SOUND 036.771651 ES1371Win32GetMixerCtl mixerGetLineInfo error 1024
+2026-11-11T04:12:55.395Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 2.051 seconds (ok)
+2026-11-11T04:12:57.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Tools heartbeat timeout.
+2026-11-11T04:12:58.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Running status rpc handler: 1 => 0.
+2026-11-11T04:12:58.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: Changing running status: 1 => 0.
+2026-11-11T04:12:58.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] Tools: [RunningStatus] Last heartbeat value 5 (last received 20s ago)
+2026-11-11T04:12:58.004Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-0"] TOOLS hostVerifiedSamlToken capability set to FALSE.
+2026-11-11T04:13:02.437Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:13:02.438Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-5"] CDROM: Emulate GET CONFIGURATION RT 0 starting feature 0
+2026-11-11T04:13:02.475Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vcpu-4"] CDROM sata0:0: CMD 0x52 (*UNKNOWN (0x52)*) FAILED (key 0x5 asc 0x20 ascq 0)
+2026-11-11T04:13:26.046Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.221 seconds (ok)
+2026-11-11T04:13:35.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 10 (3192) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:13:35.030Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:13:35.031Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 10 (3192) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:13:35.031Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 10 (3192) Creating VNC remote connection.
+2026-11-11T04:13:35.031Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 2
+2026-11-11T04:13:35.036Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:13:35.036Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:13:35.036Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:13:35.038Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:13:35.051Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:13:35.849Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.008 seconds (ok)
+2026-11-11T04:13:36.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 10 (3192) recv detected remote shutdown
+2026-11-11T04:13:36.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 10 (3192) VNC Remote Disconnect: socket closed.
+2026-11-11T04:13:36.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 2
+2026-11-11T04:13:36.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:13:40.888Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.002 seconds (ok)
+2026-11-11T04:13:42.045Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.013 seconds (ok)
+2026-11-11T04:13:44.128Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.218 seconds (ok)
+2026-11-11T04:13:49.999Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.023 seconds (ok)
+2026-11-11T04:13:55.113Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.005 seconds (ok)
+2026-11-11T04:14:16.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 11 (3224) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:14:16.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:14:16.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 11 (3224) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:14:16.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 11 (3224) Creating VNC remote connection.
+2026-11-11T04:14:16.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 3
+2026-11-11T04:14:16.605Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:14:16.605Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:14:16.605Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:14:16.625Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:14:16.644Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:14:17.287Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 11 (3224) recv detected remote shutdown
+2026-11-11T04:14:17.287Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 11 (3224) VNC Remote Disconnect: socket closed.
+2026-11-11T04:14:17.287Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 3
+2026-11-11T04:14:17.287Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:14:32.872Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.043 seconds (ok)
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 12 (3232) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 12 (3232) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 12 (3232) Creating VNC remote connection.
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 4
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:14:34.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:14:34.260Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:14:34.280Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:14:35.896Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 12 (3232) recv detected remote shutdown
+2026-11-11T04:14:35.896Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 12 (3232) VNC Remote Disconnect: socket closed.
+2026-11-11T04:14:35.896Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 4
+2026-11-11T04:14:35.896Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:14:41.086Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="vmx"] sata0:0: Command READ(10) took 1.107 seconds (ok)
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 13 (3356) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 13 (3356) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 13 (3356) Creating VNC remote connection.
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 5
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:15:23.513Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:15:23.533Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:15:23.552Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:15:25.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 13 (3356) recv detected remote shutdown
+2026-11-11T04:15:25.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 13 (3356) VNC Remote Disconnect: socket closed.
+2026-11-11T04:15:25.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 5
+2026-11-11T04:15:25.186Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 14 (3832) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 14 (3832) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 14 (3832) Creating VNC remote connection.
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 6
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:15:44.238Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:15:44.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:15:44.277Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:15:50.209Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 14 (3832) recv detected remote shutdown
+2026-11-11T04:15:50.209Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 14 (3832) VNC Remote Disconnect: socket closed.
+2026-11-11T04:15:50.209Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 6
+2026-11-11T04:15:50.209Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:16:11.285Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 15 (3836) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:16:11.285Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:16:11.285Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 15 (3836) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:16:11.285Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 15 (3836) Creating VNC remote connection.
+2026-11-11T04:16:11.285Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 7
+2026-11-11T04:16:11.286Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:16:11.286Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:16:11.286Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:16:11.288Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:16:11.303Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:16:16.146Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 15 (3836) recv detected remote shutdown
+2026-11-11T04:16:16.146Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 15 (3836) VNC Remote Disconnect: socket closed.
+2026-11-11T04:16:16.146Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 7
+2026-11-11T04:16:16.146Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:17:02.440Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 16 (3688) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:17:02.440Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:17:02.440Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 16 (3688) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:17:02.440Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 16 (3688) Creating VNC remote connection.
+2026-11-11T04:17:02.440Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 8
+2026-11-11T04:17:02.441Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:17:02.441Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:17:02.441Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:17:02.442Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:17:02.460Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:17:05.311Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 16 (3688) recv detected remote shutdown
+2026-11-11T04:17:05.311Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 16 (3688) VNC Remote Disconnect: socket closed.
+2026-11-11T04:17:05.311Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 8
+2026-11-11T04:17:05.312Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:17:49.755Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 17 (3552) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 17 (3552) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 17 (3552) Creating VNC remote connection.
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 9
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:17:49.756Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:17:49.758Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:17:49.775Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:17:51.501Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 17 (3552) recv detected remote shutdown
+2026-11-11T04:17:51.501Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 17 (3552) VNC Remote Disconnect: socket closed.
+2026-11-11T04:17:51.501Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 9
+2026-11-11T04:17:51.501Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 18 (2064) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 18 (2064) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 18 (2064) Creating VNC remote connection.
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 10
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:18:27.959Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:18:27.980Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:18:27.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:18:29.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 18 (2064) recv detected remote shutdown
+2026-11-11T04:18:29.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 18 (2064) VNC Remote Disconnect: socket closed.
+2026-11-11T04:18:29.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 10
+2026-11-11T04:18:29.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 19 (2068) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 19 (2068) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 19 (2068) Creating VNC remote connection.
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 11
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:18:32.029Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:18:32.047Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:18:32.066Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:18:36.737Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 19 (2068) recv detected remote shutdown
+2026-11-11T04:18:36.737Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 19 (2068) VNC Remote Disconnect: socket closed.
+2026-11-11T04:18:36.737Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 11
+2026-11-11T04:18:36.738Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 20 (3964) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 20 (3964) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 20 (3964) Creating VNC remote connection.
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 12
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:20.733Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:20.753Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:20.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:21.597Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 20 (3964) recv detected remote shutdown
+2026-11-11T04:19:21.597Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 20 (3964) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:21.597Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 12
+2026-11-11T04:19:21.597Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 21 (3612) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 21 (3612) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 21 (3612) Creating VNC remote connection.
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 13
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:21.766Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:21.785Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:21.805Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:22.609Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 21 (3612) recv detected remote shutdown
+2026-11-11T04:19:22.609Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 21 (3612) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:22.609Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 13
+2026-11-11T04:19:22.609Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 22 (4092) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 22 (4092) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 22 (4092) Creating VNC remote connection.
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 14
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:22.774Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:22.793Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:22.813Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:23.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 22 (4092) recv detected remote shutdown
+2026-11-11T04:19:23.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 22 (4092) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:23.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 14
+2026-11-11T04:19:23.604Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 23 (3956) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 23 (3956) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 23 (3956) Creating VNC remote connection.
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 15
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:23.770Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:23.790Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:23.810Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:24.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 23 (3956) recv detected remote shutdown
+2026-11-11T04:19:24.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 23 (3956) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:24.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 15
+2026-11-11T04:19:24.629Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 24 (3932) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 24 (3932) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 24 (3932) Creating VNC remote connection.
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 16
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:24.795Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:24.815Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:24.834Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:25.640Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 24 (3932) recv detected remote shutdown
+2026-11-11T04:19:25.640Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 24 (3932) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:25.640Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 16
+2026-11-11T04:19:26.312Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:26.312Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 25 (3464) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:26.312Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 25 (3464) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 25 (3464) Creating VNC remote connection.
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 17
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:26.314Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:26.333Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:26.352Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:27.152Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 25 (3464) recv detected remote shutdown
+2026-11-11T04:19:27.152Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 25 (3464) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:27.152Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 17
+2026-11-11T04:19:27.162Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 26 (3484) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 26 (3484) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 26 (3484) Creating VNC remote connection.
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 18
+2026-11-11T04:19:27.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:27.319Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:27.319Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:27.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:27.355Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:28.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 26 (3484) recv detected remote shutdown
+2026-11-11T04:19:28.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 26 (3484) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:28.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 18
+2026-11-11T04:19:28.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 27 (3720) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 27 (3720) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 27 (3720) Creating VNC remote connection.
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 19
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:19:56.408Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:19:56.428Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:56.447Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:19:58.520Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 27 (3720) recv detected remote shutdown
+2026-11-11T04:19:58.521Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 27 (3720) VNC Remote Disconnect: socket closed.
+2026-11-11T04:19:58.521Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 19
+2026-11-11T04:19:58.521Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 28 (2108) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 28 (2108) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 28 (2108) Creating VNC remote connection.
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 20
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:20:32.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:20:32.202Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:20:32.221Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:20:36.073Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 28 (2108) recv detected remote shutdown
+2026-11-11T04:20:36.073Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 28 (2108) VNC Remote Disconnect: socket closed.
+2026-11-11T04:20:36.073Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 20
+2026-11-11T04:20:36.073Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:21:03.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 29 (3424) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:21:03.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 29 (3424) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 29 (3424) Creating VNC remote connection.
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 21
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:21:03.269Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:21:03.286Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:21:03.302Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:21:07.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 29 (3424) recv detected remote shutdown
+2026-11-11T04:21:07.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 29 (3424) VNC Remote Disconnect: socket closed.
+2026-11-11T04:21:07.150Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 21
+2026-11-11T04:21:07.151Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 30 (3968) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 30 (3968) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 30 (3968) Creating VNC remote connection.
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 22
+2026-11-11T04:21:35.924Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:21:35.925Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:21:35.925Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:21:35.944Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:21:35.963Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:21:39.794Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 30 (3968) recv detected remote shutdown
+2026-11-11T04:21:39.794Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 30 (3968) VNC Remote Disconnect: socket closed.
+2026-11-11T04:21:39.794Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 22
+2026-11-11T04:21:39.794Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 31 (3828) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 31 (3828) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 31 (3828) Creating VNC remote connection.
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 23
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:22:13.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:22:13.524Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:22:13.526Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:22:15.230Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 31 (3828) recv detected remote shutdown
+2026-11-11T04:22:15.230Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 31 (3828) VNC Remote Disconnect: socket closed.
+2026-11-11T04:22:15.230Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 23
+2026-11-11T04:22:15.231Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 32 (1148) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 32 (1148) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 32 (1148) Creating VNC remote connection.
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 24
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:22:15.451Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:22:15.468Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:22:15.484Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:22:19.188Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 32 (1148) recv detected remote shutdown
+2026-11-11T04:22:19.188Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 32 (1148) VNC Remote Disconnect: socket closed.
+2026-11-11T04:22:19.188Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 24
+2026-11-11T04:22:19.188Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:22:57.349Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 33 (3428) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:22:57.349Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:22:57.349Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 33 (3428) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:22:57.349Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 33 (3428) Creating VNC remote connection.
+2026-11-11T04:22:57.349Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 25
+2026-11-11T04:22:57.350Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:22:57.350Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:22:57.350Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:22:57.367Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:22:57.387Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:23:01.064Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 33 (3428) recv detected remote shutdown
+2026-11-11T04:23:01.064Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 33 (3428) VNC Remote Disconnect: socket closed.
+2026-11-11T04:23:01.064Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 25
+2026-11-11T04:23:01.065Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 34 (3564) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 34 (3564) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 34 (3564) Creating VNC remote connection.
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 26
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:23:27.791Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:23:27.811Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:23:27.830Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:23:30.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 34 (3564) recv detected remote shutdown
+2026-11-11T04:23:30.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 34 (3564) VNC Remote Disconnect: socket closed.
+2026-11-11T04:23:30.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 26
+2026-11-11T04:23:30.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:23:30.178Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 35 (3756) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:23:30.178Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:23:30.178Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 35 (3756) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:23:30.178Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 35 (3756) Creating VNC remote connection.
+2026-11-11T04:23:30.178Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 27
+2026-11-11T04:23:30.179Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:23:30.179Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:23:30.179Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:23:30.198Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:23:30.211Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:23:34.889Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 35 (3756) recv detected remote shutdown
+2026-11-11T04:23:34.889Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 35 (3756) VNC Remote Disconnect: socket closed.
+2026-11-11T04:23:34.889Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 27
+2026-11-11T04:23:34.890Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:24:06.343Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 36 (3428) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:24:06.343Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 36 (3428) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 36 (3428) Creating VNC remote connection.
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 28
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:24:06.344Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:24:06.363Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:24:06.383Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:24:10.069Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 36 (3428) recv detected remote shutdown
+2026-11-11T04:24:10.069Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 36 (3428) VNC Remote Disconnect: socket closed.
+2026-11-11T04:24:10.069Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 28
+2026-11-11T04:24:10.069Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 37 (3844) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 37 (3844) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 37 (3844) Creating VNC remote connection.
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 29
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:24:46.105Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:24:46.125Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:24:46.127Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:24:49.632Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 37 (3844) recv detected remote shutdown
+2026-11-11T04:24:49.632Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 37 (3844) VNC Remote Disconnect: socket closed.
+2026-11-11T04:24:49.632Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 29
+2026-11-11T04:24:49.632Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 38 (3660) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 38 (3660) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 38 (3660) Creating VNC remote connection.
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 30
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:25:14.772Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:25:14.792Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:25:14.812Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:25:17.395Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 38 (3660) recv detected remote shutdown
+2026-11-11T04:25:17.395Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 38 (3660) VNC Remote Disconnect: socket closed.
+2026-11-11T04:25:17.395Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 30
+2026-11-11T04:25:17.395Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:25:58.069Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 39 (3712) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 39 (3712) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 39 (3712) Creating VNC remote connection.
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 31
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:25:58.070Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:25:58.089Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:25:58.108Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:26:00.181Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 39 (3712) recv detected remote shutdown
+2026-11-11T04:26:00.181Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 39 (3712) VNC Remote Disconnect: socket closed.
+2026-11-11T04:26:00.181Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 31
+2026-11-11T04:26:00.182Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 40 (3592) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 40 (3592) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 40 (3592) Creating VNC remote connection.
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 32
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:26:12.965Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:26:12.983Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:26:12.998Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:26:16.675Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 40 (3592) recv detected remote shutdown
+2026-11-11T04:26:16.675Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 40 (3592) VNC Remote Disconnect: socket closed.
+2026-11-11T04:26:16.675Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 32
+2026-11-11T04:26:16.675Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 41 (3928) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 41 (3928) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 41 (3928) Creating VNC remote connection.
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 33
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:26:38.660Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:26:38.679Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:26:38.698Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:26:42.381Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 41 (3928) recv detected remote shutdown
+2026-11-11T04:26:42.381Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 41 (3928) VNC Remote Disconnect: socket closed.
+2026-11-11T04:26:42.381Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 33
+2026-11-11T04:26:42.382Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 42 (1124) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 42 (1124) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 42 (1124) Creating VNC remote connection.
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 34
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:27:35.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:27:35.028Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:27:35.047Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:27:35.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 42 (1124) recv detected remote shutdown
+2026-11-11T04:27:35.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 42 (1124) VNC Remote Disconnect: socket closed.
+2026-11-11T04:27:35.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 34
+2026-11-11T04:27:35.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:27:49.476Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 43 (3948) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:27:49.476Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:27:49.476Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 43 (3948) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:27:49.476Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 43 (3948) Creating VNC remote connection.
+2026-11-11T04:27:49.477Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 35
+2026-11-11T04:27:49.477Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:27:49.477Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:27:49.477Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:27:49.496Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:27:49.497Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:27:53.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 43 (3948) recv detected remote shutdown
+2026-11-11T04:27:53.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 43 (3948) VNC Remote Disconnect: socket closed.
+2026-11-11T04:27:53.006Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 35
+2026-11-11T04:27:53.007Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:28:06.877Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 44 (3760) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:28:06.877Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 44 (3760) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 44 (3760) Creating VNC remote connection.
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 36
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:28:06.878Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:28:06.897Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:06.917Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:09.545Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 44 (3760) recv detected remote shutdown
+2026-11-11T04:28:09.546Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 44 (3760) VNC Remote Disconnect: socket closed.
+2026-11-11T04:28:09.546Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 36
+2026-11-11T04:28:09.546Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 45 (3272) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 45 (3272) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 45 (3272) Creating VNC remote connection.
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 37
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:28:21.592Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:28:21.612Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:21.631Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:24.250Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 45 (3272) recv detected remote shutdown
+2026-11-11T04:28:24.250Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 45 (3272) VNC Remote Disconnect: socket closed.
+2026-11-11T04:28:24.250Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 37
+2026-11-11T04:28:24.250Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:28:38.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 46 (3592) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:28:38.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:28:38.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 46 (3592) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:28:38.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 46 (3592) Creating VNC remote connection.
+2026-11-11T04:28:38.991Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 38
+2026-11-11T04:28:38.992Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:28:38.992Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:28:38.992Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:28:39.011Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:39.030Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:28:41.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 46 (3592) recv detected remote shutdown
+2026-11-11T04:28:41.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 46 (3592) VNC Remote Disconnect: socket closed.
+2026-11-11T04:28:41.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 38
+2026-11-11T04:28:41.657Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:29:01.129Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 47 (3372) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:29:01.129Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 47 (3372) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 47 (3372) Creating VNC remote connection.
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 39
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:29:01.130Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:29:01.147Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:01.166Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:02.778Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 47 (3372) recv detected remote shutdown
+2026-11-11T04:29:02.778Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 47 (3372) VNC Remote Disconnect: socket closed.
+2026-11-11T04:29:02.778Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 39
+2026-11-11T04:29:02.779Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:29:02.943Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 48 (1124) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:29:02.943Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:29:02.943Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 48 (1124) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:29:02.943Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 48 (1124) Creating VNC remote connection.
+2026-11-11T04:29:02.943Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 40
+2026-11-11T04:29:02.944Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:29:02.944Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:29:02.944Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:29:02.963Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:02.982Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:05.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 48 (1124) recv detected remote shutdown
+2026-11-11T04:29:05.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 48 (1124) VNC Remote Disconnect: socket closed.
+2026-11-11T04:29:05.656Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 40
+2026-11-11T04:29:05.657Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 49 (3152) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 49 (3152) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 49 (3152) Creating VNC remote connection.
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 41
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:29:25.481Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:29:25.501Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:25.520Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:27.535Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 49 (3152) recv detected remote shutdown
+2026-11-11T04:29:27.535Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 49 (3152) VNC Remote Disconnect: socket closed.
+2026-11-11T04:29:27.535Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 41
+2026-11-11T04:29:27.535Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 50 (2056) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 50 (2056) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 50 (2056) Creating VNC remote connection.
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 42
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:29:48.608Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:29:48.628Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:48.630Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:29:51.254Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 50 (2056) recv detected remote shutdown
+2026-11-11T04:29:51.254Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 50 (2056) VNC Remote Disconnect: socket closed.
+2026-11-11T04:29:51.254Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 42
+2026-11-11T04:29:51.255Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 51 (3276) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 51 (3276) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 51 (3276) Creating VNC remote connection.
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 43
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:30:10.258Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:30:10.277Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:30:10.296Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:30:13.002Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 51 (3276) recv detected remote shutdown
+2026-11-11T04:30:13.002Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 51 (3276) VNC Remote Disconnect: socket closed.
+2026-11-11T04:30:13.002Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 43
+2026-11-11T04:30:13.003Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:30:35.079Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 52 (3208) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:30:35.079Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 52 (3208) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 52 (3208) Creating VNC remote connection.
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 44
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:30:35.080Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:30:35.097Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:30:35.112Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:30:37.168Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 52 (3208) recv detected remote shutdown
+2026-11-11T04:30:37.168Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 52 (3208) VNC Remote Disconnect: socket closed.
+2026-11-11T04:30:37.168Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 44
+2026-11-11T04:30:37.169Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 53 (4036) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 53 (4036) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 53 (4036) Creating VNC remote connection.
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 45
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:30:58.071Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:30:58.090Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:30:58.092Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:31:00.712Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 53 (4036) recv detected remote shutdown
+2026-11-11T04:31:00.712Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 53 (4036) VNC Remote Disconnect: socket closed.
+2026-11-11T04:31:00.712Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 45
+2026-11-11T04:31:00.713Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 54 (3412) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 54 (3412) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 54 (3412) Creating VNC remote connection.
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 46
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:31:18.023Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:31:18.043Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:31:18.062Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:31:20.650Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 54 (3412) recv detected remote shutdown
+2026-11-11T04:31:20.650Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 54 (3412) VNC Remote Disconnect: socket closed.
+2026-11-11T04:31:20.650Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 46
+2026-11-11T04:31:20.651Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 55 (3576) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 55 (3576) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 55 (3576) Creating VNC remote connection.
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 47
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:31:33.702Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:31:33.722Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:31:33.723Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:31:36.400Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 55 (3576) recv detected remote shutdown
+2026-11-11T04:31:36.400Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 55 (3576) VNC Remote Disconnect: socket closed.
+2026-11-11T04:31:36.400Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 47
+2026-11-11T04:31:36.401Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 56 (3792) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 56 (3792) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 56 (3792) Creating VNC remote connection.
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 48
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:32:06.436Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:32:06.456Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:32:06.475Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:32:09.255Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 56 (3792) recv detected remote shutdown
+2026-11-11T04:32:09.255Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 56 (3792) VNC Remote Disconnect: socket closed.
+2026-11-11T04:32:09.255Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 48
+2026-11-11T04:32:09.255Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:32:39.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 57 (4080) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:32:39.683Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 57 (4080) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 57 (4080) Creating VNC remote connection.
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 49
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:32:39.684Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:32:39.703Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:32:39.723Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:32:41.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 57 (4080) recv detected remote shutdown
+2026-11-11T04:32:41.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 57 (4080) VNC Remote Disconnect: socket closed.
+2026-11-11T04:32:41.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 49
+2026-11-11T04:32:41.607Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 58 (3704) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 58 (3704) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 58 (3704) Creating VNC remote connection.
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 50
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:33:11.448Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:33:11.468Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:33:11.469Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:33:14.121Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 58 (3704) recv detected remote shutdown
+2026-11-11T04:33:14.121Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 58 (3704) VNC Remote Disconnect: socket closed.
+2026-11-11T04:33:14.121Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 50
+2026-11-11T04:33:14.122Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 59 (3156) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 59 (3156) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 59 (3156) Creating VNC remote connection.
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 51
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:33:42.568Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:33:42.587Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:33:42.607Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:33:45.265Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 59 (3156) recv detected remote shutdown
+2026-11-11T04:33:45.265Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 59 (3156) VNC Remote Disconnect: socket closed.
+2026-11-11T04:33:45.265Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 51
+2026-11-11T04:33:45.265Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 60 (3892) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 60 (3892) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 60 (3892) Creating VNC remote connection.
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 52
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:34:26.026Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:34:26.045Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:34:26.046Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:34:28.661Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 60 (3892) recv detected remote shutdown
+2026-11-11T04:34:28.661Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 60 (3892) VNC Remote Disconnect: socket closed.
+2026-11-11T04:34:28.661Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 52
+2026-11-11T04:34:28.661Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:35:09.865Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 61 (3344) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 61 (3344) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 61 (3344) Creating VNC remote connection.
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 53
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:35:09.866Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:35:09.886Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:35:09.905Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:35:12.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 61 (3344) recv detected remote shutdown
+2026-11-11T04:35:12.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 61 (3344) VNC Remote Disconnect: socket closed.
+2026-11-11T04:35:12.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 53
+2026-11-11T04:35:12.522Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 62 (3636) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 62 (3636) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 62 (3636) Creating VNC remote connection.
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 54
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:36:38.318Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:36:38.338Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:36:38.350Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:36:41.160Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 62 (3636) recv detected remote shutdown
+2026-11-11T04:36:41.160Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 62 (3636) VNC Remote Disconnect: socket closed.
+2026-11-11T04:36:41.160Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 54
+2026-11-11T04:36:41.160Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 63 (4036) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 63 (4036) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 63 (4036) Creating VNC remote connection.
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 55
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:36:41.336Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:36:41.356Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:36:41.375Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:36:46.020Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 63 (4036) recv detected remote shutdown
+2026-11-11T04:36:46.020Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 63 (4036) VNC Remote Disconnect: socket closed.
+2026-11-11T04:36:46.020Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 55
+2026-11-11T04:36:46.021Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 64 (3304) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 64 (3304) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 64 (3304) Creating VNC remote connection.
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 56
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:37:36.955Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:37:36.975Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:37:36.994Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:37:39.306Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 64 (3304) recv detected remote shutdown
+2026-11-11T04:37:39.306Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 64 (3304) VNC Remote Disconnect: socket closed.
+2026-11-11T04:37:39.306Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 56
+2026-11-11T04:37:39.307Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 65 (3952) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 65 (3952) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 65 (3952) Creating VNC remote connection.
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 57
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:37:39.478Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:37:39.498Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:37:39.511Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:37:44.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 65 (3952) recv detected remote shutdown
+2026-11-11T04:37:44.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 65 (3952) VNC Remote Disconnect: socket closed.
+2026-11-11T04:37:44.185Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 57
+2026-11-11T04:37:44.187Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 66 (3416) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 66 (3416) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 66 (3416) Creating VNC remote connection.
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 58
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:38:38.763Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:38:38.782Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:38:38.784Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:38:41.414Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 66 (3416) recv detected remote shutdown
+2026-11-11T04:38:41.414Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 66 (3416) VNC Remote Disconnect: socket closed.
+2026-11-11T04:38:41.414Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 58
+2026-11-11T04:38:41.415Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 67 (2108) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 67 (2108) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 67 (2108) Creating VNC remote connection.
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 59
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:38:41.591Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:38:41.611Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:38:41.630Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:38:44.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 67 (2108) recv detected remote shutdown
+2026-11-11T04:38:44.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 67 (2108) VNC Remote Disconnect: socket closed.
+2026-11-11T04:38:44.241Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 59
+2026-11-11T04:38:44.242Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 68 (3892) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 68 (3892) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 68 (3892) Creating VNC remote connection.
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 60
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:40:14.119Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:40:14.138Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:14.152Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:16.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 68 (3892) recv detected remote shutdown
+2026-11-11T04:40:16.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 68 (3892) VNC Remote Disconnect: socket closed.
+2026-11-11T04:40:16.008Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 60
+2026-11-11T04:40:16.009Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 69 (3468) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 69 (3468) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 69 (3468) Creating VNC remote connection.
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 61
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:40:16.175Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:40:16.195Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:16.214Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:19.908Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 69 (3468) recv detected remote shutdown
+2026-11-11T04:40:19.908Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 69 (3468) VNC Remote Disconnect: socket closed.
+2026-11-11T04:40:19.908Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 61
+2026-11-11T04:40:19.908Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 70 (4072) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 70 (4072) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 70 (4072) Creating VNC remote connection.
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 62
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:40:49.646Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:40:49.665Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:49.677Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:40:56.635Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 70 (4072) recv detected remote shutdown
+2026-11-11T04:40:56.635Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 70 (4072) VNC Remote Disconnect: socket closed.
+2026-11-11T04:40:56.635Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 62
+2026-11-11T04:40:56.635Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 71 (3980) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 71 (3980) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 71 (3980) Creating VNC remote connection.
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 63
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:42:12.268Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:42:12.288Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:42:12.307Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:42:13.902Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 71 (3980) recv detected remote shutdown
+2026-11-11T04:42:13.902Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 71 (3980) VNC Remote Disconnect: socket closed.
+2026-11-11T04:42:13.902Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 63
+2026-11-11T04:42:13.902Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 72 (3228) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 72 (3228) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 72 (3228) Creating VNC remote connection.
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 64
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:42:14.075Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:42:14.095Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:42:14.115Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:42:20.587Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 72 (3228) recv detected remote shutdown
+2026-11-11T04:42:20.587Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 72 (3228) VNC Remote Disconnect: socket closed.
+2026-11-11T04:42:20.587Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 64
+2026-11-11T04:42:20.588Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 73 (3692) AsyncTCPSocketSetOption: Option layer/level [6], option/name [1]: successfully set OS option for TCP socket.
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: AddRemoteConsole (numConsoles=0)
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 73 (3692) AsyncTCPSocketSetOption: sendLowLatencyMode set to [1].
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 73 (3692) Creating VNC remote connection.
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: New VNC connection 65
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: MVNCEncode_ServerSetTopology - original root: (0, 0) size: (1280, 800)
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: Number of screens changed from 0 to 1
+2026-11-11T04:43:17.606Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="svga"] MVNCEncode: screen: 0 BoundingBox: (1280x800) Screen (1280x800) @ (0,0) bytesPerLine: 5120
+2026-11-11T04:43:17.625Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:43:17.639Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MVNCRegionEncoder_Create: region encoder static. Screen 0/1 @ Resolution: 1280 x 800
+2026-11-11T04:43:23.493Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 73 (3692) recv detected remote shutdown
+2026-11-11T04:43:23.493Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] SOCKET 73 (3692) VNC Remote Disconnect: socket closed.
+2026-11-11T04:43:23.493Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSControlMgr: Remove VNC connection 65
+2026-11-11T04:43:23.493Z -INFO vmware-vmx.exe 20304 [ws@4413 threadName="mks"] MKSRemoteMgr: CleanupConnection (numConsoles=0)

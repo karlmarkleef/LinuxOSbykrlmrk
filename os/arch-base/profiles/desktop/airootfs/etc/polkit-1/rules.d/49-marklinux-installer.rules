@@ -1,6 +1,6 @@
 polkit.addRule(function (action, subject) {
     if (action.id === "org.freedesktop.policykit.exec" &&
-        action.lookup("program") === "/usr/bin/mark-install" &&
+        action.lookup("program") === "/usr/local/bin/mark-install" &&
         subject.user === "mark" && subject.active && subject.local) {
         return polkit.Result.YES;
     }
