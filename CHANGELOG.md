@@ -94,3 +94,14 @@
 
 - Recorded Windows hardware/toolchain and initialized Git.
 - Added architecture, security, branding, installation and development documentation.
+
+## Mark Linux installer - real installation reliability
+
+- Fixed `Installer.chroot_run()` to accept and forward the `check` keyword argument used by `_configure_installed_system` and `_verify`.
+- Reordered `_install_bootloader()` so EFI and BIOS GRUB are installed before `grub-mkconfig`, and create `/boot/grub` first.
+- Recreate `/tmp` and `/var/tmp` with mode `1777` after the rootfs copy; the copy excludes them, and their absence made `mkinitcpio -P` fail.
+- Use the available `lat9w-16` console font instead of the missing `eVGA8x16`.
+- Force target `userdel`/`groupdel` removal of the live `mark` account with `--force` so a busy UID cannot block account recreation.
+- Default the installer full-name prompt to `Mark` instead of the performance profile name.
+- Verified the backend now reaches `Installation finished` logic and packaged the fixes in the rebuilt desktop ISO (`marklinux-0.0.1_dev_1101126_1-x86_64.iso`, SHA-256 `05c60d54e4726d84edc65b9e132982f1e554d82a91b414d45ed3ee6c4ed71eba`).
+- Source validation and all 22 installer unit tests pass.

@@ -93,8 +93,14 @@ The Mark Compatibility Platform (MCP) reuses upstream Wine, Proton, Waydroid and
 - Added comprehensive unit tests in `installer/tests/test_partition.py` (8 tests) and updated `installer/tests/test_plan.py` (8 tests). All 16 installer tests pass under Windows Python 3.11 (`py -3.11 -B -m unittest discover -s installer/tests -v`).
 - All 40 source integrity and shell syntax checks pass in `tests/validate_source.py`.
 
+### Installer status update (2026-11-11)
+
+- The privileged backend now creates GPT/ESP/swap/root partitions, copies the live rootfs and boot artifacts, configures the installed system, installs GRUB for UEFI and BIOS, and verifies kernel/initramfs/account.
+- Fixed real backend issues found during disposable VMware installs: `chroot_run(check=...)`, GRUB install before `grub-mkconfig`, `/tmp`/`/var/tmp` recreation, and forced removal of the live `mark` account.
+- Fixed the GUI full-name default to `Mark`.
+- Source validation and all 22 installer unit tests pass; the desktop ISO was rebuilt as `marklinux-0.0.1_dev_1101126_1-x86_64.iso` (SHA-256 `05c60d54e4726d84edc65b9e132982f1e554d82a91b414d45ed3ee6c4ed71eba`).
+- Destructive testing runs only against the disposable VMware VMDK (`tools/marklinux-install-test.vmdk`).
+
 ### Limitations and next steps
 
-- A privileged backend that executes the partition layout and installs packages remains to be connected behind multi-step confirmation barriers.
-- All destructive disk testing must run strictly against disposable virtual disks in QEMU, never against host physical disks.
-- Proceed with Phase 4 (Performance Manager & Visual Effects toggle synchronization) and Phase 5 (Windows Virtual Experience launcher architecture).
+- Continue Phase 4 (Performance Manager & Visual Effects toggle synchronization) and Phase 5 (Windows Virtual Experience launcher architecture).
