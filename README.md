@@ -1,21 +1,29 @@
-# Mark Linux
+# Karl Mark Linux — GitHub Pages Experience
 
-Mark Linux is an early-stage Arch-based Linux distribution project.
+A responsive, interactive desktop-inspired project landing page.
 
-- Version: 0.0.1_dev
-- Build ID: 1101126_1
-- Current milestone: hardware inventory and installation planner integration
-- Planned desktop: Wayland with Hyprland
-- Planned platform tools: Rust
+## Run locally
+Open `index.html` in a browser, or use a local static server:
 
-The project contains a verified Arch bootstrap input, a BIOS-boot-tested minimal live image archived under `builds/archive/phase1-complete/`, and a Hyprland desktop ISO whose live session has been visually verified through direct-kernel and BIOS-menu QEMU boot. The read-only Rust hardware inventory passes Linux fixture tests and is packaged in the desktop image with a Hardware Summary menu action. A no-write GUI installation planner is included in the latest ISO and has seven passing source tests. It is not yet an OS installer. See `docs/DEVELOPMENT_STATUS.md` for verified progress and current limits.
+```bash
+python -m http.server 8000
+```
 
-Desktop controls and current limitations are documented in [`desktop/README.md`](desktop/README.md).
+Then visit `http://localhost:8000`.
 
-## Project principles
+## Deploy to GitHub Pages
+1. Copy `index.html`, `styles.css`, `script.js` and this README into the repository root (or a dedicated website folder).
+2. In GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select `main` and `/ (root)`, then Save.
 
-- Build a real Arch-based system using upstream components rather than a simulated Linux interface.
-- Keep project source, inputs, logs and release artifacts under H:. Build-tool scratch files use a disposable WSL ext4 workspace.
-- Preserve source assets and user data. Never format or modify host disks as part of an ordinary build.
-- Do not claim a feature or artifact is complete until it has been built and tested.
-- Prefer small, reviewable phases with reproducible commands and recorded results.
+Alternatively, use the included GitHub Actions workflow.
+
+## Important
+- This is a front-end concept/demo, not a real operating system running in the browser.
+- Download Center links to GitHub Releases; it does not fabricate an ISO download.
+- Version/build labels are demo metadata and should be kept in sync with the repository.
+- Update project status and feature claims as implementation changes.
+
+## Cursor swarm intro
+The page includes an original canvas-based cursor swarm reveal. It is implemented locally in `script.js`, requires no browser extension, and does not copy/import the Swarm Rebuild repository source. Users can skip the intro; reduced-motion preferences bypass it.
