@@ -1,0 +1,18 @@
+[package]
+name = "mark-store"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Graphical package manager frontend for Mark Linux using Pacman"
+
+[lib]
+name = "mark_store"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mark-store"
+path = "src/main.rs"
+
+[dependencies]
+gtk4 = "0.9"
+glib = "0.20"

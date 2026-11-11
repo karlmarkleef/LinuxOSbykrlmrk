@@ -1,5 +1,13 @@
 # Changelog
 
+## Mark Linux desktop experience - power management backend and settings integration
+
+- Completed the Mark Linux power manager Rust crate (`core/power-manager`): capability detection for suspend/hibernate from `/sys/power/state` plus swap availability, systemd-logind D-Bus availability detection, Hyprland IPC command execution, persisted Mark Linux power settings (`key=value` store with defaults), action name parsing, and real backend actions (systemd-logind `PowerOff`/`Reboot`/`Suspend`/`Hibernate` D-Bus calls, Hyprland IPC `lock`/`unlock`/`exit` commands).
+- Added the `mark-power` CLI with `--capabilities`, `--settings` and action subcommands (`shutdown`, `restart`, `suspend`, `hibernate`, `lock`, `logout`); shutdown and restart require explicit `--yes`/`--confirm`.
+- Mark Settings (GTK4) now renders the System category from the real shared hardware inventory (`mark-hardware-detect`) and live power capabilities (`mark-power-manager`).
+- Added the Mark Store Pacman backend Rust crate (`desktop/mark-store/src/lib.rs`): real pacman command execution (`-Ss`, `-Qe`, `-Qi`, `-S`, `-R`) behind a `PacmanRunner` trait, package metadata parsing, and unit tests over fake runner outputs.
+- Added the Mark Control Center crate (`desktop/mark-control-center/`): real quick settings backend (`ControlBackend`, `ControlRunner`, real `nmcli`/`bluetoothctl`/`pactl`/`brightnessctl` command execution, kernel battery status) with unit tests over fake runner outputs, plus a GTK4 quick panel frontend with Wi-Fi, Bluetooth, volume, brightness and hibernate/lock actions.
+
 ## Mark Compatibility Platform - gaming benchmark frame statistics
 
 - Added `tools/benchmark/frame_stats.py` with FPS, frame-time, stutter-ratio and percentile statistics for the Mark Linux gaming benchmark suite.

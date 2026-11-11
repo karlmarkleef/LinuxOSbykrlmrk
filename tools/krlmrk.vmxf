@@ -5,4 +5,4 @@
 <ClientMetaData>
 <clientMetaDataAttributes/>
 <HistoryEventList/></ClientMetaData>
-<vmxPathName type="string">krlmrk.vmx</vmxPathName></VM></Foundry>
+<vmxPathName type="string">krlmrk.vmx</vmxPathName></VM><tools-install-info><installError>21000</installError><updateCounter>1</updateCounter></tools-install-info></Foundry>

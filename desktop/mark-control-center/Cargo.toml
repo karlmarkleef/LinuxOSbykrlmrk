@@ -1,0 +1,19 @@
+[package]
+name = "mark-control-center"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Mark Control Center quick settings backend and panel for Mark Linux"
+
+[lib]
+name = "mark_control_center"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mark-control-center"
+path = "src/main.rs"
+
+[dependencies]
+mark-power-manager = { path = "../../core/power-manager" }
+gtk4 = "0.9"
+glib = "0.20"

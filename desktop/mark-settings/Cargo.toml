@@ -1,0 +1,12 @@
+[package]
+name = "mark-settings"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Mark Settings - full desktop settings application for Mark Linux"
+
+[dependencies]
+gtk4 = "0.9"
+glib = "0.20"
+mark-hardware-detect = { path = "../../core/hardware-detect" }
+mark-power-manager = { path = "../../core/power-manager" }

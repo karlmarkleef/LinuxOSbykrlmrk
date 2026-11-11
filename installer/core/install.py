@@ -539,6 +539,11 @@ class Installer:
         self.write_text("etc/locale.conf", "LANG=en_US.UTF-8\n")
         self.write_text("etc/locale.gen", "en_US.UTF-8 UTF-8\n", 0o644)
         self.write_text("etc/vconsole.conf", f"KEYMAP={self.config.keyboard_layout}\nFONT=lat9w-16\n")
+        # Ensure Pacman can reach a working Arch mirror in the installed system.
+        self.write_text(
+            "etc/pacman.d/mirrorlist",
+            "Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch\n",
+        )
         # The rootfs copy deliberately excludes volatile directories, so recreate
         # them with the permissions expected by the installed system.
         for relative_path in ("tmp", "var/tmp"):

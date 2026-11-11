@@ -27,6 +27,23 @@ The Mark Compatibility Platform (MCP) reuses upstream Wine, Proton, Waydroid and
 - Gaming graphics layers (DXVK, VKD3D-Proton, Vulkan) configuration, game-specific compatibility database and benchmark suite remain in later phases.
 - Creative (Adobe) profiles and Android window/GPU/audio bridges remain in later phases.
 
+## Mark Settings, power management and desktop experience tooling (current)
+
+**Status: source implemented; Rust/GTK4 toolchain build verification pending.**
+
+### Implemented
+
+- Completed the Mark Linux power manager Rust crate (`core/power-manager`): suspend/hibernate capability detection from `/sys/power/state` plus swap availability, systemd-logind D-Bus availability detection, Hyprland IPC command execution for lock/unlock/logout, persisted Mark Linux power settings with defaults, action parsing, and real backend actions through systemd-logind D-Bus and Hyprland IPC.
+- Added the `mark-power` CLI (`--capabilities`, `--settings`, action subcommands) with confirmation-gated shutdown/restart.
+- Mark Settings (GTK4) now renders its System category from the shared hardware inventory and live power capabilities instead of static placeholder text.
+- Added the Mark Store Pacman backend crate (`desktop/mark-store/src/lib.rs`): real pacman command execution behind a `PacmanRunner` trait with unit tests over fake runner outputs.
+- Added the Mark Control Center crate (`desktop/mark-control-center/`): real quick settings backend (`ControlBackend`, `ControlRunner`, real `nmcli`/`bluetoothctl`/`pactl`/`brightnessctl` command execution, kernel battery status) with unit tests over fake runner outputs, plus a GTK4 quick panel frontend with Wi-Fi, Bluetooth, volume, brightness and hibernate/lock actions.
+
+### Limitations and next steps
+
+- No Rust toolchain or GTK4 development libraries are available in the current development host; source changes are complete but `cargo check`/`cargo test`/`cargo fmt` and GTK4 linking could not be run here. The isolated Arch build root (`MarkLinuxBuildTools`) contains a Rust toolchain used for the hardware scanner builds.
+- Mark Settings remaining categories (Personalization through Accessibility) still use placeholder pages and are scheduled for real backend wiring in later phases.
+
 ## Phase 0 - Environment and project foundation
 
 **Status: complete.** Project root is `H:\LinuxOSbykrlmrk`. It existed before this work and contained one JPEG asset; it was inspected and preserved unchanged.

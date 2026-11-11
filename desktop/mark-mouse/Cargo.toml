@@ -1,0 +1,10 @@
+[package]
+name = "mark-mouse"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Windows-like mouse interaction and context menus for Mark Linux"
+
+[dependencies]
+gtk4 = "0.9"
+glib = "0.20"
