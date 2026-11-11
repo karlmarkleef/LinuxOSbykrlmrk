@@ -1,7 +1,7 @@
 # Disk DescriptorFile
 version=1
 encoding="windows-1252"
-CID=fffffffe
+CID=7d35d52f
 parentCID=ffffffff
 createType="twoGbMaxExtentSparse"
 
@@ -32,6 +32,6 @@ ddb.deletable = "true"
 ddb.geometry.cylinders = "8354"
 ddb.geometry.heads = "255"
 ddb.geometry.sectors = "63"
-ddb.longContentID = "577b97b7012f7cd852af06e39692cb48"
+ddb.longContentID = "107e50dda8b2bef8defffe847d35d52f"
 ddb.uuid = "60 00 C2 92 1d b2 c3 ed-15 90 aa 29 2e 86 11 10"
 ddb.virtualHWVersion = "4"
