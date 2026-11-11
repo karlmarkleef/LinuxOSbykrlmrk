@@ -107,22 +107,27 @@ def collect_settings(default_profile: str) -> tuple[str, str, str, str, str] | N
     full_name = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Full name (for the account):", "--entry-text", default_profile,
+        capture=True,
     )
     username = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Account name (lowercase):", "--entry-text", "mark",
+        capture=True,
     )
     timezone = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Time zone (example: UTC):", "--entry-text", "UTC",
+        capture=True,
     )
     keyboard = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Keyboard layout (us, gb, de, fr, ...):", "--entry-text", "us",
+        capture=True,
     )
     profile = zenity(
         "--entry", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", f"Performance profile (recommended: {default_profile}):", "--entry-text", default_profile,
+        capture=True,
     )
     if not (full_name and username and timezone and keyboard and profile):
         return None
@@ -151,12 +156,14 @@ def ask_password() -> str | None:
     password = zenity(
         "--password", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Choose the password for the new account. It is never shown or logged.",
+        capture=True,
     )
     if not password:
         return None
     confirmation = zenity(
         "--password", "--title", INSTALLER_TITLE, "--width", "520",
         "--text", "Confirm the password:",
+        capture=True,
     )
     if confirmation is None or confirmation != password:
         return None
@@ -180,6 +187,7 @@ def confirm_erase(disk: dict[str, object], username: str, performance_profile: s
         "--entry", "--title", INSTALLER_TITLE, "--width", "640",
         "--text", f"Type {ERASE_CONFIRMATION} to start the installation:",
         "--entry-text", "",
+        capture=True,
     )
     if answer is None:
         return False

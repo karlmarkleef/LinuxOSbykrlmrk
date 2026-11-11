@@ -93,6 +93,24 @@ def main() -> int:
     check(all(path.is_file() for path in python_files),
           "installer Python sources parse")
 
+    gui_tree = ast.parse((rootfs / "usr/share/marklinux/installer/gui.py").read_text(encoding="utf-8"))
+    prompt_capture_flags = []
+    for node in ast.walk(gui_tree):
+        if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != "zenity":
+            continue
+        if not node.args or not isinstance(node.args[0], ast.Constant):
+            continue
+        if node.args[0].value not in ("--entry", "--password"):
+            continue
+        prompt_capture_flags.append(any(
+            keyword.arg == "capture"
+            and isinstance(keyword.value, ast.Constant)
+            and keyword.value.value is True
+            for keyword in node.keywords
+        ))
+    check(prompt_capture_flags and all(prompt_capture_flags),
+          "installer entry and password prompts capture their values")
+
     json_files = sorted(rootfs.rglob("*.jsonc"))
     for path in json_files:
         json.loads(path.read_text(encoding="utf-8"))

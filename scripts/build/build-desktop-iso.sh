@@ -25,7 +25,13 @@ fi
 staged=1
 install -m 0755 -- "$artifact" "$staged_binary"
 
-if ! diff -u <(cat "$project/os/packages/base.x86_64" "$project/os/packages/desktop.x86_64") "$MARKLINUX_PROFILE/packages.x86_64"; then
+profile_packages() {
+  awk '{ sub(/#.*/, ""); sub(/[[:space:]]+$/, ""); if (length) print }' "$1"
+}
+
+if ! diff -u \
+  <(profile_packages "$project/os/packages/base.x86_64"; profile_packages "$project/os/packages/desktop.x86_64") \
+  <(profile_packages "$MARKLINUX_PROFILE/packages.x86_64"); then
   echo "Desktop profile packages differ from the checked-in package manifests." >&2
   exit 3
 fi
