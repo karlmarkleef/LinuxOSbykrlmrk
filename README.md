@@ -18,3 +18,4 @@ Desktop controls and current limitations are documented in [`desktop/README.md`]
 - Preserve source assets and user data. Never format or modify host disks as part of an ordinary build.
 - Do not claim a feature or artifact is complete until it has been built and tested.
 - Prefer small, reviewable phases with reproducible commands and recorded results.
+Discord : https://discord.gg/wChXyQ3g7Y
