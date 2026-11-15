@@ -2,7 +2,7 @@
 
 Mark Linux is an early-stage Arch-based Linux distribution project.
 
-- Version: 0.0.1_dev
+- Version Lastes: 0.0.2_dev
 - Build ID: 1101126_1
 - Current milestone: hardware inventory and installation planner integration
 - Planned desktop: Wayland with Hyprland
